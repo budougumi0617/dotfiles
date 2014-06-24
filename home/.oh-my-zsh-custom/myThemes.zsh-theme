@@ -14,12 +14,42 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 ### Prompt ###
 # プロンプトに色を付ける
 autoload -U colors; colors
+# VCSの情報を取得するzshの便利関数 vcs_infoを使う
+autoload -Uz vcs_info
+
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' max-exports 6 # formatに入る変数の最大数
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats '%b@%r' '%c' '%u'
+zstyle ':vcs_info:git:*' actionformats '%b@%r|%a' '%c' '%u'
+setopt prompt_subst
+function vcs_echo {
+    local st branch color
+    STY= LANG=en_US.UTF-8 vcs_info
+    st=`git status 2> /dev/null`
+    if [[ -z "$st" ]]; then return; fi
+    branch="$vcs_info_msg_0_"
+    if   [[ -n "$vcs_info_msg_1_" ]]; then color=${fg[green]} #staged
+    elif [[ -n "$vcs_info_msg_2_" ]]; then color=${fg[red]} #unstaged
+    elif [[ -n `echo "$st" | grep "^Untracked"` ]]; then color=${fg[blue]} # untracked
+    else color=${fg[cyan]}
+    fi
+    echo "%{$color%}(%{$branch%})%{$reset_color%}" | sed -e s/@/"%F{yellow}@%f%{$color%}"/
+}
+
+# バージョン管理されているディレクトリにいれば表示，そうでなければ非表示
+#git_prompt='`vcs_echo`%(?.$.%F{red}$%f) '
+git_prompt='%F{yellow}%~%f `vcs_echo`
+%(?.$.%F{red}$%f) '
+
 # # 一般ユーザ時
-tmp_prompt="%F{cyan}[%n@%D{%T}]%f "
+#tmp_prompt="%F{cyan}[%n@%D{%T}]%f "
+tmp_prompt="%F{cyan}%n@${git_prompt}%f "
 #tmp_prompt="%{${fg[cyan]}%}%n%# %{${reset_color}%}"
-tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
+#tmp_prompt2="%{${fg[cyan]}%}%_> %{${reset_color}%}"
 tmp_rprompt="%{${fg[green]}%}[%~]%{${reset_color}%}"
 tmp_sprompt="%{${fg[yellow]}%}%r is correct? [Yes, No, Abort, Edit]:%{${reset_color}%}"
+
 
 # rootユーザ時(太字にし、アンダーバーをつける)
 if [ ${UID} -eq 0 ]; then
@@ -29,9 +59,10 @@ if [ ${UID} -eq 0 ]; then
    tmp_sprompt="%B%U${tmp_sprompt}%u%b"
 fi
 
+
 PROMPT=$tmp_prompt    # 通常のプロンプト
 PROMPT2=$tmp_prompt2  # セカンダリのプロンプト(コマンドが2行以上の時に表示される)
-RPROMPT=$tmp_rprompt  # 右側のプロンプト
+#RPROMPT=$tmp_rprompt  # 右側のプロンプト
 SPROMPT=$tmp_sprompt  # スペル訂正用プロンプト
 # SSHログイン時のプロンプト
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
