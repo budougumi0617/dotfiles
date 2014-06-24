@@ -52,6 +52,7 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(rails git ruby gem heroku rbenv sublime)
 
 source $ZSH/oh-my-zsh.sh
+source $HOME/.zshenv
 
 # User configuration
 
