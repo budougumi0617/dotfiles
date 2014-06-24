@@ -10,6 +10,7 @@ export EDITOR=vim        # エディタをvimに設定
 export LANG=en_US.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
+export ZDOTDIR=$HOME/.zsh
 
 bindkey -d  # いったんキーバインドをリセット
 bindkey -e  # emacsモードで使う
@@ -76,10 +77,16 @@ bindkey "^[[3~" delete-char
 # ------------------------------------------------------------------------
 # zsh-completions
 # ------------------------------------------------------------------------
-if [ -d ${HOME}/.zsh/zsh-completions/src ] ; then
-#    fpath=(${HOME}/.zsh/zsh-completions/src $fpath)
+if [ -d {$ZDOTDIR}/zsh-completions/src ] ; then
+#    fpath=(${ZDOTDIR}/zsh-completions/src $fpath)
 fi
 #autoload -Uz compinit; compinit # 補完機能を有効にする
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+### z.sh setting
+_Z_CMD=j
+_Z_DATA=$ZDOTDIR/.z
+
+source "$ZDOTDIR/z/z.sh"

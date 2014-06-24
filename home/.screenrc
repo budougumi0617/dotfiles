@@ -1,0 +1,39 @@
+# Set escape key to "C-z"
+escape ^zz
+
+# Show information in status bar (one for screen)
+hardstatus alwayslastline '%{= kw}%02c:%s %{= .y}%H %L=%{= .b}%-w%46>%{= .r}%n %t*%{= .b}%+w%-16=%{= .y}[%l]'
+
+# Show information in caption (each window)
+caption always "%{= wb} %-w%{=bu dr}%n %t%{-}%+w %= %{=b wk} [%l] %{=b wb}%y/%m/%d(%D) %{=b wm}%c"
+
+# Set scroll back number
+defscrollback 10000
+
+# 別画面サポート。Vimやless使うときに便利
+altscreen on
+
+# 端末が落ちたら自動的にデタッチする
+autodetach on
+
+# スタートアップメッセージを消す
+startup_message off
+
+#通常の操作キー eval 'hoge' になっているのに意味はない
+bind x remove
+bind j eval 'focus down'
+bind k eval 'focus up'
+bind h eval 'focus left'
+bind l eval 'focus right'
+bind + eval 'resize -v +1'
+bind - eval 'resize -v -1'
+bind > eval 'resize -h +1'
+bind < eval 'resize -h -1'
+bind v eval 'split -v' focus screen
+bind s eval 'split' focus screen
+bind = eval 'resize -v ='
+bind + eval 'resize -h +'
+#^t h との誤爆を防ぐために^t ^hは無効にする
+bind ^h
+
+shell $SHELL
