@@ -7,3 +7,12 @@
 [submodule "home/.oh-my-zsh"]
 	path = home/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "home/.vim/bundle/neobundle.vim"]
+	path = home/.vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim
+[submodule "home/.vim/bundle/nerdtree"]
+	path = home/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "home/.vim/bundle/unite.vim"]
+	path = home/.vim/bundle/unite.vim
+	url = https://github.com/Shougo/unite.vim.git
