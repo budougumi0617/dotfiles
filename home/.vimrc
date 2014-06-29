@@ -1,3 +1,32 @@
+"--------------------------------------------------------------------------
+"" neobundle
+set nocompatible
+filetype plugin indent off
+
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim
+    call neobundle#rc(expand('~/.vim/bundle'))
+endif
+
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+"Add plugin
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'scrooloose/nerdtree'
+
+filetype plugin indent on
+
+" Installation check.
+if neobundle#exists_not_installed_bundles()
+    echomsg 'Not installed bundles : ' .
+                \ string(neobundle#get_not_installed_bundle_names())
+    echomsg 'Please execute ":NeoBundleInstall" command.'
+    "finish
+endif
+
+" end of neobundle setting
+
 "#####表示設定#####
 set number "行番号を表示する
 set title "編集中のファイル名を表示
@@ -100,3 +129,27 @@ syntax enable
 set background=dark
 "let g:solarized_termcolors=256
 colorscheme torte
+
+""" unite.vim
+" 入力モードで開始する
+" let g:unite_enable_start_insert=1
+" バッファ一覧
+nnoremap <silent> ,ub :<C-u>Unite buffer
+" ファイル一覧
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file
+" レジスタ一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register
+" 最近使用したファイル一覧
+nnoremap <silent> ,um :<C-u>Unite file_mru
+" 常用セット
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru
+" ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+
