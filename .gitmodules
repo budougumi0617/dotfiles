@@ -10,6 +10,3 @@
 [submodule "home/.oh-my-zsh"]
 	path = home/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "home/.oh-my-zh"]
-	path = home/.oh-my-zh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
