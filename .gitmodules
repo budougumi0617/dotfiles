@@ -1,6 +1,3 @@
-[submodule "home/.zsh.d/z"]
-	path = home/.zsh.d/z
-	url = https://github.com/rupa/z
 [submodule "home/.zsh/zsh-completions"]
 	path = home/.zsh/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
