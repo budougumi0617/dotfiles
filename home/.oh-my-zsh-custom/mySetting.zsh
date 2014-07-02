@@ -17,6 +17,8 @@ bindkey -e  # emacsモードで使う
 # bindkey -a  # vicmdモード
 # bindkey -v # viinsモード
 
+
+alias cr='echo "before comand result = $?"'
 ### Complement ###
 setopt auto_list               # 補完候補を一覧で表示する(d)
 setopt auto_menu               # 補完キー連打で補完候補を順に表示する(d)
