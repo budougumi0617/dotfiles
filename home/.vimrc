@@ -32,8 +32,6 @@ set number "行番号を表示する
 set title "編集中のファイル名を表示
 set showmatch "括弧入力時の対応する括弧を表示
 syntax on "コードの色分け
-set tabstop=4 "インデントをスペース4つ分に設定
-set smartindent "オートインデント
 "Tab、行末の半角スペースを明示的に表示する
 set list
 set listchars=tab:^\ ,trail:~
@@ -70,12 +68,12 @@ inoremap <C-l> <Right>
 " 挿入モードでバックスペース
 inoremap <C-x> <BS>
 
-set expandtab 
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set smartindent
+set expandtab     "タブ入力を複数の空白入力に置き換える (既存のタブには影響しない)
+set tabstop=4     "インデントをスペース4つ分に設定
+set shiftwidth=4  "自動インデントでずれる幅
+set softtabstop=4 "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set autoindent    "改行時に前の行のインデントを継続する
+set smartindent   "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 
 " TABにて対応ペアにジャンプ
 nnoremap <Tab> %
@@ -216,4 +214,17 @@ nnoremap <C-]> g<C-]>
 
 "tagsファイルを対象のファイルのあるから$HOMEの間まで探索する
 set tags=./tags;$HOME
+
+
+" カッコやクォートの自動補完
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+vnoremap { "zdi^V{<C-R>z}<ESC>
+vnoremap [ "zdi^V[<C-R>z]<ESC>
+vnoremap ( "zdi^V(<C-R>z)<ESC>
+vnoremap " "zdi^V"<C-R>z^V"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
 
