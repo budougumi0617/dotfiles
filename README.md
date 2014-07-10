@@ -13,6 +13,9 @@ printf '\nsource "$HOME/.homesick/repos/homeshick/homeshick.sh"' >> $HOME/.bashr
 printf '\nsource "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"' >> $HOME/.bashrc
 source $HOME/.bashrc
 homeshick clone https://github.com/budougumi0617/dotfiles.git
+cd $HOME/.homesick/repos/dotfiles
+git submodule init
+git submodule update
 homeshick symlink dotfiles
 ````
 
