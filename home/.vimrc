@@ -228,3 +228,5 @@ vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 
+"ブラウザを開く
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
