@@ -228,3 +228,5 @@ vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 
+"~ファイルを作成しない
+set nobackup
