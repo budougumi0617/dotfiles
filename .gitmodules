@@ -16,3 +16,15 @@
 [submodule "home/.vim/bundle/unite.vim"]
 	path = home/.vim/bundle/unite.vim
 	url = https://github.com/Shougo/unite.vim.git
+[submodule "home/.vim/bundle/neosnippet-snippets"]
+	path = home/.vim/bundle/neosnippet-snippets
+	url = https://github.com/Shougo/neosnippet-snippets.git
+[submodule "home/.vim/bundle/neosnippet"]
+	path = home/.vim/bundle/neosnippet
+	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "home/.vim/bundle/neocomplcache"]
+	path = home/.vim/bundle/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.vim.git
+[submodule "home/.vim/bundle/vim-quickhl"]
+	path = home/.vim/bundle/vim-quickhl
+	url = https://github.com/t9md/vim-quickhl.git
