@@ -277,3 +277,13 @@ xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
 
+"vim[grep]用
+":vim[grep] {pattern} {file} ...
+"ワイルドカードは**(アスタリスク2つ)
+nnoremap [q :cprevious<CR>   " 前へ
+nnoremap ]q :cnext<CR>       " 次へ
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+
+":vimgrep、:grep、:Ggrepで自動的にquickfix-windowを開く
+autocmd QuickFixCmdPost *grep* cwindow
