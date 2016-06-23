@@ -288,10 +288,3 @@ nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 ":vimgrep、:grep、:Ggrepで自動的にquickfix-windowを開く
 autocmd QuickFixCmdPost *grep* cwindow
 
-"Linuxの場合はviminfoを用いてヤンクデータを共有
-let OSTYPE = system('uname')
-if OSTYPE == "Linux\n"
-    noremap y y:wv<CR>
-    noremap p :rv!<CR>p
-endif
-set viminfo='50,\"3000,:0,n~/.viminfo
