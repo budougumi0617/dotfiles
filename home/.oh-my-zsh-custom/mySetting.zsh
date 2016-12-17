@@ -91,4 +91,10 @@ export PATH="/usr/local/heroku/bin:$PATH"
 _Z_CMD=j
 _Z_DATA=$ZDOTDIR/.z
 
+alias ..="cd .."
+
 source "$ZDOTDIR/z/z.sh"
+
+### Setting for Golang
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
