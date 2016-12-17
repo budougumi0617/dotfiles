@@ -49,7 +49,7 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git ruby gem heroku rbenv)
+plugins=(rails git ruby gem heroku rbenv golang)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zshenv
@@ -74,3 +74,13 @@ export LANG=en_US.UTF-8
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+export GVM_DIR="/Users/budougumi0617/.gvm"
+[[ -s "/Users/budougumi0617/.gvm/bin/gvm-init.sh" ]] && source "/Users/budougumi0617/.gvm/bin/gvm-init.sh"
+. <(azure --completion)
+
+# added by travis gem
+[ -f /Users/budougumi0617/.travis/travis.sh ] && source /Users/budougumi0617/.travis/travis.sh
+
+function git(){hub "$@"}

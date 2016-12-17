@@ -15,3 +15,8 @@ bindkey "^[OF" end-of-line
 # for screen
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
+
+# For command by npm
+if [ -d ${HOME}/node_modules/.bin ]; then
+    export PATH=${PATH}:${HOME}/node_modules/.bin
+fi
