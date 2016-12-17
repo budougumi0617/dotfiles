@@ -287,3 +287,4 @@ nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 
 ":vimgrep、:grep、:Ggrepで自動的にquickfix-windowを開く
 autocmd QuickFixCmdPost *grep* cwindow
+
