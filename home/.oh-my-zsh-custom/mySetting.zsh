@@ -96,5 +96,5 @@ alias ..="cd .."
 source "$ZDOTDIR/z/z.sh"
 
 ### Setting for Golang
-export GOPATH=$HOME/go
+export GOPATH=$HOME/_go
 export PATH=$PATH:/usr/local/opt/go/libexec/bin:$GOPATH/bin
