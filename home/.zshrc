@@ -84,3 +84,16 @@ export GVM_DIR="/Users/budougumi0617/.gvm"
 [ -f /Users/budougumi0617/.travis/travis.sh ] && source /Users/budougumi0617/.travis/travis.sh
 
 function git(){hub "$@"}
+
+# peco setting
+bindkey '^F' peco-src
+
+function peco-src () {
+    local selected_dir=$(ghq list | peco --query "$LBUFFER")                                        if [ -n "$selected_dir" ]; then
+        selected_dir="$GOPATH/src/$selected_dir"
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
