@@ -89,7 +89,8 @@ function git(){hub "$@"}
 bindkey '^F' peco-src
 
 function peco-src () {
-    local selected_dir=$(ghq list | peco --query "$LBUFFER")                                        if [ -n "$selected_dir" ]; then
+    local selected_dir=$(ghq list | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
         selected_dir="$GOPATH/src/$selected_dir"
         BUFFER="cd ${selected_dir}"
         zle accept-line
@@ -97,3 +98,17 @@ function peco-src () {
     zle clear-screen
 }
 zle -N peco-src
+
+function peco-godoc() {
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        if [ ! -n "$PAGER" ]; then
+            PAGER=less
+        fi
+        BUFFER="godoc ${selected_dir} | $PAGER"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-godoc
+bindkey '^g' peco-godoc
