@@ -21,6 +21,8 @@ NeoBundle 'Shougo/neosnippet-snippets'
 
 NeoBundle "t9md/vim-quickhl"
 
+" golang  
+NeoBundle 'fatih/vim-go'
 
 filetype plugin indent on
 

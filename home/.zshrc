@@ -2,6 +2,13 @@
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_CUSTOM=$HOME/.oh-my-zsh-custom
 
+# Function
+load_if_exists () {
+    if [ -e $1 ]; then
+        source $1
+    fi
+}
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -86,7 +93,7 @@ export GVM_DIR="/Users/budougumi0617/.gvm"
 function git(){hub "$@"}
 
 # peco setting
-bindkey '^F' peco-src
+bindkey '^]' peco-src
 
 function peco-src () {
     local selected_dir=$(ghq list | peco --query "$LBUFFER")
@@ -112,3 +119,10 @@ function peco-godoc() {
 }
 zle -N peco-godoc
 bindkey '^g' peco-godoc
+
+alias godoc='godoc $(ghq list | peco) | less'
+
+# Reload
+alias szshrc='source ~/.zshrc'
+
+load_if_exists '~/.iterm2_shell_integration.zsh'
