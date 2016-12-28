@@ -125,4 +125,4 @@ alias godoc='godoc $(ghq list | peco) | less'
 # Reload
 alias szshrc='source ~/.zshrc'
 
-load_if_exists '~/.iterm2_shell_integration.zsh'
+load_if_exists "$HOME/.iterm2_shell_integration.zsh"
