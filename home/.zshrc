@@ -126,3 +126,5 @@ alias godoc='godoc $(ghq list | peco) | less'
 alias szshrc='source ~/.zshrc'
 
 load_if_exists "$HOME/.iterm2_shell_integration.zsh"
+
+load_if_exists "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
