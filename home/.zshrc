@@ -56,7 +56,8 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(rails git ruby gem heroku rbenv golang)
+plugins=(rails git ruby gem heroku rbenv golang zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zshenv
@@ -125,6 +126,10 @@ alias godoc='godoc $(ghq list | peco) | less'
 # Reload
 alias szshrc='source ~/.zshrc'
 
+# To accept the current suggestion.
+bindkey '^ ' autosuggest-accept
+
 load_if_exists "$HOME/.iterm2_shell_integration.zsh"
 
 load_if_exists "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
+
