@@ -25,3 +25,5 @@
 	trustExitCode = true
 [ghq]
 	root = ~/go/src
+[commit]
+	template = /Users/budougumi0617/.commit_template
