@@ -22,7 +22,7 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 #POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status os_icon context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs virtualenv rbenv rvm time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time) #(background_jobs virtualenv rbenv rvm time)
 
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
@@ -43,6 +43,13 @@ source ~/.zplug/init.zsh
 # enhancd config
 export ENHANCD_COMMAND=ed
 export ENHANCD_FILTER=ENHANCD_FILTER=fzy:fzf:peco
+
+# Function
+load_if_exists () {
+    if [ -e $1 ]; then
+        source $1
+    fi
+}
 
 # Vanilla shell
 zplug "yous/vanilli.sh"
