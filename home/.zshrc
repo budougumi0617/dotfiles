@@ -192,9 +192,9 @@ export GVM_DIR="/Users/budougumi0617/.gvm"
 
 function git(){hub "$@"}
 
-# peco setting
-bindkey '^]' peco-src
+# Peco setting
 
+# Peco with ghq to move repositories.
 function peco-src () {
     local selected_dir=$(ghq list | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
@@ -205,7 +205,9 @@ function peco-src () {
     zle clear-screen
 }
 zle -N peco-src
+bindkey '^]' peco-src
 
+# Peco with godoc to show go documentation.
 function peco-godoc() {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
@@ -221,6 +223,15 @@ zle -N peco-godoc
 bindkey '^g' peco-godoc
 
 alias godoc='godoc $(ghq list | peco) | less'
+
+# Peco with history to searh histories.
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
 
 # Reload
 alias szshrc='source ~/.zshrc'
