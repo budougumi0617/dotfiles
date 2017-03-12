@@ -1,40 +1,57 @@
 "--------------------------------------------------------------------------
-"" neobundle
 set nocompatible
-filetype plugin indent off
 
-if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#rc(expand('~/.vim/bundle'))
+" Install at start Vim.
+augroup PluginInstall
+autocmd!
+autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+augroup END
+
+" Define installed directory.
+let s:plugin_dir = expand('~/.vim/bundle/')
+" Add installed path to runtime directory.
+let s:dein_dir = s:plugin_dir . 'repos/github.com/Shougo/dein.vim'
+execute 'set runtimepath+=' . s:dein_dir
+
+" git clone if dein.vim is not installed yet.
+if !isdirectory(s:dein_dir)
+    call mkdir(s:dein_dir, 'p')
+    silent execute printf('!git clone %s %s', 'https://github.com/Shougo/dein.vim', s:dein_dir)
 endif
 
+if dein#load_state(s:plugin_dir)
+    call dein#begin(s:plugin_dir)
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+    " Install plugins.
+    call dein#add('Shougo/dein.vim')
+    call dein#add('Shougo/neocomplete.vim')
+    call dein#add('Shougo/neosnippet.vim')
+    call dein#add('Shougo/neosnippet-snippets')
+    call dein#add('itchyny/lightline.vim')
+    call dein#add('nathanaelkane/vim-indent-guides')
+    call dein#add('Townk/vim-autoclose')
+    call dein#add('honza/vim-snippets')
+    call dein#add('scrooloose/nerdtree')
 
-"Add plugin
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'scrooloose/nerdtree'
+    " There is Dependency.
+    call dein#add('Shougo/unite.vim')
+    call dein#add('ujihisa/unite-colorscheme', {'depends' : 'Shougo/unite.vim'})
 
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
+    " Fot golang.
+    call dein#add('fatih/vim-go')
 
-NeoBundle "t9md/vim-quickhl"
+    " For Elixir
+    call dein#add('elixir-lang/vim-elixir')
+    call dein#add('mattreduce/vim-mix')
+    call dein#add('janko-m/vim-test')
 
-" golang  
-NeoBundle 'fatih/vim-go'
+
+    " End dein.vim settings.
+    call dein#end()
+    call dein#save_state()
+endif
 
 filetype plugin indent on
-
-" Installation check.
-if neobundle#exists_not_installed_bundles()
-    echomsg 'Not installed bundles : ' .
-                \ string(neobundle#get_not_installed_bundle_names())
-    echomsg 'Please execute ":NeoBundleInstall" command.'
-    "finish
-endif
-
-" end of neobundle setting
 
 "#####表示設定#####
 set number "行番号を表示する
@@ -237,12 +254,11 @@ vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 
-"~ファイルを作成しない
+" Not create backup file as ~file.
 set nobackup
 
-"ブラウザを開く
+" Open file tree.
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -269,7 +285,6 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-
 " <Space>m でカーソル下の単語、もしくは選択した範囲のハイライトを行う
 " 再度 <Space>m を行うとカーソル下のハイライトを解除する
 " これは複数の単語のハイライトを行う事もできる
@@ -290,3 +305,69 @@ nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 ":vimgrep、:grep、:Ggrepで自動的にquickfix-windowを開く
 autocmd QuickFixCmdPost *grep* cwindow
 
+" For neocomplete
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+            \ 'default' : '',
+            \ 'vimshell' : $HOME.'/.vimshell_hist',
+            \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-l> neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocalomnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+" Neocomplete for golang
+let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
