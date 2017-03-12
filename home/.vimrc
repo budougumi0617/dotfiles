@@ -42,6 +42,7 @@ if dein#load_state(s:plugin_dir)
 
     " For Elixir
     call dein#add('elixir-lang/vim-elixir')
+    call dein#add('slashmili/alchemist.vim')
     call dein#add('mattreduce/vim-mix')
     call dein#add('janko-m/vim-test')
 
