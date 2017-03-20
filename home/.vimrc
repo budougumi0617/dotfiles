@@ -45,7 +45,6 @@ if dein#load_state(s:plugin_dir)
     call dein#add('slashmili/alchemist.vim')
     call dein#add('mattreduce/vim-mix')
     call dein#add('janko-m/vim-test')
-    call dein#add('slashmili/alchemist.vim')
 
 
     " End dein.vim settings.
