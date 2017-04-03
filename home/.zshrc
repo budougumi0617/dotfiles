@@ -147,6 +147,8 @@ zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 zstyle ':completion:*:options' description 'yes'
 
+# ブランチ情報を取得するときはhubコマンドでなく、直接gitコマンドを利用する
+zstyle ':vcs_info:git:*:-all-' command /usr/bin/git
 
 ### History ###
 HISTFILE=~/.zsh_history   # ヒストリを保存するファイル
