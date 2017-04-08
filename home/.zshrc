@@ -22,7 +22,7 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 #POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status os_icon context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()#background_jobs virtualenv rbenv rvm time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(renv)#background_jobs virtualenv rbenv rvm time)
 
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=10
@@ -174,6 +174,12 @@ function cd() {
 # Load rbenv
 if [ -e "$HOME/.rbenv" ]; then
     eval "$(rbenv init - zsh)"
+fi
+
+# Load ndenv
+if [ -e "$HOME/.ndenv" ]; then
+    export PATH="$HOME/.ndenv/bin:$PATH"
+    eval "$(ndenv init -)"
 fi
 
 # Set GOPATH for Go
