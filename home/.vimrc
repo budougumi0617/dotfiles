@@ -47,7 +47,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('janko-m/vim-test')
 
     " For Ruby, Rails
-    call dein#add('tpope/vim-ruby', {'on_ft' : 'ruby'})
+    call dein#add('vim-ruby/vim-ruby', {'on_ft' : 'ruby'})
     call dein#add('tpope/vim-rails', {'on_ft' : 'ruby'})
 
     " End dein.vim settings.
