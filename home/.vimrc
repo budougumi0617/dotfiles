@@ -50,6 +50,11 @@ if dein#load_state(s:plugin_dir)
     call dein#add('vim-ruby/vim-ruby', {'on_ft' : 'ruby'})
     call dein#add('tpope/vim-rails', {'on_ft' : 'ruby'})
 
+    " For JavaScript
+    call dein#add('jelera/vim-javascript-syntax')
+    call dein#add('othree/javascript-libraries-syntax.vim')
+    call dein#add('othree/yajs.vim')
+
     " End dein.vim settings.
     call dein#end()
     call dein#save_state()
@@ -364,7 +369,7 @@ inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocalomnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -375,3 +380,6 @@ endif
 
 " Neocomplete for golang
 let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
+
+" Syntax highlight for javascript library
+let g:used_javascript_libs = 'flux'
