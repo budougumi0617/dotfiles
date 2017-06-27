@@ -18,34 +18,3 @@ git submodule init
 git submodule update
 homeshick symlink dotfiles
 ````
-
----
-
-## Directroy Composition
-
-````
-dotfiles
-├── .gitmodules
-└── home
-    ├── .gitconfig
-    ├── .oh-my-zsh
-    ├── .oh-my-zsh-custom
-    │   ├── example.zsh
-    │   ├── mySetting.zsh
-    │   ├── myThemes.zsh-theme
-    │   └── plugins
-    │       └── example
-    │           └── example.plugin.zsh
-    ├── .screenrc
-    ├── .vim
-    │   └── bundle
-    │       ├── neobundle.vim
-    │       ├── nerdtree
-    │       └── unite.vim
-    ├── .vimrc
-    ├── .zsh
-    │   ├── z
-    │   └── zsh-completions
-    ├── .zshenv
-    └── .zshrc
-````
