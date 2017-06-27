@@ -176,17 +176,6 @@ function cd() {
 }
 
 
-# Load rbenv
-if [ -e "$HOME/.rbenv" ]; then
-    eval "$(rbenv init - zsh)"
-fi
-
-# Load ndenv
-if [ -e "$HOME/.ndenv" ]; then
-    export PATH="$HOME/.ndenv/bin:$PATH"
-    eval "$(ndenv init -)"
-fi
-
 # Set GOPATH for Go
 if command -v go &> /dev/null; then
     [ -d "$HOME/go" ] || mkdir "$HOME/go"
@@ -255,4 +244,18 @@ bindkey '^ ' autosuggest-accept
 load_if_exists "$HOME/.iterm2_shell_integration.zsh"
 
 load_if_exists "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
+
+eval $(/usr/libexec/path_helper -s)
+
+# Load rbenv
+if [ -e "$HOME/.rbenv" ]; then
+    export PATH="$HOME/.rbenv/shims:$PATH"
+    eval "$(rbenv init - zsh)"
+fi
+
+# Load ndenv
+if [ -e "$HOME/.ndenv" ]; then
+    export PATH="$HOME/.ndenv/bin:$PATH"
+    eval "$(ndenv init -)"
+fi
 
