@@ -259,3 +259,6 @@ if [ -e "$HOME/.ndenv" ]; then
     eval "$(ndenv init -)"
 fi
 
+
+export PATH="$HOME/.fastlane/bin:$PATH"
+
