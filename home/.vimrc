@@ -257,11 +257,11 @@ set tags=./tags;$HOME
 "inoremap ( ()<LEFT>
 "inoremap " ""<LEFT>
 "inoremap ' ''<LEFT>
-vnoremap { "zdi{<C-R>z}<ESC>
-vnoremap [ "zdi[<C-R>z]<ESC>
-vnoremap ( "zdi(<C-R>z)<ESC>
-vnoremap " "zdi"<C-R>z"<ESC>
-vnoremap ' "zdi'<C-R>z'<ESC>
+"vnoremap { "zdi{<C-R>z}<ESC>
+"vnoremap [ "zdi[<C-R>z]<ESC>
+"vnoremap ( "zdi(<C-R>z)<ESC>
+"vnoremap " "zdi"<C-R>z"<ESC>
+"vnoremap ' "zdi'<C-R>z'<ESC>
 
 " Not create backup file as ~file.
 set nobackup
