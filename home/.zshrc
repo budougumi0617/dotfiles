@@ -259,6 +259,8 @@ if [ -e "$HOME/.ndenv" ]; then
     eval "$(ndenv init -)"
 fi
 
+# Set grep options
+export GREP_OPTIONS='--color=auto'
 
 export PATH="$HOME/.fastlane/bin:$PATH"
 
