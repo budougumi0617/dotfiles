@@ -264,3 +264,9 @@ export GREP_OPTIONS='--color=auto'
 
 export PATH="$HOME/.fastlane/bin:$PATH"
 
+# Use colordiff.
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
