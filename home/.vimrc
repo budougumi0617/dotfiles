@@ -35,6 +35,7 @@ if dein#load_state(s:plugin_dir)
 
     " There is Dependency.
     call dein#add('Shougo/unite.vim')
+    call dein#add('Shougo/neomru.vim')
     call dein#add('ujihisa/unite-colorscheme', {'depends' : 'Shougo/unite.vim'})
 
     " For golang.
@@ -114,6 +115,8 @@ augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.py setlocal tabstop=4 softtabstop=4 shiftwidth=4
     autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.erb setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
 augroup END
 
 " TABにて対応ペアにジャンプ
@@ -172,6 +175,9 @@ colorscheme torte
 """ unite.vim
 " 入力モードで開始する
 " let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert = 1
+let g:unite_enable_split_vertically = 0
+let g:unite_winwidth = 40
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer
 " ファイル一覧
@@ -182,6 +188,25 @@ nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register
 nnoremap <silent> ,um :<C-u>Unite file_mru
 " 常用セット
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru
+" For Rails
+nnoremap <silent> ,urc :<C-u>Unite file_rec/async:app/controllers/ <CR>
+nnoremap <silent> ,urfc :<C-u>Unite file file/new -input=app/controllers/ <CR>
+nnoremap <silent> ,urm :<C-u>Unite file_rec/async:app/models/ <CR>
+nnoremap <silent> ,urfm :<C-u>Unite file file/new -input=app/models/ <CR>
+nnoremap <silent> ,urf :<C-u>Unite file_rec/async:app/forms/ <CR>
+nnoremap <silent> ,urff :<C-u>Unite file file/new -input=app/forms/ <CR>
+nnoremap <silent> ,urv :<C-u>Unite file_rec/async:app/views/ <CR>
+nnoremap <silent> ,urfv :<C-u>Unite file file/new -input=app/views/ <CR>
+nnoremap <silent> ,urs :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
+nnoremap <silent> ,urfs :<C-u>Unite file file/new -input=app/assets/stylesheets/ <CR>
+nnoremap <silent> ,urj :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
+nnoremap <silent> ,urfj :<C-u>Unite file file/new -input=app/assets/javascripts/ <CR>
+nnoremap <silent> ,uro :<C-u>Unite file_rec/async:config/ <CR>
+nnoremap <silent> ,urfo :<C-u>Unite file file/new -input=config/ <CR>
+nnoremap <silent> ,url :<C-u>Unite file_rec/async:lib/ <CR>
+nnoremap <silent> ,urfl :<C-u>Unite file file/new -input=lib/ <CR>
+nnoremap <silent> ,urr :<C-u>Unite file_rec/async:spec/ <CR>
+nnoremap <silent> ,urfr :<C-u>Unite file file/new -input=spec/ <CR>
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
