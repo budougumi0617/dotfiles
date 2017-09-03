@@ -105,9 +105,9 @@ inoremap <C-l> <Right>
 inoremap <C-x> <BS>
 
 set expandtab     "タブ入力を複数の空白入力に置き換える (既存のタブには影響しない)
-set tabstop=4     "インデントをスペース4つ分に設定
-set shiftwidth=4  "自動インデントでずれる幅
-set softtabstop=4 "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
+set tabstop=2     "インデントをスペース2つ分に設定
+set shiftwidth=2  "自動インデントでずれる幅
+set softtabstop=2 "連続した空白に対してタブキーやバックスペースキーでカーソルが動く幅
 set autoindent    "改行時に前の行のインデントを継続する
 set smartindent   "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 
