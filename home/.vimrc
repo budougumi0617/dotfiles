@@ -32,6 +32,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('Townk/vim-autoclose')
     call dein#add('honza/vim-snippets')
     call dein#add('scrooloose/nerdtree')
+    call dein#add('fatih/molokai')
 
     " There is Dependency.
     call dein#add('Shougo/unite.vim')
@@ -40,6 +41,8 @@ if dein#load_state(s:plugin_dir)
 
     " For golang.
     call dein#add('fatih/vim-go')
+    call dein#add('SirVer/ultisnips')
+    call dein#add('ctrlpvim/ctrlp.vim')
 
     " For Elixir
     call dein#add('elixir-lang/vim-elixir')
@@ -62,6 +65,10 @@ if dein#load_state(s:plugin_dir)
 endif
 
 filetype plugin indent on
+
+" <leader>を"\"から変更
+let mapleader =","
+noremap \ ,
 
 "#####表示設定#####
 set number "行番号を表示する
@@ -117,6 +124,7 @@ augroup fileTypeIndent
     autocmd BufNewFile,BufRead *.rb setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.erb setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd BufNewFile,BufRead *.scss setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 augroup END
 
 " TABにて対応ペアにジャンプ
@@ -169,8 +177,11 @@ noremap <Leader>f :TlistToggle<CR>        "
 "color scheme
 syntax enable
 set background=dark
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 colorscheme torte
+"let g:rehash256 = 1
+"let g:molokai_original = 1
+"colorscheme molokai
 
 """ unite.vim
 " 入力モードで開始する
@@ -414,3 +425,52 @@ let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 
 " Syntax highlight for javascript library
 let g:used_javascript_libs = 'flux'
+
+set autowrite
+
+" For Golang
+" ビルドエラー時のクイックフィックスを順に移動する。
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+" 単一コマンドで適切なビルドを行う。
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+" ]] -> jump to next function
+" [[ -> jump to previous function
+
+let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+" 有効な識別子にカーソルを移動するたびに、ステータスラインが自動的に更新
+let g:go_auto_type_info = 1
+set updatetime=100
+" ハイライトの強化
+let g:go_auto_sameids = 1
+
+" Syntax highlight for Golang
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+
