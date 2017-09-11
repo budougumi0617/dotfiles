@@ -255,8 +255,8 @@ fi
 
 # Load ndenv
 if [ -e "$HOME/.ndenv" ]; then
-    export PATH="$HOME/.ndenv/bin:$PATH"
-    eval "$(ndenv init -)"
+    export PATH="$HOME/.ndenv/shims:$PATH"
+    eval "$(ndenv init - zsh)"
 fi
 
 # Set grep options

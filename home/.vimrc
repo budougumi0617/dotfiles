@@ -190,15 +190,15 @@ let g:unite_enable_start_insert = 1
 let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 " バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer
+nnoremap <silent> ,ub :<C-u>Unite buffer <CR>
 " ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file <CR>
 " レジスタ一覧
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register
 " 最近使用したファイル一覧
-nnoremap <silent> ,um :<C-u>Unite file_mru
+nnoremap <silent> ,um :<C-u>Unite file_mru <CR>
 " 常用セット
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru <CR>
 " For Rails
 nnoremap <silent> ,urc :<C-u>Unite file_rec/async:app/controllers/ <CR>
 nnoremap <silent> ,urfc :<C-u>Unite file file/new -input=app/controllers/ <CR>
