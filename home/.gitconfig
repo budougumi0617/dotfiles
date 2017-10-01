@@ -1,33 +1,41 @@
 [include]
-    path = .gitconfig.local
+  path = .gitconfig.local
 [user]
-    name = budougumi0617
-    email = budougumi0617@gmail.com
+  name = budougumi0617
+  email = budougumi0617@gmail.com
 [color]
-    ui = auto
+  ui = auto
 [alias]
-    br = branch
-    co = checkout
-    ci = commit
-    st = status
-    graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-    list = log --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short
-    df = diff
+  br = branch
+  co = checkout
+  ci = commit
+  st = status
+  graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+  list = log --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --date=short
+  df = diff
+  change = codereview change
+  gofmt = codereview gofmt
+  mail = codereview mail
+  pending = codereview pending
+  submit = codereview submit
+  sync = codereview sync
 [core]
-    autoCRLF = false
+  autoCRLF = false
 [push]
-    default = matching
+  default = matching
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [ghq]
-	root = ~/go/src
+  root = ~/go/src
 [commit]
-	template = ~/.commit_template
+  template = ~/.commit_template
 [url "git@github.com:"]
-	insteadOf = "https://github.com/"
+  insteadOf = "https://github.com/"
 [url "git@github.com:"]
-	pushInsteadOf = "https://github.com/"
+  pushInsteadOf = "https://github.com/"
+[http]
+  cookiefile = /Users/budougumi0617/.gitcookies
