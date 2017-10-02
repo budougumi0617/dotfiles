@@ -21,6 +21,7 @@
   sync = codereview sync
 [core]
   autoCRLF = false
+  excludesfile = /Users/shimizu-yoichiro/.gitignore_global
 [push]
   default = matching
 [difftool "sourcetree"]
@@ -39,3 +40,10 @@
   pushInsteadOf = "https://github.com/"
 [http]
   cookiefile = /Users/budougumi0617/.gitcookies
+[secrets]
+  providers = git secrets --aws-provider
+  patterns = [A-Z0-9]{20}
+  patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+  patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+  allowed = AKIAIOSFODNN7EXAMPLE
+  allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
