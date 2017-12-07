@@ -271,3 +271,6 @@ if [[ -x `which colordiff` ]]; then
 else
   alias diff='diff -u'
 fi
+
+# Use kubectl completion
+source <(kubectl completion zsh)
