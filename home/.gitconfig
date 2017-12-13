@@ -21,7 +21,7 @@
   sync = codereview sync
 [core]
   autoCRLF = false
-  excludesfile = /Users/shimizu-yoichiro/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [push]
   default = matching
 [difftool "sourcetree"]
@@ -39,7 +39,7 @@
 [url "git@github.com:"]
   pushInsteadOf = "https://github.com/"
 [http]
-  cookiefile = /Users/budougumi0617/.gitcookies
+  cookiefile = ~/.gitcookies
 [secrets]
   providers = git secrets --aws-provider
   patterns = [A-Z0-9]{20}
