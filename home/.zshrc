@@ -271,7 +271,9 @@ else
 fi
 
 # Use kubectl completion
-source <(kubectl completion zsh)
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
 
 
 # tmuxが起動していない場合にalias設定を行う
