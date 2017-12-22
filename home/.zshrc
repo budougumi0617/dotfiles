@@ -271,7 +271,9 @@ else
 fi
 
 # Use kubectl completion
-source <(kubectl completion zsh)
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
 
 
 # tmuxを新規セッションを立ち上げた際に分割処理設定を読み込む
