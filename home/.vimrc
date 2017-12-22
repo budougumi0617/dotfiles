@@ -33,6 +33,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('honza/vim-snippets')
     call dein#add('scrooloose/nerdtree')
     call dein#add('fatih/molokai')
+    call dein#add('mattn/sonictemplate-vim')
 
     " There is Dependency.
     call dein#add('Shougo/unite.vim')
@@ -107,9 +108,6 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-
-" 挿入モードでバックスペース
-inoremap <C-x> <BS>
 
 set expandtab     "タブ入力を複数の空白入力に置き換える (既存のタブには影響しない)
 set tabstop=2     "インデントをスペース2つ分に設定
@@ -438,6 +436,9 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
+" Show completion detail.
+set completeopt=menu,preview
+
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
@@ -478,3 +479,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 
+" Postfix completion by sonictemplate-vim
+" https://github.com/mattn/sonictemplate-vim/blob/master/template/go/pattern.stpl
+" <C-y> <C-b>
