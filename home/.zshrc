@@ -29,8 +29,11 @@ POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status os_icon context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(rbenv)#background_jobs virtualenv rbenv rvm time)
 
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=10
+
+# How to show current directory path.
+# https://github.com/bhilburn/powerlevel9k/blob/master/README.md#dir
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uE868  %y/%m/%d}"
 
