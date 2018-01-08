@@ -179,15 +179,6 @@ function cd() {
 }
 
 
-
-# Set GOPATH for Go
-if command -v go &> /dev/null; then
-    [ -d "$HOME/go" ] || mkdir "$HOME/go"
-    export GOPATH="$HOME/go"
-    export GOROOT=/usr/local/opt/go/libexec
-    export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
-fi
-
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 export GVM_DIR="/Users/budougumi0617/.gvm"
 [[ -s "/Users/budougumi0617/.gvm/bin/gvm-init.sh" ]] && source "/Users/budougumi0617/.gvm/bin/gvm-init.sh"
@@ -260,6 +251,15 @@ if [ -e "$HOME/.ndenv" ]; then
     export PATH="$HOME/.ndenv/shims:$PATH"
     eval "$(ndenv init - zsh)"
 fi
+
+# Set GOPATH for Go
+if command -v go &> /dev/null; then
+    [ -d "$HOME/go" ] || mkdir "$HOME/go"
+    export GOPATH="$HOME/go"
+    export GOROOT=/usr/local/opt/go/libexec
+    export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+fi
+
 
 # Set grep options
 export GREP_OPTIONS='--color=auto'
