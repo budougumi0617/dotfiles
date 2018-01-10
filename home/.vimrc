@@ -44,6 +44,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('fatih/vim-go')
     call dein#add('SirVer/ultisnips')
     call dein#add('ctrlpvim/ctrlp.vim')
+    call dein#add('majutsushi/tagbar')
 
     " For Elixir
     call dein#add('elixir-lang/vim-elixir')
@@ -81,8 +82,8 @@ set list
 set listchars=tab:^\ ,trail:~
 " ウィンドウの幅より長い行は折り返され、次の行に続けて表示される
 set wrap
-" カーソルの行を強調
-set cursorline
+" カーソルの行を強調...は描画が遅くなるので止める
+" set cursorline
 
 "#####検索設定#####
 set ignorecase "大文字/小文字の区別なく検索する
@@ -488,3 +489,35 @@ let g:go_highlight_extra_types = 1
 " Postfix completion by sonictemplate-vim
 " https://github.com/mattn/sonictemplate-vim/blob/master/template/go/pattern.stpl
 " <C-y> <C-b>
+
+" Need gotags
+let g:tagbar_type_go = {
+      \ 'ctagstype' : 'go',
+      \ 'kinds'     : [
+      \ 'p:package',
+      \ 'i:imports:1',
+      \ 'c:constants',
+      \ 'v:variables',
+      \ 't:types',
+      \ 'n:interfaces',
+      \ 'w:fields',
+      \ 'e:embedded',
+      \ 'm:methods',
+      \ 'r:constructor',
+      \ 'f:functions'
+      \ ],
+      \ 'sro' : '.',
+      \ 'kind2scope' : {
+      \ 't' : 'ctype',
+      \ 'n' : 'ntype'
+      \ },
+      \ 'scope2kind' : {
+      \ 'ctype' : 't',
+      \ 'ntype' : 'n'
+      \ },
+      \ 'ctagsbin'  : 'gotags',
+      \ 'ctagsargs' : '-sort -silent'
+\ }
+
+" Open Tag list
+nmap <F8> :TagbarToggle<CR>
