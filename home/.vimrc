@@ -519,5 +519,5 @@ let g:tagbar_type_go = {
       \ 'ctagsargs' : '-sort -silent'
 \ }
 
-" Open Tag list
+" Open Tagbar
 nmap <F8> :TagbarToggle<CR>
