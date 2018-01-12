@@ -303,6 +303,9 @@ set tags=./tags;$HOME
 "vnoremap ( "zdi(<C-R>z)<ESC>
 "vnoremap " "zdi"<C-R>z"<ESC>
 "vnoremap ' "zdi'<C-R>z'<ESC>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " Not create backup file as ~file.
 set nobackup
