@@ -104,11 +104,6 @@ nnoremap <C-Space> <C-Y>
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 " jjをESCキー
 inoremap <silent> jj <esc>
-" 挿入モードでのカーソル移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
 
 set expandtab     "タブ入力を複数の空白入力に置き換える (既存のタブには影響しない)
 set tabstop=2     "インデントをスペース2つ分に設定
