@@ -441,6 +441,9 @@ map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
+" gocodeによって固まることがないように
+let g:gocomplete#system_function = 'vimproc#system'
+
 " Show completion detail.
 set completeopt=menu,preview
 
