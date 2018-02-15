@@ -278,11 +278,10 @@ if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh)
 fi
 
+alias kc='kubectl'
 
 # tmuxを新規セッションを立ち上げた際に分割処理設定を読み込む
 alias tmuxx="tmux -2 attach || tmux -2 new-session \; source-file ~/.tmux/new-session"
-
-
 
 # envrc
 eval "$(direnv hook zsh)"
