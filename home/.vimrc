@@ -104,6 +104,8 @@ nnoremap <C-Space> <C-Y>
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 " jjをESCキー
 inoremap <silent> jj <esc>
+" CTRL-jをESCキー
+inoremap <silent> <C-j> <esc>
 
 set expandtab     "タブ入力を複数の空白入力に置き換える (既存のタブには影響しない)
 set tabstop=2     "インデントをスペース2つ分に設定
@@ -186,7 +188,8 @@ let g:unite_winwidth = 40
 " バッファ一覧
 nnoremap <silent> ,ub :<C-u>Unite buffer <CR>
 " ファイル一覧
-nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file <CR>
+" nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file <CR>
+nnoremap <silent> ,uf :<C-u>Unite file <CR>
 " レジスタ一覧
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register
 " 最近使用したファイル一覧
