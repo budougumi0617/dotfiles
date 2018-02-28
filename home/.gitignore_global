@@ -2,3 +2,4 @@
 .DS_Store
 .envrc
 *.swp
+vim-go-test-compile
