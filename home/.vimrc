@@ -35,6 +35,9 @@ if dein#load_state(s:plugin_dir)
     call dein#add('fatih/molokai')
     call dein#add('mattn/sonictemplate-vim')
 
+    " For Git
+    call dein#add('tpope/vim-fugitive')
+
     " There is Dependency.
     call dein#add('Shougo/unite.vim')
     call dein#add('Shougo/neomru.vim')
@@ -225,12 +228,12 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vspli
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
 
-" Status line format
-" http://www.e2esound.com/wp/2008/08/16/vim%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E8%A8%AD%E5%AE%9Astatusline/
-set statusline=%F%m%r%h%w\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
-
 " Show Status line
 set laststatus=2
+
+" Status line format
+" http://www.e2esound.com/wp/2008/08/16/vim%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%AE%E8%A8%AD%E5%AE%9Astatusline/
+set statusline=%F%m%r%h%w\%{fugitive#statusline()}\%=[TYPE=%Y]\[FORMAT=%{&ff}]\[ENC=%{&fileencoding}]\[LOW=%l/%L]
 
 "vimのすごい便利なのにあまり使われていない「タブページ」機能
 " http://qiita.com/wadako111/items/755e753677dd72d8036d
@@ -346,10 +349,12 @@ nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
 
 "vim[grep]用
-":vim[grep] {pattern} {file} ...
-"ワイルドカードは**(アスタリスク2つ)
-nnoremap [q :cprevious<CR>   " 前へ
-nnoremap ]q :cnext<CR>       " 次へ
+" :vim[grep] {pattern} {file} ...
+" ワイルドカードは**(アスタリスク2つ)
+" :vim {pattern} `git ls-files ./**/*.go`
+" gitでindexされているファイルのみを対象にする。
+" 前へ :cnext Goの設定のほうでしてある。
+" 次へ :cprevious Goの設定のほうでしてある。
 nnoremap [Q :<C-u>cfirst<CR> " 最初へ
 nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 
@@ -525,3 +530,16 @@ let g:tagbar_type_go = {
 
 " Open Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+
+" For Git setting
+" http://wakame.hatenablog.jp/entry/2017/05/03/222511
+" http://myenigma.hatenablog.com/entry/2016/07/10/084048
+nnoremap [fugitive]  <Nop>
+nmap <space>g [fugitive]
+nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
+nnoremap <silent> [fugitive]a :Gwrite<CR>
+nnoremap <silent> [fugitive]c :Gcommit-v<CR>
+nnoremap <silent> [fugitive]b :Gblame<CR>
+nnoremap <silent> [fugitive]d :Gdiff<CR>
+nnoremap <silent> [fugitive]m :Gmerge<CR>
