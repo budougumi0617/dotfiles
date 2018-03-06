@@ -539,8 +539,10 @@ nnoremap [fugitive]  <Nop>
 nmap <space>g [fugitive]
 nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
 nnoremap <silent> [fugitive]a :Gwrite<CR>
-nnoremap <silent> [fugitive]c :Gcommit-v<CR>
 " 開いたgit画面でコミットするファイルを-で変更できる。その後Cを押すとコミットメッセージ画面になる
+nnoremap <silent> [fugitive]c :Gcommit-v<CR>
+" blame画面を閉じるときは<C-C>
 nnoremap <silent> [fugitive]b :Gblame<CR>
+" <C-W> <C-O>でカレントウインドウ以外を閉じる
 nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]m :Gmerge<CR>
