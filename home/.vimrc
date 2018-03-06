@@ -37,6 +37,7 @@ if dein#load_state(s:plugin_dir)
 
     " For Git
     call dein#add('tpope/vim-fugitive')
+    call dein#add('tpope/vim-rhubarb')
 
     " There is Dependency.
     call dein#add('Shougo/unite.vim')
@@ -530,7 +531,6 @@ let g:tagbar_type_go = {
 
 " Open Tagbar
 nmap <F8> :TagbarToggle<CR>
-
 
 " For Git setting
 " http://wakame.hatenablog.jp/entry/2017/05/03/222511
