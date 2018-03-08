@@ -73,8 +73,7 @@ endif
 filetype plugin indent on
 
 " <leader>を"\"から変更
-let mapleader =","
-noremap \ ,
+let mapleader = "\<Space>"
 
 "#####表示設定#####
 set number "行番号を表示する
@@ -100,9 +99,6 @@ set hlsearch
 "バックスペースでインデントや改行を削除できるようにする
 set backspace=indent,eol,start
 
-"スペースでダウンアップ
-nnoremap <Space>  <C-E>
-nnoremap <C-Space> <C-Y>
 
 " ESCを二回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
@@ -172,7 +168,7 @@ endfunction
 " taglist
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
-noremap <Leader>f :TlistToggle<CR>        "
+noremap <leader>f :TlistToggle<CR>        "
 
 "color scheme
 syntax enable
@@ -190,35 +186,35 @@ let g:unite_enable_start_insert = 1
 let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 " バッファ一覧
-nnoremap <silent> ,ub :<C-u>Unite buffer <CR>
+nnoremap <silent> <leader>ub :<C-u>Unite buffer <CR>
 " ファイル一覧
-" nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file <CR>
-nnoremap <silent> ,uf :<C-u>Unite file <CR>
+" nnoremap <silent> <leader>uf :<C-u>UniteWithBufferDir -buffer-name=files file <CR>
+nnoremap <silent> <leader>uf :<C-u>Unite file <CR>
 " レジスタ一覧
-nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register
+nnoremap <silent> <leader>ur :<C-u>Unite -buffer-name=register register
 " 最近使用したファイル一覧
-nnoremap <silent> ,um :<C-u>Unite file_mru <CR>
+nnoremap <silent> <leader>um :<C-u>Unite file_mru <CR>
 " 常用セット
-nnoremap <silent> ,uu :<C-u>Unite buffer file_mru <CR>
+nnoremap <silent> <leader>uu :<C-u>Unite buffer file_mru <CR>
 " For Rails
-nnoremap <silent> ,urc :<C-u>Unite file_rec/async:app/controllers/ <CR>
-nnoremap <silent> ,urfc :<C-u>Unite file file/new -input=app/controllers/ <CR>
-nnoremap <silent> ,urm :<C-u>Unite file_rec/async:app/models/ <CR>
-nnoremap <silent> ,urfm :<C-u>Unite file file/new -input=app/models/ <CR>
-nnoremap <silent> ,urf :<C-u>Unite file_rec/async:app/forms/ <CR>
-nnoremap <silent> ,urff :<C-u>Unite file file/new -input=app/forms/ <CR>
-nnoremap <silent> ,urv :<C-u>Unite file_rec/async:app/views/ <CR>
-nnoremap <silent> ,urfv :<C-u>Unite file file/new -input=app/views/ <CR>
-nnoremap <silent> ,urs :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
-nnoremap <silent> ,urfs :<C-u>Unite file file/new -input=app/assets/stylesheets/ <CR>
-nnoremap <silent> ,urj :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
-nnoremap <silent> ,urfj :<C-u>Unite file file/new -input=app/assets/javascripts/ <CR>
-nnoremap <silent> ,uro :<C-u>Unite file_rec/async:config/ <CR>
-nnoremap <silent> ,urfo :<C-u>Unite file file/new -input=config/ <CR>
-nnoremap <silent> ,url :<C-u>Unite file_rec/async:lib/ <CR>
-nnoremap <silent> ,urfl :<C-u>Unite file file/new -input=lib/ <CR>
-nnoremap <silent> ,urr :<C-u>Unite file_rec/async:spec/ <CR>
-nnoremap <silent> ,urfr :<C-u>Unite file file/new -input=spec/ <CR>
+nnoremap <silent> <leader>urc :<C-u>Unite file_rec/async:app/controllers/ <CR>
+nnoremap <silent> <leader>urfc :<C-u>Unite file file/new -input=app/controllers/ <CR>
+nnoremap <silent> <leader>urm :<C-u>Unite file_rec/async:app/models/ <CR>
+nnoremap <silent> <leader>urfm :<C-u>Unite file file/new -input=app/models/ <CR>
+nnoremap <silent> <leader>urf :<C-u>Unite file_rec/async:app/forms/ <CR>
+nnoremap <silent> <leader>urff :<C-u>Unite file file/new -input=app/forms/ <CR>
+nnoremap <silent> <leader>urv :<C-u>Unite file_rec/async:app/views/ <CR>
+nnoremap <silent> <leader>urfv :<C-u>Unite file file/new -input=app/views/ <CR>
+nnoremap <silent> <leader>urs :<C-u>Unite file_rec/async:app/assets/stylesheets/ <CR>
+nnoremap <silent> <leader>urfs :<C-u>Unite file file/new -input=app/assets/stylesheets/ <CR>
+nnoremap <silent> <leader>urj :<C-u>Unite file_rec/async:app/assets/javascripts/ <CR>
+nnoremap <silent> <leader>urfj :<C-u>Unite file file/new -input=app/assets/javascripts/ <CR>
+nnoremap <silent> <leader>uro :<C-u>Unite file_rec/async:config/ <CR>
+nnoremap <silent> <leader>urfo :<C-u>Unite file file/new -input=config/ <CR>
+nnoremap <silent> <leader>url :<C-u>Unite file_rec/async:lib/ <CR>
+nnoremap <silent> <leader>urfl :<C-u>Unite file file/new -input=lib/ <CR>
+nnoremap <silent> <leader>urr :<C-u>Unite file_rec/async:spec/ <CR>
+nnoremap <silent> <leader>urfr :<C-u>Unite file file/new -input=spec/ <CR>
 " ウィンドウを分割して開く
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
