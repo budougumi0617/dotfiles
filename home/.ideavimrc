@@ -1,0 +1,4 @@
+" jjをESCキー
+inoremap <silent> jj <esc>
+" CTRL-jをESCキー
+inoremap <silent> <C-j> <esc>
