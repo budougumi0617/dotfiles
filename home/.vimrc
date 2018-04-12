@@ -1,4 +1,4 @@
-"--------------------------------------------------------------------------
+"G--------------------------------------------------------------------------
 set nocompatible
 
 " Install at start Vim.
@@ -34,6 +34,8 @@ if dein#load_state(s:plugin_dir)
     call dein#add('scrooloose/nerdtree')
     call dein#add('fatih/molokai')
     call dein#add('mattn/sonictemplate-vim')
+    call dein#add('/usr/local/opt/fzf') " Need that brew install fzf
+    call dein#add('junegunn/fzf.vim')
 
     " For Git
     call dein#add('tpope/vim-fugitive')
@@ -47,7 +49,6 @@ if dein#load_state(s:plugin_dir)
     " For golang.
     call dein#add('fatih/vim-go')
     call dein#add('SirVer/ultisnips')
-    call dein#add('ctrlpvim/ctrlp.vim')
     call dein#add('majutsushi/tagbar')
 
     " For Elixir
@@ -542,3 +543,50 @@ nnoremap <silent> [fugitive]b :Gblame<CR>
 " <C-W> <C-O>でカレントウインドウ以外を閉じる
 nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]m :Gmerge<CR>
+
+" For fzf setting
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~50%' }
+command! FZFFileList call fzf#run({
+            \ 'source': 'find . -type d -name .git -prune -o ! -name .DS_Store',
+            \ 'sink': 'e'})
+" Files command with preview
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+nnoremap <C-p> :GitFiles<CR>
+" GitFiles command with preview
+command! -bang -nargs=? -complete=dir GitFiles
+  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right'), <bang>0)
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
