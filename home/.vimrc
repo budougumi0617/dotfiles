@@ -175,7 +175,7 @@ noremap <leader>f :TlistToggle<CR>        "
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
-colorscheme torte
+colorscheme molokai
 "let g:rehash256 = 1
 "let g:molokai_original = 1
 "colorscheme molokai
