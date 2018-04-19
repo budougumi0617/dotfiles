@@ -226,7 +226,7 @@ function peco-history-selection() {
     zle reset-prompt
 }
 zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+# bindkey '^R' peco-history-selection
 
 # Reload
 alias szshrc='source ~/.zshrc'
@@ -294,4 +294,8 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google
 
 # Try highlight, coderay, rougify in turn, then fall back to cat
 export FZF_DEFAULT_OPTS="--height 60% --preview 'head -100 {}'"
+# CTRL-T - Paste the selected files and directories onto the command line
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Use peco
+bindkey '^R' peco-history-selection
