@@ -286,6 +286,7 @@ alias tmuxx="tmux -2 attach || tmux -2 new-session \; source-file ~/.tmux/new-se
 # envrc
 eval "$(direnv hook zsh)"
 
+# For gcloud setting
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
