@@ -286,12 +286,14 @@ alias tmuxx="tmux -2 attach || tmux -2 new-session \; source-file ~/.tmux/new-se
 # envrc
 eval "$(direnv hook zsh)"
 
+# For gcloud setting
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 
+# For fzf setting
 # Try highlight, coderay, rougify in turn, then fall back to cat
 export FZF_DEFAULT_OPTS="--height 60% --preview 'head -100 {}'"
 # CTRL-T - Paste the selected files and directories onto the command line
