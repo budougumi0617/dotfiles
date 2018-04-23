@@ -297,5 +297,5 @@ export FZF_DEFAULT_OPTS="--height 60% --preview 'head -100 {}'"
 # CTRL-T - Paste the selected files and directories onto the command line
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Use peco
+# Use peco only history command
 bindkey '^R' peco-history-selection
