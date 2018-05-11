@@ -36,6 +36,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('mattn/sonictemplate-vim')
     call dein#add('/usr/local/opt/fzf') " Need that brew install fzf
     call dein#add('junegunn/fzf.vim')
+    call dein#add('mileszs/ack.vim')
 
     " For Git
     call dein#add('tpope/vim-fugitive')
@@ -591,3 +592,9 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+" For grep
+" Need to execute below command
+" brew install ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
