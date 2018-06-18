@@ -546,6 +546,10 @@ nnoremap <silent> [fugitive]b :Gblame<CR>
 " <C-W> <C-O>でカレントウインドウ以外を閉じる
 nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]m :Gmerge<CR>
+" 変更をステージにあげる
+" nmap <Leader>hs <Plug>GitGutterStageHunk
+" 変更をrevertする
+" nmap <Leader>hr <Plug>GitGutterRevertHunk
 
 " For fzf setting
 " Default fzf layout
