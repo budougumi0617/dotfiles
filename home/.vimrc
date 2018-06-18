@@ -1,4 +1,4 @@
-"G--------------------------------------------------------------------------
+"--------------------------------------------------------------------------
 set nocompatible
 
 " Install at start Vim.
@@ -41,6 +41,7 @@ if dein#load_state(s:plugin_dir)
     " For Git
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-rhubarb')
+    call dein#add('airblade/vim-gitgutter')
 
     " There is Dependency.
     call dein#add('Shougo/unite.vim')
