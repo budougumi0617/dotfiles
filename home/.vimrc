@@ -546,6 +546,11 @@ nnoremap <silent> [fugitive]b :Gblame<CR>
 " <C-W> <C-O>でカレントウインドウ以外を閉じる
 nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]m :Gmerge<CR>
+
+" For gitgutter
+set updatetime=250
+" Show gitgutter column allways
+set signcolumn=yes
 " 変更をステージにあげる
 " nmap <Leader>hs <Plug>GitGutterStageHunk
 " 変更をrevertする
