@@ -185,8 +185,10 @@ colorscheme torte
 
 """ unite.vim
 " 入力モードで開始する
-" let g:unite_enable_start_insert=1
 let g:unite_enable_start_insert = 1
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
 let g:unite_enable_split_vertically = 0
 let g:unite_winwidth = 40
 " バッファ一覧
