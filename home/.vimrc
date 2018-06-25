@@ -172,7 +172,7 @@ endfunction
 " taglist
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
-noremap <leader>f :TlistToggle<CR>
+" noremap <leader>f :TlistToggle<CR>
 
 "color scheme
 syntax enable
@@ -609,4 +609,5 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " Need to execute below command
 " brew install ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
+nnoremap <leader>f :Ack<Space>
 
