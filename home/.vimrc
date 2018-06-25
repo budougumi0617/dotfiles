@@ -551,7 +551,7 @@ nnoremap <silent> [fugitive]m :Gmerge<CR>
 
 " For gitgutter
 set updatetime=250
-" Show gitgutter column allways
+" Show gitgutter column always
 set signcolumn=yes
 " 変更をステージにあげる
 " nmap <Leader>hs <Plug>GitGutterStageHunk
