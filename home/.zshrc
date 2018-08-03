@@ -182,7 +182,6 @@ function cd() {
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 export GVM_DIR="/Users/budougumi0617/.gvm"
 [[ -s "/Users/budougumi0617/.gvm/bin/gvm-init.sh" ]] && source "/Users/budougumi0617/.gvm/bin/gvm-init.sh"
-. <(azure --completion)
 
 # added by travis gem
 [ -f /Users/budougumi0617/.travis/travis.sh ] && source /Users/budougumi0617/.travis/travis.sh
