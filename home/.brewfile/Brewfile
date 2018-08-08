@@ -1,113 +1,137 @@
-
-# tap repositories and their packages
-
-tap 'caskroom/cask'
-cask 'appcleaner'
-cask 'atom'
-cask 'google-chrome'
-cask 'google-japanese-ime'
-cask 'hammerspoon'
-cask 'iterm2'
-cask 'java'
-cask 'kindle'
-cask 'skitch'
-cask 'visual-studio-code'
-
-tap 'go-delve/delve'
-brew 'delve'
-
-tap 'go-swagger/go-swagger'
-brew 'go-swagger'
-
-tap 'homebrew/bundle'
-
-tap 'homebrew/core'
-brew 'ansible'
-brew 'autoconf'
-brew 'azure-cli'
-brew 'boost'
-brew 'cairo'
-brew 'ctags'
-brew 'czmq'
-brew 'elixir'
-brew 'erlang'
-brew 'exa'
-brew 'fontconfig'
-brew 'fontforge'
-brew 'freetype'
-brew 'gdbm'
-brew 'gettext'
-brew 'ghq'
-brew 'git'
-brew 'glib'
-brew 'glide'
-brew 'gnu-sed'
-brew 'go'
-brew 'gobject-introspection'
-brew 'gradle'
-brew 'harfbuzz'
-brew 'highlight'
-brew 'hub'
-brew 'icu4c'
-brew 'jpeg'
-brew 'libevent'
-brew 'libffi'
-brew 'libpng'
-brew 'libsodium'
-brew 'libtiff'
-brew 'libtool'
-brew 'libyaml'
-brew 'lua'
-brew 'mas'
-brew 'mercurial'
-brew 'mysql'
-brew 'node'
-brew 'openssl'
-brew 'openssl@1.1'
-brew 'pango'
-brew 'pcre'
-brew 'peco'
-brew 'pixman'
-brew 'pkg-config'
-brew 'python'
-brew 'rbenv'
-brew 'readline'
-brew 'reattach-to-user-namespace'
-brew 'ruby-build'
-brew 'shellcheck'
-brew 'sqlite'
-brew 'stress'
-brew 'tig'
-brew 'tmux'
-brew 'tree'
-brew 'vim', args: ['with-lua']
-brew 'wget'
-brew 'wxmac'
-brew 'xerces-c'
-brew 'zeromq'
-brew 'zplug'
-brew 'zsh'
-
-tap 'phinze/cask'
-
-tap 'rcmdnk/file'
-brew 'brew-file'
-
-tap 'sanemat/font'
-brew 'ricty'
-
-# App Store applications
-appstore 405843582 Alfred (1.2)
-appstore 403858460 EchofonLite (1.8.7)
-appstore 647697434 Free Fonts (7.0)
-appstore 682658836 GarageBand (10.1.6)
-appstore 409183694 Keynote (7.0.5)
-appstore 896624060 Kobito (2.3.8)
-appstore 539883307 LINE (4.11.1)
-appstore 409203825 Numbers (4.0.5)
-appstore 409201541 Pages (6.0.5)
-appstore 863486266 SketchBook (8.3.1)
-appstore 803453959 Slack (2.4.1)
-appstore 585829637 Todoist (6.3.19)
-appstore 408981434 iMovie (10.1.4)
-appstore 408981381 iPhoto (9.6.1)
+tap "argon/mas"
+tap "budougumi0617/lsas"
+tap "go-delve/delve"
+tap "go-swagger/go-swagger"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/science"
+tap "homebrew/services"
+tap "homebrew/versions"
+tap "osx-cross/avr"
+tap "phinze/cask"
+tap "px4/px4"
+tap "rcmdnk/file"
+tap "sanemat/font"
+brew "libyaml"
+brew "readline"
+brew "ansible"
+brew "autoconf"
+brew "automake"
+brew "avrdude"
+brew "python"
+brew "awscli"
+brew "azure-cli"
+brew "boost"
+brew "freetype"
+brew "fontconfig"
+brew "gettext"
+brew "libffi"
+brew "pcre"
+brew "glib"
+brew "pixman"
+brew "cairo"
+brew "chromedriver", restart_service: true
+brew "cmake"
+brew "colordiff"
+brew "coreutils"
+brew "csshx"
+brew "ctags"
+brew "czmq"
+brew "go"
+brew "dfu-programmer"
+brew "direnv"
+brew "elixir"
+brew "exa"
+brew "harfbuzz"
+brew "libtool"
+brew "pango"
+brew "fontforge"
+brew "fzf"
+brew "gflags"
+brew "ghq"
+brew "git"
+brew "git-secrets"
+brew "glide"
+brew "gnu-sed"
+brew "gnupg"
+brew "pkg-config"
+brew "gobject-introspection"
+brew "gradle"
+brew "graphviz"
+brew "lua"
+brew "highlight"
+brew "libevent"
+brew "httpd"
+brew "hub"
+brew "hugo"
+brew "jq"
+brew "kubernetes-helm"
+brew "libmagic"
+brew "libsodium"
+brew "mas"
+brew "mecab"
+brew "memcached", restart_service: true
+brew "mercurial"
+brew "mono", link: false
+brew "mysql@5.6"
+brew "mysql@5.7"
+brew "node-build"
+brew "ndenv"
+brew "opencv"
+brew "openssl@1.1"
+brew "peco"
+brew "plantuml"
+brew "protobuf"
+brew "ruby-build"
+brew "reattach-to-user-namespace"
+brew "redis"
+brew "shellcheck"
+brew "shtool"
+brew "stern"
+brew "stress"
+brew "the_silver_searcher"
+brew "tig"
+brew "tmux"
+brew "tree"
+brew "vim", args: ["with-lua", "with-python@2"]
+brew "watch"
+brew "wget"
+brew "xerces-c"
+brew "yarn"
+brew "zplug"
+brew "zsh"
+brew "budougumi0617/lsas/lsas"
+brew "go-delve/delve/delve"
+brew "osx-cross/avr/avr-gcc"
+brew "px4/px4/gcc-arm-none-eabi"
+brew "rcmdnk/file/brew-file"
+brew "sanemat/font/ricty"
+cask "phinze/cask/alfred"
+cask "phinze/cask/appcleaner"
+cask "phinze/cask/atom"
+cask "phinze/cask/dropbox"
+cask "phinze/cask/eclipse-java"
+cask "phinze/cask/fastlane"
+cask "phinze/cask/gitify"
+cask "phinze/cask/google-japanese-ime"
+cask "phinze/cask/hammerspoon"
+cask "phinze/cask/iterm2"
+cask "phinze/cask/java"
+cask "phinze/cask/keycastr"
+cask "phinze/cask/kindle"
+cask "phinze/cask/minikube"
+cask "phinze/cask/mono-mdk"
+cask "phinze/cask/powershell"
+cask "phinze/cask/skitch"
+cask "phinze/cask/visual-studio-code"
+cask "phinze/cask/xmind"
+mas "Be Focused", id: 973134470
+mas "Keynote", id: 409183694
+mas "Kobito", id: 896624060
+mas "Microsoft Remote Desktop", id: 715768417
+mas "Mini Calendar", id: 1088779979
+mas "Numbers", id: 409203825
+mas "Simplenote", id: 692867256
+mas "The Unarchiver", id: 425424353
+mas "Xcode", id: 497799835
