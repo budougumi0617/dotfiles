@@ -302,3 +302,6 @@ export FZF_DEFAULT_OPTS="--height 60% --preview 'head -100 {}'"
 
 # Use peco only history command
 bindkey '^R' peco-history-selection
+
+# Like Linux command
+alias ll='ls -n'
