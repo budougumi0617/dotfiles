@@ -118,7 +118,6 @@ export LANG=en_US.UTF-8  # 文字コードをUTF-8に設定
 export KCODE=u           # KCODEにUTF-8を設定
 export AUTOFEATURE=true  # autotestでfeatureを動かす
 export TERM="xterm-256color"
-export ZDOTDIR=$HOME/.zsh
 if [ "$(uname)" = 'Darwin' ]; then
     export LSCOLORS=gxfxcxdxbxegedabagacad
     alias ls='ls -G'
