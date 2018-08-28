@@ -29,6 +29,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('Shougo/neosnippet-snippets')
     call dein#add('itchyny/lightline.vim')
     call dein#add('nathanaelkane/vim-indent-guides')
+    call dein#add('Yggdroot/indentLine')
     call dein#add('Townk/vim-autoclose')
     call dein#add('honza/vim-snippets')
     call dein#add('scrooloose/nerdtree')
@@ -64,9 +65,10 @@ if dein#load_state(s:plugin_dir)
     call dein#add('tpope/vim-rails', {'on_ft' : 'ruby'})
 
     " For JavaScript
-    call dein#add('jelera/vim-javascript-syntax')
     call dein#add('othree/javascript-libraries-syntax.vim')
     call dein#add('othree/yajs.vim')
+    call dein#add('maxmellon/vim-jsx-pretty')
+    call dein#add('pangloss/vim-javascript')
 
     " End dein.vim settings.
     call dein#end()
