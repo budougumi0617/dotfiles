@@ -305,3 +305,6 @@ bindkey '^R' peco-history-selection
 
 # Like Linux command
 alias ll='ls -n'
+
+# Remove no longer needed local branches
+alias gbm='git branch --merged | grep -vE '\''^\*|master$|develop$'\'' | xargs -I % git branch -d %'
