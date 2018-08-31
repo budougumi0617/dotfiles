@@ -65,10 +65,11 @@ if dein#load_state(s:plugin_dir)
     call dein#add('tpope/vim-rails', {'on_ft' : 'ruby'})
 
     " For JavaScript
-    call dein#add('othree/javascript-libraries-syntax.vim')
-    call dein#add('othree/yajs.vim')
-    call dein#add('maxmellon/vim-jsx-pretty')
-    call dein#add('pangloss/vim-javascript')
+    call dein#add('othree/javascript-libraries-syntax.vim', {'on_ft' : ['javascript', 'javascript.jsx']})
+    call dein#add('othree/yajs.vim', {'on_ft' : ['javascript', 'javascript.jsx']})
+    call dein#add('maxmellon/vim-jsx-pretty', {'on_ft' : ['javascript', 'javascript.jsx']})
+    call dein#add('pangloss/vim-javascript', {'on_ft' : ['javascript', 'javascript.jsx']})
+    call dein#add('w0rp/ale', {'on_ft' : ['javascript', 'javascript.jsx']})
 
     " End dein.vim settings.
     call dein#end()
@@ -613,3 +614,8 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>f :Ack<Space>
 
+" let g:ale_fixers = {
+"      \ 'javascript': ['prettier']
+"      \ }
+" let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
