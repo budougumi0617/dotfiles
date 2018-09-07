@@ -619,3 +619,5 @@ nnoremap <leader>f :Ack<Space>
 "      \ }
 " let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
