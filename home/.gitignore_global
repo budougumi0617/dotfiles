@@ -3,3 +3,4 @@
 .envrc
 *.swp
 vim-go-test-compile
+tags
