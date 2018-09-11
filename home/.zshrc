@@ -308,3 +308,6 @@ alias ll='ls -n'
 
 # Remove no longer needed local branches
 alias gbm='git branch --merged | grep -vE '\''^\*|master$|develop$'\'' | xargs -I % git branch -d %'
+
+# Set PATH to coomand installed by npm
+export PATH=$PATH:`npm bin -g`
