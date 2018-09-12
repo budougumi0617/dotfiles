@@ -614,6 +614,9 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>f :Ack<Space>
 
+let g:ale_linters = {
+\'javascript': ['flow', 'eslint'],
+\}
 " let g:ale_fixers = {
 "      \ 'javascript': ['prettier']
 "      \ }
