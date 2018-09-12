@@ -614,8 +614,10 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>f :Ack<Space>
 
+" default : ['eslint', 'flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'tsserver', 'xo']
+" tsserverが有効になっていると、flowプロジェクトで誤検知してしまう
 let g:ale_linters = {
-\'javascript': ['flow', 'eslint'],
+       \'javascript': ['eslint', 'flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'xo']
 \}
 " let g:ale_fixers = {
 "      \ 'javascript': ['prettier']
