@@ -311,3 +311,6 @@ alias gbm='git branch --merged | grep -vE '\''^\*|master$|develop$'\'' | xargs -
 
 # Set PATH to coomand installed by npm
 export PATH=$PATH:`npm bin -g`
+
+# Set cargo to PARH for Rust
+export PATH="$HOME/.cargo/bin:$PATH"
