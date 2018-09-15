@@ -69,7 +69,13 @@ if dein#load_state(s:plugin_dir)
     call dein#add('othree/yajs.vim', {'on_ft' : ['javascript', 'javascript.jsx']})
     call dein#add('maxmellon/vim-jsx-pretty', {'on_ft' : ['javascript', 'javascript.jsx']})
     call dein#add('pangloss/vim-javascript', {'on_ft' : ['javascript', 'javascript.jsx']})
-    call dein#add('w0rp/ale', {'on_ft' : ['javascript', 'javascript.jsx']})
+
+    " For Rust
+    call dein#add('rust-lang/rust.vim', {'on_ft' : 'rust'})
+    call dein#add('autozimu/LanguageClient-neovim', {'on_ft' : 'rust', 'rev' : 'next', 'build': 'bash install.sh'})
+
+    " For JavaScript, Rust
+    call dein#add('w0rp/ale', {'on_ft' : ['javascript', 'javascript.jsx', 'rust']})
 
     " End dein.vim settings.
     call dein#end()
@@ -637,3 +643,16 @@ function! s:Jq(...)
     endif
     execute "%! jq \"" . l:arg . "\""
 endfunction
+
+" For Rust
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ }
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
