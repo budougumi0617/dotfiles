@@ -319,6 +319,7 @@ set nobackup
 
 " Open file tree.
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden=1
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -614,6 +615,7 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>f :Ack<Space>
 
+" For JavaScript
 " default : ['eslint', 'flow', 'flow-language-server', 'jscs', 'jshint', 'standard', 'tsserver', 'xo']
 " tsserverが有効になっていると、flowプロジェクトで誤検知してしまう
 let g:ale_linters = {
@@ -626,6 +628,7 @@ let g:ale_linters = {
 let g:ale_javascript_prettier_use_local_config = 1
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:javascript_plugin_flow = 1
 
 " For json
 command! -nargs=? Jq call s:Jq(<f-args>)
