@@ -648,6 +648,13 @@ function! s:Jq(...)
 endfunction
 
 " For Rust
+
+" Need additional components, need to execute beloew commands
+" rustup update
+" rustup component add rls-preview --toolchain nightly
+" rustup component add rust-analysis --toolchain nightly
+" rustup component add rust-src --toolchain nightly
+
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
@@ -655,6 +662,9 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ }
+
+" Language server is started manualy by :LanguageClientStart
+" let g:LanguageClient_autoStart = 1
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
