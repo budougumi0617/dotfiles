@@ -34,6 +34,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('honza/vim-snippets')
     call dein#add('scrooloose/nerdtree')
     call dein#add('fatih/molokai')
+    call dein#add('dracula/vim')
     call dein#add('mattn/sonictemplate-vim')
     call dein#add('/usr/local/opt/fzf') " Need that brew install fzf
     call dein#add('junegunn/fzf.vim')
@@ -184,13 +185,17 @@ let Tlist_Exit_OnlyWindow = 1
 " noremap <leader>f :TlistToggle<CR>
 
 "color scheme
-syntax enable
+syntax on
+"---
 set background=dark
 let g:solarized_termcolors=256
 colorscheme torte
+"---
 "let g:rehash256 = 1
 "let g:molokai_original = 1
 "colorscheme molokai
+"---
+"color dracula
 
 """ unite.vim
 " 入力モードで開始する
