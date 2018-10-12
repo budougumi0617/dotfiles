@@ -314,3 +314,11 @@ export PATH=$PATH:`npm bin -g`
 
 # Set cargo to PARH for Rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# go get -u github.com/mattn/todo
+alias ta='todo add'
+alias tl='todo list'
+alias td='todo done'
+
+# Instead of ps auxf. Show parant PID
+alias psf='(){ ps -eo pid,ppid,pgid,sig,sigmask,nsigs,command |egrep "COMMAND|$1" }'
