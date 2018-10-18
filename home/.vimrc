@@ -679,3 +679,7 @@ nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 let g:sonictemplate_vim_template_dir = [
       \ '~/.template'
       \]
+
+" 2018/10/18
+" Hot fix to https://github.com/mdempsky/gocode/issues/71
+let g:go_gocode_propose_source = 0
