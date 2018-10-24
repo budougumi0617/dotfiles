@@ -50,7 +50,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('Shougo/neomru.vim')
     call dein#add('ujihisa/unite-colorscheme', {'depends' : 'Shougo/unite.vim'})
 
-    " For golang.
+    " For Golang.
     call dein#add('fatih/vim-go')
     call dein#add('SirVer/ultisnips')
     call dein#add('majutsushi/tagbar')
@@ -683,3 +683,7 @@ let g:sonictemplate_vim_template_dir = [
 " 2018/10/18
 " Hot fix to https://github.com/mdempsky/gocode/issues/71
 let g:go_gocode_propose_source = 0
+
+" For Ruby
+" Enabeld rich jump
+source $VIMRUNTIME/macros/matchit.vim
