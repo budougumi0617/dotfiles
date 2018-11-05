@@ -39,6 +39,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('/usr/local/opt/fzf') " Need that brew install fzf
     call dein#add('junegunn/fzf.vim')
     call dein#add('mileszs/ack.vim')
+    call dein#add('andymass/vim-matchup')
 
     " For Git
     call dein#add('tpope/vim-fugitive')
