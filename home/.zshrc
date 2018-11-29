@@ -70,30 +70,30 @@ zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
 # excuting compinit command and sourcing other plugins.
-zplug "zsh-users/zsh-syntax-highlighting", nice:9
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 # ZSH port of Fish shell's history search feature
-zplug "zsh-users/zsh-history-substring-search", nice:10
+zplug "zsh-users/zsh-history-substring-search", defer:2
 
 # Tracks your most used directories, based on 'frecency'.
-zplug "rupa/z", use:"*.sh"
+# zplug "rupa/z", use:"*.sh"
 
 
 # This plugin adds many useful aliases and functions.
 zplug "plugins/git",   from:oh-my-zsh
-zplug "plugins/golang",   from:oh-my-zsh
-zplug "plugins/npm",   from:oh-my-zsh
-zplug "plugins/postgres",   from:oh-my-zsh
-zplug "plugins/gem",   from:oh-my-zsh
-zplug "plugins/rails",   from:oh-my-zsh
-zplug "plugins/ruby",   from:oh-my-zsh
-zplug "plugins/rbenv",   from:oh-my-zsh
-zplug "plugins/sudo",   from:oh-my-zsh
-zplug "plugins/tig",   from:oh-my-zsh
-zplug "plugins/bundle",   from:oh-my-zsh
-zplug "plugins/brew",   from:oh-my-zsh
-zplug "plugins/docker",   from:oh-my-zsh
-zplug "plugins/cp",   from:oh-my-zsh
+# zplug "plugins/golang",   from:oh-my-zsh
+# zplug "plugins/npm",   from:oh-my-zsh
+# zplug "plugins/postgres",   from:oh-my-zsh
+# zplug "plugins/gem",   from:oh-my-zsh
+# zplug "plugins/rails",   from:oh-my-zsh
+# zplug "plugins/ruby",   from:oh-my-zsh
+# zplug "plugins/rbenv",   from:oh-my-zsh
+# zplug "plugins/sudo",   from:oh-my-zsh
+# zplug "plugins/tig",   from:oh-my-zsh
+# zplug "plugins/bundle",   from:oh-my-zsh
+# zplug "plugins/brew",   from:oh-my-zsh
+# zplug "plugins/docker",   from:oh-my-zsh
+# zplug "plugins/cp",   from:oh-my-zsh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -235,7 +235,7 @@ bindkey '^ ' autosuggest-accept
 
 load_if_exists "$HOME/.iterm2_shell_integration.zsh"
 
-load_if_exists "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
+# load_if_exists "$GOPATH/src/github.com/sachaos/todoist/todoist_functions.sh"
 
 eval $(/usr/libexec/path_helper -s)
 
