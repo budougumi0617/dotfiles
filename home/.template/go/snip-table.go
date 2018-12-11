@@ -6,7 +6,7 @@
 		err       error
 	}{
 		{
-			subject: "",
+			name: "",
 			want: "",
 			wantError: true,
 			// err: fmt.Errorf(""),
