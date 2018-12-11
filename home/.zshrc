@@ -271,16 +271,6 @@ if [[ -x `which colordiff` ]]; then
 else
   alias diff='diff -u'
 fi
-
-# Use kubectl completion
-if [ $commands[kubectl] ]; then
-    source <(kubectl completion zsh)
-fi
-
-# For kubectl
-alias kc='kubectl'
-alias kcgp='kubectl get pod -o wide'
-
 # tmuxを新規セッションを立ち上げた際に分割処理設定を読み込む
 alias tmuxx="tmux -2 attach || tmux -2 new-session \; source-file ~/.tmux/new-session"
 
@@ -293,6 +283,15 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+# Use kubectl completion
+if [ $commands[kubectl] ]; then
+    source <(kubectl completion zsh)
+fi
+
+# For kubectl
+alias kc='kubectl'
+alias kcgp='kubectl get pod -o wide'
 
 # For fzf setting
 # Try highlight, coderay, rougify in turn, then fall back to cat
