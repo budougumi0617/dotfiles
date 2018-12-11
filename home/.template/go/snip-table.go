@@ -1,5 +1,5 @@
 	tests := []struct {
-		subject string
+		name string
 		{{_cursor_}}
 		want  string
 		wantError bool
@@ -13,7 +13,7 @@
 		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.subject, func(t *testing.T) {
+		t.Run(tt.name, func(t *testing.T) {
 			got := ""
 
 			if !tt.wantError && err != nil {
