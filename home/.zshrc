@@ -81,7 +81,7 @@ zplug "zsh-users/zsh-history-substring-search", defer:2
 
 # This plugin adds many useful aliases and functions.
 zplug "plugins/git",   from:oh-my-zsh
-# zplug "plugins/golang",   from:oh-my-zsh
+zplug "plugins/golang",   from:oh-my-zsh
 # zplug "plugins/npm",   from:oh-my-zsh
 # zplug "plugins/postgres",   from:oh-my-zsh
 # zplug "plugins/gem",   from:oh-my-zsh
