@@ -40,6 +40,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('junegunn/fzf.vim')
     call dein#add('mileszs/ack.vim')
     call dein#add('andymass/vim-matchup')
+    call dein#add('easymotion/vim-easymotion')
 
     " For Git
     call dein#add('tpope/vim-fugitive')
@@ -688,3 +689,20 @@ let g:go_gocode_propose_source = 0
 " For Ruby
 " Enabeld rich jump
 source $VIMRUNTIME/macros/matchit.vim
+
+" For easymotion
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+vmap s <Plug>(easymotion-bd-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
