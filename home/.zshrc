@@ -321,3 +321,7 @@ alias td='todo done'
 
 # Instead of ps auxf. Show parant PID
 alias psf='(){ ps -eo pid,ppid,pgid,sig,sigmask,nsigs,command |egrep "COMMAND|$1" }'
+
+# Alias for translate
+# Required https://github.com/soimort/translate-shell
+alias tja='trans :ja'
