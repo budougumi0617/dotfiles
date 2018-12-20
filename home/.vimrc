@@ -42,6 +42,9 @@ if dein#load_state(s:plugin_dir)
     call dein#add('andymass/vim-matchup')
     call dein#add('easymotion/vim-easymotion')
 
+    " For CSV
+    call dein#add('chrisbra/csv.vim')
+
     " For Git
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-rhubarb')
