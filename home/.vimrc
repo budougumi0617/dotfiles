@@ -42,6 +42,9 @@ if dein#load_state(s:plugin_dir)
     call dein#add('andymass/vim-matchup')
     call dein#add('easymotion/vim-easymotion')
 
+    " For CSV
+    call dein#add('chrisbra/csv.vim')
+
     " For Git
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-rhubarb')
@@ -56,6 +59,12 @@ if dein#load_state(s:plugin_dir)
     call dein#add('fatih/vim-go')
     call dein#add('SirVer/ultisnips')
     call dein#add('majutsushi/tagbar')
+
+    call dein#add('prabirshrestha/async.vim')
+    call dein#add('prabirshrestha/vim-lsp')
+    call dein#add('prabirshrestha/asyncomplete.vim')
+    call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+    call dein#add('natebosch/vim-lsc')
 
     " For Elixir
     call dein#add('elixir-lang/vim-elixir')
@@ -455,7 +464,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 
 " Neocomplete for golang
-let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
+"let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 
 " Syntax highlight for javascript library
 let g:used_javascript_libs = 'flux'
@@ -463,6 +472,28 @@ let g:used_javascript_libs = 'flux'
 set autowrite
 
 " For Golang
+
+" Disabled vim-go gocode mapping
+let g:go_def_mapping_enabled = 0
+let g:go_gocode_propose_builtins = 0
+
+nnoremap <buffer> <silent> gd :LspDefinition<cr>
+nnoremap <buffer> <silent> <C-]> :LspDefinition<cr>
+nnoremap <buffer> <silent> <C-t> <C-O><cr>
+
+let g:lsp_async_completion = 1
+if executable('golsp')
+  augroup LspGo
+    au!
+    autocmd User lsp_setup call lsp#register_server({
+        \ 'name': 'go-lang',
+        \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
+        \ 'whitelist': ['go'],
+        \ })
+    autocmd FileType go setlocal omnifunc=lsp#complete
+  augroup END
+endif
+
 " ビルドエラー時のクイックフィックスを順に移動する。
 " <leader>は上の方で変更してある。
 map <C-n> :cnext<CR>
