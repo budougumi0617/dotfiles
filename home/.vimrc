@@ -616,10 +616,7 @@ command! FZFFileList call fzf#run({
 " Files command with preview
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-nnoremap <C-p> :GitFiles<CR>
-" GitFiles command with preview
-command! -bang -nargs=? -complete=dir GitFiles
-  \ call fzf#vim#gitfiles(<q-args>, fzf#vim#with_preview('right'), <bang>0)
+nnoremap <C-p> :GFiles<CR>
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
