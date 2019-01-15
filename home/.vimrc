@@ -472,6 +472,8 @@ let g:used_javascript_libs = 'flux'
 set autowrite
 
 " For Golang
+" Need golsp
+" go get -u golang.org/x/tools/cmd/golsp
 
 " Disabled vim-go gocode mapping
 let g:go_def_mapping_enabled = 0
