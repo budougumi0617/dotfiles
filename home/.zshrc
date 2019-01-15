@@ -325,3 +325,10 @@ alias psf='(){ ps -eo pid,ppid,pgid,sig,sigmask,nsigs,command |egrep "COMMAND|$1
 # Alias for translate
 # Required https://github.com/soimort/translate-shell
 alias tja='trans :ja'
+
+# For Python
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$HOME/.local/bin:$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
