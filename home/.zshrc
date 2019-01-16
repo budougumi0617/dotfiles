@@ -245,10 +245,11 @@ if [ -e "$HOME/.rbenv" ]; then
     eval "$(rbenv init - zsh)"
 fi
 
-# Load ndenv
-if [ -e "$HOME/.ndenv" ]; then
-    export PATH="$HOME/.ndenv/shims:$PATH"
-    eval "$(ndenv init - zsh)"
+# Load nodenv
+if [ -e "$HOME/.nodenv" ]; then
+    export PATH="$HOME/.nodenv/bin:$PATH"
+    export PATH="$HOME/.nodenv/shims:$PATH"
+    eval "$(nodenv init - zsh)"
 fi
 
 # Set GOPATH for Go
