@@ -472,8 +472,8 @@ let g:used_javascript_libs = 'flux'
 set autowrite
 
 " For Golang
-" Need golsp
-" go get -u golang.org/x/tools/cmd/golsp
+" Need gopls
+" go get -u golang.org/x/tools/cmd/gopls
 
 " Disabled vim-go gocode mapping
 let g:go_def_mapping_enabled = 0
@@ -483,17 +483,12 @@ nnoremap <buffer> <silent> gd :LspDefinition<cr>
 nnoremap <buffer> <silent> <C-]> :LspDefinition<cr>
 nnoremap <buffer> <silent> <C-t> <C-O><cr>
 
-let g:lsp_async_completion = 1
-if executable('golsp')
-  augroup LspGo
-    au!
-    autocmd User lsp_setup call lsp#register_server({
-        \ 'name': 'go-lang',
-        \ 'cmd': {server_info->['golsp', '-mode', 'stdio']},
+if executable('gopls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'gopls',
+        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
         \ 'whitelist': ['go'],
         \ })
-    autocmd FileType go setlocal omnifunc=lsp#complete
-  augroup END
 endif
 
 " ビルドエラー時のクイックフィックスを順に移動する。
