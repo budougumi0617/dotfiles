@@ -479,9 +479,9 @@ set autowrite
 let g:go_def_mapping_enabled = 0
 let g:go_gocode_propose_builtins = 0
 
-nnoremap <buffer> <silent> gd :LspDefinition<cr>
-nnoremap <buffer> <silent> <C-]> :LspDefinition<cr>
-nnoremap <buffer> <silent> <C-t> <C-O><cr>
+nnoremap <silent> gd :LspDefinition<cr>
+nnoremap <silent> <C-]> :LspDefinition<cr>
+nnoremap <silent> <C-t> <C-O><cr>
 
 if executable('gopls')
     au User lsp_setup call lsp#register_server({
