@@ -738,3 +738,13 @@ command! -bang -nargs=* GGrep
   \ call fzf#vim#grep(
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+
+" spell check
+" https://vim-jp.org/vimdoc-ja/spell.html
+" https://qiita.com/maxmellon/items/26fc44bc8e07e5d5926d#%E3%82%B9%E3%83%9A%E3%83%AB%E3%83%81%E3%82%A7%E3%83%83%E3%82%AF%E3%82%92%E3%81%8A%E3%81%93%E3%81%AA%E3%81%86
+" zg Add word
+" z= Search correct word
+set spell
+set spelllang=en,cjk
+hi clear SpellBad
+hi SpellBad cterm=underline
