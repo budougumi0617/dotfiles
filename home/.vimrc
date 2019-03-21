@@ -197,6 +197,7 @@ let Tlist_Exit_OnlyWindow = 1
 
 "color scheme
 syntax on
+set termguicolors
 "---
 set background=dark
 let g:solarized_termcolors=256
@@ -475,21 +476,22 @@ set autowrite
 " Need gopls
 " go get -u golang.org/x/tools/cmd/gopls
 
+let g:go_def_mode = 'gopls'
 " Disabled vim-go gocode mapping
-let g:go_def_mapping_enabled = 0
-let g:go_gocode_propose_builtins = 0
-
-nnoremap <silent> gd :LspDefinition<cr>
-nnoremap <silent> <C-]> :LspDefinition<cr>
-nnoremap <silent> <C-t> <C-O><cr>
-
-if executable('gopls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'gopls',
-        \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-        \ 'whitelist': ['go'],
-        \ })
-endif
+let g:go_def_mapping_enabled = 1
+let g:go_gocode_propose_builtins = 1
+" 
+" nnoremap <silent> gd :LspDefinition<cr>
+" nnoremap <silent> <C-]> :LspDefinition<cr>
+" nnoremap <silent> <C-t> <C-O><cr>
+" 
+" if executable('bingo')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'bingo',
+"         \ 'cmd': {server_info->['bingo', '-mode', 'stdio']},
+"         \ 'whitelist': ['go'],
+"         \ })
+" endif
 
 " ビルドエラー時のクイックフィックスを順に移動する。
 " <leader>は上の方で変更してある。
@@ -748,3 +750,4 @@ set spell
 set spelllang=en,cjk
 hi clear SpellBad
 hi SpellBad cterm=underline
+
