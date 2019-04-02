@@ -199,9 +199,9 @@ let Tlist_Exit_OnlyWindow = 1
 syntax on
 set termguicolors
 "---
-set background=dark
 let g:solarized_termcolors=256
 colorscheme torte
+set background=dark
 "---
 "let g:rehash256 = 1
 "let g:molokai_original = 1
@@ -480,6 +480,8 @@ let g:go_def_mode = 'gopls'
 " Disabled vim-go gocode mapping
 let g:go_def_mapping_enabled = 1
 let g:go_gocode_propose_builtins = 1
+
+let g:go_metalinter_command='golangci-lint'
 " 
 " nnoremap <silent> gd :LspDefinition<cr>
 " nnoremap <silent> <C-]> :LspDefinition<cr>
