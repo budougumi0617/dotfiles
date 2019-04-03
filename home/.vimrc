@@ -24,9 +24,17 @@ if dein#load_state(s:plugin_dir)
 
     " Install plugins.
     call dein#add('Shougo/dein.vim')
-    call dein#add('Shougo/neocomplete.vim')
+    " Use deoplete.
+    " Need execute below.
+    " $pip3 install --upgrade neovim
+    call dein#add('Shougo/deoplete.nvim')
+    if !has('nvim')
+      call dein#add('roxma/nvim-yarp')
+      call dein#add('roxma/vim-hug-neovim-rpc')
+    endif
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
+
     call dein#add('itchyny/lightline.vim')
     call dein#add('nathanaelkane/vim-indent-guides')
     call dein#add('Yggdroot/indentLine')
@@ -60,11 +68,11 @@ if dein#load_state(s:plugin_dir)
     call dein#add('SirVer/ultisnips')
     call dein#add('majutsushi/tagbar')
 
-    call dein#add('prabirshrestha/async.vim')
-    call dein#add('prabirshrestha/vim-lsp')
-    call dein#add('prabirshrestha/asyncomplete.vim')
-    call dein#add('prabirshrestha/asyncomplete-lsp.vim')
-    call dein#add('natebosch/vim-lsc')
+    " call dein#add('prabirshrestha/async.vim')
+    " call dein#add('prabirshrestha/vim-lsp')
+    " call dein#add('prabirshrestha/asyncomplete.vim')
+    " call dein#add('prabirshrestha/asyncomplete-lsp.vim')
+    " call dein#add('natebosch/vim-lsc')
 
     " For Elixir
     call dein#add('elixir-lang/vim-elixir')
@@ -344,6 +352,33 @@ set nobackup
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 let g:NERDTreeShowHidden=1
 
+" Use deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:deoplete#sources#syntax#min_keyword_length = 1
+let g:deoplete#sources#omni#min_keyword_length = 1
+
+" Define dictionary.
+let g:deoplete#sources#dictionary#dictionaries = {
+            \ 'default' : '',
+            \ 'vimshell' : $HOME.'/.vimshell_hist',
+            \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
+
+" Define keyword.
+if !exists('g:deoplete#keyword_patterns')
+    let g:deoplete#keyword_patterns = {}
+endif
+let g:deoplete#keyword_patterns['default'] = '\h\w*'
+"Enable golang autocompletion
+if !exists('g:deoplete#sources#omni#input_patterns')
+  let g:deoplete#sources#omni#input_patterns = {}
+endif
+let g:deoplete#sources#omni#input_patterns.go = '\h\w\.\w*'
+
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -391,42 +426,6 @@ nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 ":vimgrep、:grep、:Ggrepで自動的にquickfix-windowを開く
 autocmd QuickFixCmdPost *grep* cwindow
 
-" For neocomplete
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#sources#omni#min_keyword_length = 3
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-            \ 'default' : '',
-            \ 'vimshell' : $HOME.'/.vimshell_hist',
-            \ 'scheme' : $HOME.'/.gosh_completions'
-            \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-"Enable golang autocompletion
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g> neocomplete#undo_completion()
-inoremap <expr><C-l> neocomplete#complete_common_string()
-
-" 補完候補が表示されている場合は確定。そうでない場合は改行
-inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
-
 " Recommended key-mappings.
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -438,19 +437,8 @@ endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Close popup by <Space>.
 inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -458,14 +446,6 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-" Neocomplete for golang
-"let g:neocomplete#sources#omni#input_patterns.go = '\h\w\.\w*'
 
 " Syntax highlight for javascript library
 let g:used_javascript_libs = 'flux'
@@ -476,12 +456,12 @@ set autowrite
 " Need gopls
 " go get -u golang.org/x/tools/cmd/gopls
 
-let g:go_def_mode = 'gopls'
+ let g:go_def_mode = 'gopls'
 " Disabled vim-go gocode mapping
 let g:go_def_mapping_enabled = 1
-let g:go_gocode_propose_builtins = 1
+" let g:go_gocode_propose_builtins = 1
 
-let g:go_metalinter_command='golangci-lint'
+" let g:go_metalinter_command='golangci-lint'
 " 
 " nnoremap <silent> gd :LspDefinition<cr>
 " nnoremap <silent> <C-]> :LspDefinition<cr>
