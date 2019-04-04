@@ -356,7 +356,7 @@ let g:NERDTreeShowHidden=1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_delay = 0
 " Use smartcase.
-let g:neocomplete#enable_smart_case = 1
+let g:deoplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:deoplete#sources#syntax#min_keyword_length = 1
 let g:deoplete#sources#omni#min_keyword_length = 1
@@ -368,16 +368,11 @@ let g:deoplete#sources#dictionary#dictionaries = {
             \ 'scheme' : $HOME.'/.gosh_completions'
             \ }
 
-" Define keyword.
-if !exists('g:deoplete#keyword_patterns')
-    let g:deoplete#keyword_patterns = {}
-endif
-let g:deoplete#keyword_patterns['default'] = '\h\w*'
 "Enable golang autocompletion
-if !exists('g:deoplete#sources#omni#input_patterns')
-  let g:deoplete#sources#omni#input_patterns = {}
-endif
-let g:deoplete#sources#omni#input_patterns.go = '\h\w\.\w*'
+call deoplete#custom#var('omni', 'input_patterns', {
+    \ 'go': '[A-Za-z_]\w\.\w*'
+    \})
+
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
