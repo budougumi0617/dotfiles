@@ -367,6 +367,26 @@ let g:deoplete#sources#dictionary#dictionaries = {
             \ 'vimshell' : $HOME.'/.vimshell_hist',
             \ 'scheme' : $HOME.'/.gosh_completions'
             \ }
+let s:default_ignore_sources = ['around', 'dictionary', 'member', 'omni', 'tag']
+let s:deoplete_custom_option = {
+      \ 'auto_complete': v:true,
+      \ 'auto_complete_delay': 0,
+      \ 'auto_refresh_delay': 20,
+      \ 'camel_case': v:true,
+      \ 'delimiters': ['/'],
+      \ 'ignore_case': v:true,
+      \ 'max_list': 1000,
+      \ 'min_pattern_length': 1,
+      \ 'num_processes': 0,
+      \ 'on_insert_enter': v:true,
+      \ 'on_text_changed_i': v:true,
+      \ 'prev_completion_mode': 'filter',
+      \ 'refresh_always': v:true,
+      \ 'skip_multibyte': v:true,
+      \ 'skip_chars': ['(', ')'],
+      \ 'smart_case': v:true,
+      \ }
+call deoplete#custom#option(s:deoplete_custom_option)
 
 "Enable golang autocompletion
 call deoplete#custom#var('omni', 'input_patterns', {
