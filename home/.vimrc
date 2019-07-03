@@ -63,7 +63,7 @@ if dein#load_state(s:plugin_dir)
     call dein#add('Shougo/neomru.vim')
     call dein#add('ujihisa/unite-colorscheme', {'depends' : 'Shougo/unite.vim'})
 
-    " For Golang.
+    " For Go.
     call dein#add('fatih/vim-go')
     call dein#add('SirVer/ultisnips')
     call dein#add('majutsushi/tagbar')
@@ -96,6 +96,9 @@ if dein#load_state(s:plugin_dir)
 
     " For JavaScript, Rust
     call dein#add('w0rp/ale', {'on_ft' : ['javascript', 'javascript.jsx', 'rust']})
+
+    " For terraform
+    call dein#add('hashivim/vim-terraform')
 
     " End dein.vim settings.
     call dein#end()
