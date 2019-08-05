@@ -290,6 +290,11 @@ if [ $commands[kubectl] ]; then
     source <(kubectl completion zsh)
 fi
 
+# Use Helm completion
+if [ $commands[helm] ]; then
+    source <(helm completion zsh)
+fi
+
 # For kubectl
 alias kc='kubectl'
 alias kcgp='kubectl get pod -o wide'
