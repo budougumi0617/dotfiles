@@ -20,6 +20,7 @@
   submit = codereview submit
   sync = codereview sync
   review = "!f(){ git fetch -f upstream pull/$1/head:review;};f"
+  stl = !git stash list | fzf --preview 'echo {} | grep -o stash@{.*} | xargs git stash show -p --color=always' --height 90% | grep -o stash@{.*}
 [core]
   autoCRLF = false
   excludesfile = ~/.gitignore_global
