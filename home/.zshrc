@@ -1,3 +1,12 @@
+
+### Added by Zplugin's installer
+# https://github.com/zdharma/zplugin#installation
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+source "$HOME/.zsh/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+
+### End of Zplugin's installer chunk
 # Start of powerlevel9k settings.
 # See also https://github.com/Falkor/dotfiles/blob/master/oh-my-zsh/
 # Font taken from https://github.com/stefano-meschiari/dotemacs/blob/master/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf
@@ -41,13 +50,6 @@ POWERLEVEL9K_STATUS_VERBOSE=false
 export DEFAULT_USER="$USER"
 # End of powerlevel9k settings.
 
-if [[ ! -d ~/.zplug ]];then
-    git clone https://github.com/zplug/zplug ~/.zplug
-fi
-
-source ~/.zplug/init.zsh
-
-
 # enhancd config
 export ENHANCD_COMMAND=ed
 export ENHANCD_FILTER=ENHANCD_FILTER=fzy:fzf:peco
@@ -60,51 +62,32 @@ load_if_exists () {
 }
 
 # Vanilla shell
-zplug "yous/vanilli.sh"
+zplugin load yous/vanilli.sh
 
 # Additional completion definitions for Zsh
-zplug "zsh-users/zsh-completions"
+zplugin ice wait'!0'; zplugin load zsh-users/zsh-completions
 
 # Load the theme.
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplugin load bhilburn/powerlevel9k
 
 # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
 # excuting compinit command and sourcing other plugins.
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+# brew install zsh-syntax-highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ZSH port of Fish shell's history search feature
-zplug "zsh-users/zsh-history-substring-search", defer:2
+zplugin load zsh-users/zsh-history-substring-search
 
 # Tracks your most used directories, based on 'frecency'.
-# zplug "rupa/z", use:"*.sh"
+# zplugin load rupa/z
 
 
 # This plugin adds many useful aliases and functions.
-zplug "plugins/git",   from:oh-my-zsh
-zplug "plugins/golang",   from:oh-my-zsh
-# zplug "plugins/npm",   from:oh-my-zsh
-# zplug "plugins/postgres",   from:oh-my-zsh
-# zplug "plugins/gem",   from:oh-my-zsh
-# zplug "plugins/rails",   from:oh-my-zsh
-# zplug "plugins/ruby",   from:oh-my-zsh
-# zplug "plugins/rbenv",   from:oh-my-zsh
-# zplug "plugins/sudo",   from:oh-my-zsh
-# zplug "plugins/tig",   from:oh-my-zsh
-# zplug "plugins/bundle",   from:oh-my-zsh
-# zplug "plugins/brew",   from:oh-my-zsh
-# zplug "plugins/docker",   from:oh-my-zsh
-# zplug "plugins/cp",   from:oh-my-zsh
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load --verbose
+zplugin ice wait'!0'; zplugin snippet OMZ::plugins/git/git.plugin.zsh
+zplugin ice wait'!0'; zplugin snippet OMZ::plugins/golang/golang.plugin.zsh
+zplugin ice wait'!0'; zplugin snippet OMZ::plugins/tig/tig.plugin.zsh
+zplugin ice wait'!0'; zplugin snippet OMZ::plugins/docker/_docker
+zplugin ice wait'!0'; zplugin snippet OMZ::plugins/cp/cp.plugin.zsh
 
 #なるべくbashの設定を使う
 source ~/.bashrc
