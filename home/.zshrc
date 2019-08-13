@@ -70,6 +70,8 @@ zplugin ice wait'!0'; zplugin load zsh-users/zsh-completions
 # Load the theme.
 zplugin load bhilburn/powerlevel9k
 
+autoload -Uz compinit
+compinit
 # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
 # excuting compinit command and sourcing other plugins.
 # brew install zsh-syntax-highlighting
