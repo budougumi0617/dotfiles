@@ -100,6 +100,8 @@ if dein#load_state(s:plugin_dir)
     " For terraform
     call dein#add('hashivim/vim-terraform')
 
+    call dein#add('towolf/vim-helm')
+
     " End dein.vim settings.
     call dein#end()
     call dein#save_state()
