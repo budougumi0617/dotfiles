@@ -1,4 +1,3 @@
-
 ### Added by Zplugin's installer
 # https://github.com/zdharma/zplugin#installation
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
@@ -62,13 +61,13 @@ load_if_exists () {
 }
 
 # Vanilla shell
-zplugin load yous/vanilli.sh
+zplugin light yous/vanilli.sh
 
 # Additional completion definitions for Zsh
-zplugin ice wait'!0'; zplugin load zsh-users/zsh-completions
+zplugin ice wait'!0'; zplugin light zsh-users/zsh-completions
 
 # Load the theme.
-zplugin load bhilburn/powerlevel9k
+zplugin light bhilburn/powerlevel9k
 
 autoload -Uz compinit
 compinit
@@ -78,7 +77,7 @@ compinit
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ZSH port of Fish shell's history search feature
-zplugin load zsh-users/zsh-history-substring-search
+zplugin light zsh-users/zsh-history-substring-search
 
 # Tracks your most used directories, based on 'frecency'.
 # zplugin load rupa/z
@@ -265,20 +264,36 @@ eval "$(direnv hook zsh)"
 
 # For gcloud setting
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
+  source "$HOME/google-cloud-sdk/path.zsh.inc";
+fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
+  zplugin ice wait'0'; source "$HOME/google-cloud-sdk/completion.zsh.inc";
+fi
 
 # Use kubectl completion
-if [ $commands[kubectl] ]; then
-    source <(kubectl completion zsh)
-fi
+function kubectl () {
+  local kubectl="$(whence -p kubectl 2> /dev/null)"
+  [ -z "$_lazy_kubectl_completion" ] && {
+    echo "\e[31m$0 completion zsh\e[0m" > /dev/stderr
+    source <("$kubectl" completion zsh)
+    _lazy_kubectl_completion=1
+  }
+  "$kubectl" "$@"
+}
 
 # Use Helm completion
-if [ $commands[helm] ]; then
-    source <(helm completion zsh)
-fi
+function helm () {
+  local helm="$(whence -p helm 2> /dev/null)"
+  [ -z "$_lazy_helm_completion" ] && {
+    echo "\e[31m$0 completion zsh\e[0m" > /dev/stderr
+    source <("$helm" completion zsh)
+    _lazy_helm_completion=1
+  }
+  "$helm" "$@"
+}
 
 # For kubectl
 alias kc='kubectl'
