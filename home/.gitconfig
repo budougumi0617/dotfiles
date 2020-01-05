@@ -51,3 +51,7 @@
   allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [include]
   path = .gitconfig.local
+[web]
+    browser = open
+[browser "chrome"]
+    cmd = open -a 'Google Chrome.app'

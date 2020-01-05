@@ -175,6 +175,8 @@ function git(){hub "$@"}
 # Peco setting
 
 # Peco with ghq to move repositories.
+alias gh='ghq look $(ghq list | peco)'
+
 function peco-src () {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
@@ -312,7 +314,7 @@ bindkey '^R' peco-history-selection
 alias ll='ls -n'
 
 # Remove no longer needed local branches
-alias gbm='git branch --merged | grep -vE '\''^\*|master$|develop$'\'' | xargs -I % git branch -d %'
+alias gbm='git branch --merged | grep -vE '\''^\*|master$|develop$|development$'\'' | xargs -I % git branch -d %'
 
 # Set PATH to coomand installed by npm
 export PATH=$PATH:`npm bin -g`
@@ -338,3 +340,6 @@ export PATH="$HOME/.local/bin:$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+# Useful alias
+alias fcd='cd $(fd . --full-path ${HOME} -t d | fzf)'
