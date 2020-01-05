@@ -174,9 +174,6 @@ function git(){hub "$@"}
 
 # Peco setting
 
-# Peco with ghq to move repositories.
-alias gh='ghq look $(ghq list | peco)'
-
 function peco-src () {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
