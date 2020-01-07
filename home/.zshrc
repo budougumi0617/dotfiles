@@ -175,7 +175,7 @@ function git(){hub "$@"}
 # Peco setting
 
 function peco-src () {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    local selected_dir=$(ghq list --full-path | peco --initial-filter=Fuzzy)
     if [ -n "$selected_dir" ]; then
         selected_dir="$selected_dir"
         BUFFER="cd ${selected_dir}"
@@ -188,7 +188,7 @@ bindkey '^]' peco-src
 
 # Peco with godoc to show go documentation.
 function peco-godoc() {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    local selected_dir=$(ghq list --full-path | peco --initial-filter=Fuzzy)
     if [ -n "$selected_dir" ]; then
         if [ ! -n "$PAGER" ]; then
             PAGER=less
