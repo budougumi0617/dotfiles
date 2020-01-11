@@ -175,10 +175,10 @@ function git(){hub "$@"}
 # Peco setting
 
 function peco-src () {
-    local selected_dir=$(ghq list --full-path | peco --initial-filter=Fuzzy)
-    if [ -n "$selected_dir" ]; then
-        selected_dir="$selected_dir"
-        BUFFER="cd ${selected_dir}"
+    local repo=$(ghq list | peco --query "$LBUFFER" --initial-filter=Fuzzy)
+    if [ -n "$repo" ]; then
+        repo=$(ghq list --full-path --exact $repo)
+        BUFFER="cd ${repo}"
         zle accept-line
     fi
     zle clear-screen
