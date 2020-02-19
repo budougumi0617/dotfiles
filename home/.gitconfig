@@ -55,3 +55,5 @@
     browser = open
 [browser "chrome"]
     cmd = open -a 'Google Chrome.app'
+[rebase]
+	autostash = true
