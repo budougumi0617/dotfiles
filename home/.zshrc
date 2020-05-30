@@ -340,3 +340,4 @@ fi
 
 # Useful alias
 alias fcd='cd $(fd . --full-path ${HOME} -t d | fzf)'
+alias tf=terraform
