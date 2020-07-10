@@ -264,6 +264,7 @@ call denite#custom#var('grep', 'final_opts', [])
 "      \ 'args': [['a.vim', 'b.vim'], '', 'pattern']}])
 
 " Change default action. use floating
+" TODO: vim8だとpopupで開かない
 let s:denite_win_width_percent = 0.5
 let s:denite_win_height_percent = 0.3
 let s:denite_default_options = {
@@ -272,3 +273,40 @@ let s:denite_default_options = {
     \ 'start_filter': v:true,
     \ }
 call denite#custom#option('default', s:denite_default_options)
+
+" <Space>m でカーソル下の単語、もしくは選択した範囲のハイライトを行う
+" 再度 <Space>m を行うとカーソル下のハイライトを解除する
+" これは複数の単語のハイライトを行う事もできる
+" <Space>M で全てのハイライトを解除する
+nmap <Space>m <Plug>(quickhl-manual-this)
+xmap <Space>m <Plug>(quickhl-manual-this)
+nmap <Space>M <Plug>(quickhl-manual-reset)
+xmap <Space>M <Plug>(quickhl-manual-reset)
+
+"vim[grep]用
+" :vim[grep] {pattern} {file} ...
+" ワイルドカードは**(アスタリスク2つ)
+" :vim {pattern} `git ls-files ./**/*.go`
+" gitでindexされているファイルのみを対象にする。
+" 前へ :cnext Goの設定のほうでしてある。
+" 次へ :cprevious Goの設定のほうでしてある。
+nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+
+":vimgrep、:grep、:Ggrepで自動的にquickfix-windowを開く
+autocmd QuickFixCmdPost *grep* cwindow
+
+" For Git setting
+" http://wakame.hatenablog.jp/entry/2017/05/03/222511
+" http://myenigma.hatenablog.com/entry/2016/07/10/084048
+nnoremap [fugitive]  <Nop>
+nmap <space>g [fugitive]
+nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
+nnoremap <silent> [fugitive]a :Gwrite<CR>
+" 開いたgit画面でコミットするファイルを-で変更できる。その後Cを押すとコミットメッセージ画面になる
+nnoremap <silent> [fugitive]c :Gcommit-v<CR>
+" blame画面を閉じるときは<C-C>
+nnoremap <silent> [fugitive]b :Gblame<CR>
+" <C-W> <C-O>でカレントウインドウ以外を閉じる
+nnoremap <silent> [fugitive]d :Gdiff<CR>
+nnoremap <silent> [fugitive]m :Gmerge<CR>
