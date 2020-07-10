@@ -13,6 +13,12 @@ if = 'isdirectory("/usr/local/opt/fzf")'
 repo = '~/.fzf'
 if = 'isdirectory(expand("~/.fzf"))'
 
+#####################
+#  Utilities
+#####################
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
 
 #####################
 #  For Git

@@ -18,6 +18,14 @@ endif
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
+  " TODO: TOMLでif文がよくわからない
+  " Need pip3 install --user pynvim
+  call dein#add('Shougo/denite.nvim')
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
+
   " .toml file
   let s:rc_dir = expand('~/.vim')
   if !isdirectory(s:rc_dir)
@@ -195,3 +203,72 @@ set spell
 set spelllang=en,cjk
 hi clear SpellBad
 hi SpellBad cterm=underline
+
+set wildmode=list:longest "タブ補完モード
+
+" Open file tree.
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+let g:NERDTreeShowHidden=1
+
+" Use deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+" Use smartcase.
+let g:deoplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:deoplete#sources#syntax#min_keyword_length = 1
+let g:deoplete#sources#omni#min_keyword_length = 1
+
+
+" Denite
+" バッファ一覧
+nnoremap <silent> <leader>ub :<C-u>Denite buffer<CR>
+nnoremap <silent> <leader>uf :<C-u>Denite file/rec<CR>
+nnoremap <silent> <leader>ug :<C-u>Denite grep<CR>
+nnoremap <silent> <leader>ul :<C-u>Denite line<CR>
+
+" Define mappings
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
+
+
+" ref: https://zaief.jp/vim/denite
+" Change file/rec command.
+call denite#custom#var('file/rec', 'command',
+\ ['rg', '--files', '--glob', '!.git'])
+
+" Ripgrep command on grep source
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts',
+    \ ['-i', '--vimgrep', '--no-heading'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" Specify multiple paths in grep source
+"call denite#start([{'name': 'grep',
+"      \ 'args': [['a.vim', 'b.vim'], '', 'pattern']}])
+
+" Change default action. use floating
+let s:denite_win_width_percent = 0.5
+let s:denite_win_height_percent = 0.3
+let s:denite_default_options = {
+    \ 'previewpopup': v:true,
+    \ 'prompt': '$ ',
+    \ 'start_filter': v:true,
+    \ }
+call denite#custom#option('default', s:denite_default_options)
