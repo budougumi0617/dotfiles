@@ -1,0 +1,58 @@
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = '/usr/local/opt/fzf'
+
+[[plugins]]
+repo = '/usr/local/opt/fzf'
+if = 'isdirectory("/usr/local/opt/fzf")'
+
+[[plugins]]
+repo = '~/.fzf'
+if = 'isdirectory(expand("~/.fzf"))'
+
+#####################
+#  Utilities
+#####################
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+
+#####################
+#  For Git
+#####################
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+
+#####################
+#  For vim-lsp settings
+#####################
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+#####################
+# For Go
+#####################
+[[plugins]]
+repo = 'mattn/vim-goimports'
