@@ -32,6 +32,8 @@ repo = 'tpope/vim-rhubarb'
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
 
 #####################
 #  For vim-lsp settings
@@ -69,3 +71,16 @@ repo = 'thomasfaingnaert/vim-lsp-ultisnips'
 #####################
 [[plugins]]
 repo = 'mattn/vim-goimports'
+
+#####################
+# For Visual
+# need font settings
+# brew tap homebrew/cask-fonts
+# brew cask install font-hack-nerd-font
+# terminal setting https://qiita.com/arks22/items/9688ec7f4cb43444e9d9#%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3
+#####################
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
