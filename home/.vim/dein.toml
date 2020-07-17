@@ -72,6 +72,9 @@ repo = 'thomasfaingnaert/vim-lsp-ultisnips'
 [[plugins]]
 repo = 'mattn/vim-goimports'
 
+[[plugins]]
+repo = 'buoto/gotests-vim'
+
 #####################
 # For Visual
 # need font settings
