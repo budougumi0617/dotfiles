@@ -87,3 +87,10 @@ repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
+
+# For test
+[[plugins]]
+repo = 'vim-test/vim-test'
+
+[[plugins]]
+repo = 'tpope/vim-dispatch'
