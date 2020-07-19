@@ -25,6 +25,9 @@ if dein#load_state(s:dein_dir)
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
+    " for vim-delve
+    call dein#add('Shougo/vimshell.vim')
+    call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   endif
 
   " .toml file
@@ -492,3 +495,10 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+
+function! DebugNearest()
+  let g:test#go#runner = 'delve'
+  TestNearest
+  unlet g:test#go#runner
+endfunction
+nmap <silent> t<C-d> :call DebugNearest()<CR>

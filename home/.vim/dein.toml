@@ -75,6 +75,9 @@ repo = 'mattn/vim-goimports'
 [[plugins]]
 repo = 'buoto/gotests-vim'
 
+[[plugins]]
+repo = 'sebdah/vim-delve'
+
 #####################
 # For Visual
 # need font settings
