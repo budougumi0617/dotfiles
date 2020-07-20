@@ -506,3 +506,11 @@ function! DebugNearest()
   unlet g:test#go#runner
 endfunction
 nmap <silent> t<C-d> :call DebugNearest()<CR>
+
+" popup window color
+" https://qiita.com/TatchNicolas/items/92c03df6ca82e7374469
+" number color: http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
+" gui color name: http://fugal.net/vim/rgbtxt.html
+hi Pmenu ctermbg=8 ctermfg=1 guifg=blue3 guibg=gray
+hi PmenuSel ctermbg=13 ctermfg=1
+hi SignColumn guibg=RoyalBlue
