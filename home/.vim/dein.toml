@@ -103,3 +103,5 @@ repo = 'vim-test/vim-test'
 [[plugins]]
 repo = 'tpope/vim-dispatch'
 
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
