@@ -328,6 +328,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 " For Git setting
 " http://wakame.hatenablog.jp/entry/2017/05/03/222511
 " http://myenigma.hatenablog.com/entry/2016/07/10/084048
+" https://woodyzootopia.github.io/2019/04/vim%E3%81%A7git%E3%82%82%E7%88%86%E9%80%9F%E7%B7%A8%E9%9B%86/
 nnoremap [fugitive]  <Nop>
 nmap <space>g [fugitive]
 nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
@@ -340,6 +341,9 @@ nnoremap <silent> [fugitive]b :Gblame<CR>
 nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]m :Gmerge<CR>
 
+hi GitGutterAdd    guifg=#009900 ctermfg=2
+hi GitGutterChange guifg=#bbbb00 ctermfg=3
+hi GitGutterDelete guifg=#ff2222 ctermfg=1
 
 " defx settings
 " https://github.com/Shougo/defx.nvim/blob/ea3563894e4a705bccc18094573105e21db203ec/doc/defx.txt#L737
