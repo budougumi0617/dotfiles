@@ -65,6 +65,11 @@ repo = 'thomasfaingnaert/vim-lsp-snippets'
 [[plugins]]
 repo = 'thomasfaingnaert/vim-lsp-ultisnips'
 
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
 
 #####################
 # For Go
@@ -97,3 +102,4 @@ repo = 'vim-test/vim-test'
 
 [[plugins]]
 repo = 'tpope/vim-dispatch'
+
