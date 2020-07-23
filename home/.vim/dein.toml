@@ -17,9 +17,6 @@ if = 'isdirectory(expand("~/.fzf"))'
 #  Utilities
 #####################
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-
-[[plugins]]
 repo = 'Shougo/defx.nvim'
 
 [[plugins]]
