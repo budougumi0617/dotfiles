@@ -20,8 +20,6 @@ if dein#load_state(s:dein_dir)
 
   " TODO: TOMLでif文がよくわからない
   " Need pip3 install --user pynvim
-  call dein#add('Shougo/denite.nvim')
-  call dein#add('Shougo/defx.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')

@@ -19,6 +19,11 @@ if = 'isdirectory(expand("~/.fzf"))'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
 
 #####################
 #  For Git
