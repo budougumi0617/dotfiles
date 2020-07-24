@@ -41,9 +41,6 @@ repo = 'kristijanhusak/defx-git'
 #  For vim-lsp settings
 #####################
 [[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
 
 [[plugins]]
