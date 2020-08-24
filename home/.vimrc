@@ -526,3 +526,9 @@ nmap <silent> t<C-d> :call DebugNearest()<CR>
 hi Pmenu ctermbg=8 ctermfg=1 guifg=blue3 guibg=gray
 hi PmenuSel ctermbg=13 ctermfg=1
 hi SignColumn guibg=RoyalBlue
+
+" For markdown
+" need binary of https://github.com/MichaelMure/mdr
+let g:preview_markdown_vertical=1
+let g:preview_markdown_auto_update=1
+

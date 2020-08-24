@@ -104,3 +104,7 @@ repo = 'tpope/vim-dispatch'
 
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
+
+# For markdown
+[[plugins]]
+repo = 'skanehira/preview-markdown.vim'
