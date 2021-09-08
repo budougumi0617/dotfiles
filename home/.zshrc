@@ -311,7 +311,7 @@ bindkey '^R' peco-history-selection
 alias ll='ls -n'
 
 # Remove no longer needed local branches
-alias gbm='git branch --merged | grep -vE '\''^\*|master$|develop$|development$'\'' | xargs -I % git branch -d %'
+alias gbm='git branch --merged | grep -vE '\''^\*|main$|master$|develop$|development$'\'' | xargs -I % git branch -d %'
 
 # Set PATH to coomand installed by npm
 export PATH=$PATH:`npm bin -g`
