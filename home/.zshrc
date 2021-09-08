@@ -341,3 +341,11 @@ fi
 # Useful alias
 alias fcd='cd $(fd . --full-path ${HOME} -t d | fzf)'
 alias tf=terraform
+alias lzd='lazydocker'
+
+# How to use bookmarks in bash/zsh
+# https://threkk.medium.com/how-to-use-bookmarks-in-bash-zsh-6b8074e40774
+if [ -d "$HOME/.bookmarks" ]; then
+    export CDPATH=".:$HOME/.bookmarks:/"
+    alias goto="cd -P"
+fi
