@@ -1,11 +1,26 @@
-### Added by Zplugin's installer
-# https://github.com/zdharma/zplugin#installation
-# sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
-source "$HOME/.zsh/.zplugin/bin/zplugin.zsh"
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
 
-### End of Zplugin's installer chunk
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+
 # Start of powerlevel9k settings.
 # See also https://github.com/Falkor/dotfiles/blob/master/oh-my-zsh/
 # Font taken from https://github.com/stefano-meschiari/dotemacs/blob/master/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf
@@ -61,13 +76,13 @@ load_if_exists () {
 }
 
 # Vanilla shell
-zplugin light yous/vanilli.sh
+zinit light yous/vanilli.sh
 
 # Additional completion definitions for Zsh
-zplugin ice wait'!0'; zplugin light zsh-users/zsh-completions
+zinit ice wait'!0'; zinit light zsh-users/zsh-completions
 
 # Load the theme.
-zplugin light bhilburn/powerlevel9k
+zinit light bhilburn/powerlevel9k
 
 autoload -Uz compinit
 compinit
@@ -77,18 +92,18 @@ compinit
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ZSH port of Fish shell's history search feature
-zplugin light zsh-users/zsh-history-substring-search
+zinit light zsh-users/zsh-history-substring-search
 
 # Tracks your most used directories, based on 'frecency'.
-# zplugin load rupa/z
+# zinit load rupa/z
 
 
 # This plugin adds many useful aliases and functions.
-zplugin ice wait'!0'; zplugin snippet OMZ::plugins/git/git.plugin.zsh
-zplugin ice wait'!0'; zplugin snippet OMZ::plugins/golang/golang.plugin.zsh
-zplugin ice wait'!0'; zplugin snippet OMZ::plugins/tig/tig.plugin.zsh
-zplugin ice wait'!0'; zplugin snippet OMZ::plugins/docker/_docker
-zplugin ice wait'!0'; zplugin snippet OMZ::plugins/cp/cp.plugin.zsh
+zinit ice wait'!0'; zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit ice wait'!0'; zinit snippet OMZ::plugins/golang/golang.plugin.zsh
+zinit ice wait'!0'; zinit snippet OMZ::plugins/tig/tig.plugin.zsh
+zinit ice wait'!0'; zinit snippet OMZ::plugins/docker/_docker
+zinit ice wait'!0'; zinit snippet OMZ::plugins/cp/cp.plugin.zsh
 
 #なるべくbashの設定を使う
 source ~/.bashrc
@@ -268,7 +283,7 @@ fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
-  zplugin ice wait'0'; source "$HOME/google-cloud-sdk/completion.zsh.inc";
+  zinit ice wait'0'; source "$HOME/google-cloud-sdk/completion.zsh.inc";
 fi
 
 # Use kubectl completion
