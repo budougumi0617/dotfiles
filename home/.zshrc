@@ -100,7 +100,6 @@ zinit light zsh-users/zsh-history-substring-search
 
 # This plugin adds many useful aliases and functions.
 zinit ice wait'!0'; zinit snippet OMZ::plugins/git/git.plugin.zsh
-zinit ice wait'!0'; zinit snippet OMZ::plugins/golang/golang.plugin.zsh
 zinit ice wait'!0'; zinit snippet OMZ::plugins/tig/tig.plugin.zsh
 zinit ice wait'!0'; zinit snippet OMZ::plugins/docker/_docker
 zinit ice wait'!0'; zinit snippet OMZ::plugins/cp/cp.plugin.zsh
@@ -155,7 +154,8 @@ zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
 zstyle ':completion:*:options' description 'yes'
 
 # ブランチ情報を取得するときはhubコマンドでなく、直接gitコマンドを利用する
-zstyle ':vcs_info:git:*:-all-' command /usr/bin/git
+# zstyle ':vcs_info:git:*:-all-' command /usr/bin/git
+# function git(){hub "$@"}
 
 ### History ###
 HISTFILE=~/.zsh_history   # ヒストリを保存するファイル
@@ -185,7 +185,6 @@ export GVM_DIR="/Users/budougumi0617/.gvm"
 # added by travis gem
 [ -f /Users/budougumi0617/.travis/travis.sh ] && source /Users/budougumi0617/.travis/travis.sh
 
-function git(){hub "$@"}
 
 # Peco setting
 
