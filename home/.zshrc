@@ -241,6 +241,11 @@ if [ -d "/opt/homebrew/bin" ]; then
     export PATH="/opt/homebrew/bin:$PATH"
 fi
 
+# Load anyenv
+if [ -e "$HOME/.anyenv" ]; then
+    eval "$(anyenv init -)"
+fi
+
 # Load rbenv
 if [ -e "$HOME/.rbenv" ]; then
     export PATH="$HOME/.rbenv/shims:$PATH"
