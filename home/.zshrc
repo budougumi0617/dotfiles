@@ -173,9 +173,9 @@ function history-all { history -E 1 }
 # Other Settings
 # ------------------------------
 # cdコマンド実行後、lsを実行する
-function cd() {
-   builtin cd $@ && ls;
-}
+# function cd() {
+#    builtin cd $@ && ls;
+# }
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
