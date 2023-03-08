@@ -236,6 +236,11 @@ load_if_exists "$HOME/.iterm2_shell_integration.zsh"
 
 eval $(/usr/libexec/path_helper -s)
 
+# for homebrew
+if [ -d "/opt/homebrew/bin" ]; then
+    export PATH="/opt/homebrew/bin:$PATH"
+fi
+
 # Load rbenv
 if [ -e "$HOME/.rbenv" ]; then
     export PATH="$HOME/.rbenv/shims:$PATH"
@@ -358,9 +363,4 @@ alias lzd='lazydocker'
 if [ -d "$HOME/.bookmarks" ]; then
     export CDPATH=".:$HOME/.bookmarks:/"
     alias goto="cd -P"
-fi
-
-# for homebrew
-if [ -d "/opt/homebrew/bin" ]; then
-    export PATH="/opt/homebrew/bin:$PATH"
 fi
