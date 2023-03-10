@@ -17,4 +17,5 @@ cd $HOME/.homesick/repos/dotfiles
 git submodule init
 git submodule update
 homeshick symlink dotfiles
+brew bundle --file=~/.Brewfile
 ````
