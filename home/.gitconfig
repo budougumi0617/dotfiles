@@ -57,3 +57,5 @@
     cmd = open -a 'Google Chrome.app'
 [rebase]
 	autostash = true
+[fetch]
+	prune = true

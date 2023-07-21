@@ -20,6 +20,7 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
+export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
 
 # Start of powerlevel9k settings.
 # See also https://github.com/Falkor/dotfiles/blob/master/oh-my-zsh/
@@ -169,6 +170,11 @@ setopt hist_reduce_blanks # 余分なスペースを削除してヒストリに�
 # 全履歴を一覧表示する
 function history-all { history -E 1 }
 
+# fzf-tmux
+# https://zenn.dev/eetann/articles/2022-03-19-fzf-tmux-popup
+export FZF_TMUX=1
+export FZF_TMUX_OPTS="-p 80%"
+
 # ------------------------------
 # Other Settings
 # ------------------------------
@@ -252,6 +258,11 @@ if [ -e "$HOME/.rbenv" ]; then
     eval "$(rbenv init - zsh)"
 fi
 
+# Add gem PATH
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
 # Load nodenv
 if [ -e "$HOME/.nodenv" ]; then
     export PATH="$HOME/.nodenv/bin:$PATH"
@@ -325,6 +336,7 @@ alias kcgp='kubectl get pod -o wide'
 # Try highlight, coderay, rougify in turn, then fall back to cat
 export FZF_DEFAULT_OPTS="--height 60% --preview 'head -100 {}'"
 # CTRL-T - Paste the selected files and directories onto the command line
+# 事前に $(brew --prefix)/opt/fzf/install をする必要があり。
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Use peco only history command
@@ -362,6 +374,7 @@ fi
 alias fcd='cd $(fd . --full-path ${HOME} -t d | fzf)'
 alias tf=terraform
 alias lzd='lazydocker'
+alias pullall='ls -1 | while read repo; do (cd $repo; echo $repo; git pull); done'
 
 # How to use bookmarks in bash/zsh
 # https://threkk.medium.com/how-to-use-bookmarks-in-bash-zsh-6b8074e40774
