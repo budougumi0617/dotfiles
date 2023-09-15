@@ -25,45 +25,45 @@ export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
 # Start of powerlevel9k settings.
 # See also https://github.com/Falkor/dotfiles/blob/master/oh-my-zsh/
 # Font taken from https://github.com/stefano-meschiari/dotemacs/blob/master/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf
-POWERLEVEL9K_MODE='awesome-patched'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# Disable dir/git icons
-POWERLEVEL9K_HOME_ICON=''
-POWERLEVEL9K_HOME_SUB_ICON=''
-POWERLEVEL9K_FOLDER_ICON=''
+# POWERLEVEL9K_MODE='awesome-patched'
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# # Disable dir/git icons
+# POWERLEVEL9K_HOME_ICON=''
+# POWERLEVEL9K_HOME_SUB_ICON=''
+# POWERLEVEL9K_FOLDER_ICON=''
 
-DISABLE_AUTO_TITLE="true"
+# DISABLE_AUTO_TITLE="true"
 
-# Color for directory path
-POWERLEVEL9K_DIR_HOME_FOREGROUND="255"
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="255"
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="255"
+# # Color for directory path
+# POWERLEVEL9K_DIR_HOME_FOREGROUND="255"
+# POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="255"
+# POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="255"
 
-POWERLEVEL9K_VCS_GIT_ICON=''
-POWERLEVEL9K_VCS_STAGED_ICON='\u00b1'
-POWERLEVEL9K_VCS_UNTRACKED_ICON='\u25CF'
-POWERLEVEL9K_VCS_UNSTAGED_ICON='\u00b1'
-POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
-POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
+# POWERLEVEL9K_VCS_GIT_ICON=''
+# POWERLEVEL9K_VCS_STAGED_ICON='\u00b1'
+# POWERLEVEL9K_VCS_UNTRACKED_ICON='\u25CF'
+# POWERLEVEL9K_VCS_UNSTAGED_ICON='\u00b1'
+# POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
+# POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
 
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
-#POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
+# POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
+# POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
+# #POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status os_icon context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(rbenv)#background_jobs virtualenv rbenv rvm time)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status os_icon context dir)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(rbenv)#background_jobs virtualenv rbenv rvm time)
 
 
-# How to show current directory path.
-# https://github.com/bhilburn/powerlevel9k/blob/master/README.md#dir
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+# # How to show current directory path.
+# # https://github.com/bhilburn/powerlevel9k/blob/master/README.md#dir
+# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uE868  %y/%m/%d}"
+# POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uE868  %y/%m/%d}"
 
-POWERLEVEL9K_STATUS_VERBOSE=false
-export DEFAULT_USER="$USER"
-# End of powerlevel9k settings.
+# POWERLEVEL9K_STATUS_VERBOSE=false
+# export DEFAULT_USER="$USER"
+# # End of powerlevel9k settings.
 
 # enhancd config
 export ENHANCD_COMMAND=ed
@@ -83,7 +83,7 @@ zinit light yous/vanilli.sh
 zinit ice wait'!0'; zinit light zsh-users/zsh-completions
 
 # Load the theme.
-zinit light bhilburn/powerlevel9k
+# zinit light bhilburn/powerlevel9k
 
 autoload -Uz compinit
 compinit
@@ -382,3 +382,8 @@ if [ -d "$HOME/.bookmarks" ]; then
     export CDPATH=".:$HOME/.bookmarks:/"
     alias goto="cd -P"
 fi
+
+# https://starship.rs/ja-JP/guide
+eval "$(starship init zsh)"
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
