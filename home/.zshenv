@@ -20,3 +20,4 @@ bindkey "^[[4~" end-of-line
 if [ -d ${HOME}/node_modules/.bin ]; then
     export PATH=${PATH}:${HOME}/node_modules/.bin
 fi
+. "$HOME/.cargo/env"
