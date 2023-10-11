@@ -20,7 +20,6 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
-export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
 
 # Start of powerlevel9k settings.
 # See also https://github.com/Falkor/dotfiles/blob/master/oh-my-zsh/
@@ -387,3 +386,5 @@ fi
 eval "$(starship init zsh)"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+export PATH="$(brew --prefix)/opt/openssl/bin:$PATH"
+export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
