@@ -6,10 +6,12 @@ return {
         "gopls",
         "goimports",
         "gofumpt",
+        "delve",
         "shellcheck",
         "shfmt",
         "tailwindcss-language-server",
         "typescript-language-server",
+        "vue-language-server",
         "css-lsp",
         -- debbbuger for Rust
         "codelldb",
