@@ -11,6 +11,8 @@ local opt = vim.opt
 opt.relativenumber = false
 -- 折返し表示を有効化
 opt.wrap = true
+-- バッククオートなどはそのまま表示する
+opt.conceallevel = 0
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
