@@ -21,3 +21,8 @@ set wrap
 
 " macOSのクリップボードにコピーする
 set clipboard+=unnamed
+
+" "\"から<leader>を変更
+let mapleader = "\<Space>"
+" GoLandではテストの再実行がRerunTestsではなく、Rerunのようだ
+map <leader>r <Action>(Rerun)
