@@ -1,5 +1,4 @@
-dotfiles
-========
+# dotfiles
 
 My setting files
 
@@ -7,7 +6,7 @@ My setting files
 
 ## How To Use This Repository
 
-````zsh
+```zsh
 git clone https://github.com/andsens/homeshick.git $HOME/.homesick/repos/homeshick
 printf '\nsource "$HOME/.homesick/repos/homeshick/homeshick.sh"' >> $HOME/.bashrc
 printf '\nsource "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"' >> $HOME/.bashrc
@@ -18,4 +17,4 @@ git submodule init
 git submodule update
 homeshick symlink dotfiles
 brew bundle --file=~/.Brewfile
-````
+```
