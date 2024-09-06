@@ -1,0 +1,33 @@
+# What protocol to use when performing git operations. Supported values: ssh, https
+git_protocol: https
+# What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
+editor:
+# When to interactively prompt. This is a global config that cannot be overridden by hostname. Supported values: enabled, disabled
+prompt: enabled
+# A pager program to send command output to, e.g. "less". Set the value to "cat" to disable the pager.
+pager:
+# Aliases allow you to create nicknames for gh commands
+aliases:
+  co: pr checkout
+  open: repo view --web
+  prv: pr view -w
+  prc: pr create
+  prcw: pr create --web
+  daily-report: |-
+    api graphql -f query="query {
+    search(first: 100, type: ISSUE, query: \"author:@me is:pr merged:$1\") {
+        nodes { ... on PullRequest { title, url, repository { name } } }
+      }
+    }" --jq ".data.search.nodes | map({ title: .title, url: .url, repo: .repository.name }) | group_by(.repo)[] | \"- \\(.[0].repo)\\n\" + (map(\"  - [\\(.title)](\\(.url))\") | join(\"\\n\"))"
+  weekly-report: |-
+    api graphql -f query="query {
+        search(first: 100, type: ISSUE, query: \"author:@me is:pr merged:>=$1\") {
+            nodes { ... on PullRequest { title, url, repository { name } } }
+          }
+        }" --jq ".data.search.nodes | map({ title: .title, url: .url, repo: .repository.name }) | group_by(.repo)[] | \"- \\(.[0].repo)\\n\" + (map(\"  - [\\(.title)](\\(.url))\") | join(\"\\n\"))"
+# The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
+http_unix_socket:
+# What web browser gh should use when opening URLs. If blank, will refer to environment.
+browser:
+co: pr checkout
+version: "1"
