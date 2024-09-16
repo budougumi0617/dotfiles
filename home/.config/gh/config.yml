@@ -11,8 +11,7 @@ aliases:
   co: pr checkout
   open: repo view --web
   prv: pr view -w
-  prc: pr create
-  prcw: pr create --web
+  prc: pr create --web
   daily-report: |-
     api graphql -f query="query {
     search(first: 100, type: ISSUE, query: \"author:@me is:pr merged:$1\") {
