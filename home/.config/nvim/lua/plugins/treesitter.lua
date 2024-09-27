@@ -10,6 +10,7 @@ return {
         "tsx",
         "typescript",
         "yaml",
+        "go",
       },
     },
   },
