@@ -1,0 +1,19 @@
+{
+    "Use256Color": true,
+    "Style": {
+        "Basic": [
+            "on_default",
+            "default"
+        ],
+        "Selected": [
+            "underline",
+            "on_cyan",
+            "black"
+        ],
+        "Matched": [
+            "bold",
+            "on_white",
+            "black"
+        ]
+    }
+}
