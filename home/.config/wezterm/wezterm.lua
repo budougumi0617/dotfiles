@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local event = require("event")
 local config = wezterm.config_builder()
 
 config.automatically_reload_config = true
