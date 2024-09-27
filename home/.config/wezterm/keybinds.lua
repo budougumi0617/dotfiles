@@ -48,11 +48,15 @@ return {
         end),
       }),
     },
+    -- change font size
+    { key = "f", mods = "SHIFT|CTRL", action = act.EmitEvent("toggle-font-size") },
     -- コマンドパレット表示
     { key = "p", mods = "SUPER", action = act.ActivateCommandPalette },
     -- Tab移動
     { key = "{", mods = "SHIFT|SUPER", action = act.ActivateTabRelative(-1) },
     { key = "}", mods = "SHIFT|SUPER", action = act.ActivateTabRelative(1) },
+    { key = "p", mods = "LEADER", action = act.ActivateTabRelative(-1) },
+    { key = "n", mods = "LEADER", action = act.ActivateTabRelative(1) },
 
     -- Tab入れ替え
     -- { key = "{", mods = "LEADER", action = act({ MoveTabRelative = -1 }) },
