@@ -10,7 +10,6 @@ return {
         "shellcheck",
         "shfmt",
         "tailwindcss-language-server",
-        "typescript-language-server",
         "css-lsp",
         "graphql-language-service-cli",
       })
