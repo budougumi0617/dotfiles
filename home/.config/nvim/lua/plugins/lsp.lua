@@ -12,6 +12,7 @@ return {
         "tailwindcss-language-server",
         "css-lsp",
         "graphql-language-service-cli",
+        "golangci-lint",
       })
     end,
   },
