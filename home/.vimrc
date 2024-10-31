@@ -21,11 +21,11 @@ if dein#load_state(s:dein_dir)
   " TODO: TOMLでif文がよくわからない
   " Need pip3 install --user pynvim
   if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
+""    call dein#add('roxma/nvim-yarp')
+""    call dein#add('roxma/vim-hug-neovim-rpc')
     " for vim-delve
-    call dein#add('Shougo/vimshell.vim')
-    call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
+""    call dein#add('Shougo/vimshell.vim')
+""    call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
   endif
 
   " .toml file
@@ -136,9 +136,9 @@ let g:lsp_settings['gopls'] = {
   \}
 
 " For snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<tab>"
+" let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 set completeopt+=menuone
 

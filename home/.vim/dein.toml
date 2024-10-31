@@ -48,8 +48,8 @@ repo = 'prabirshrestha/vim-lsp'
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 
-[[plugins]]
-repo = 'SirVer/ultisnips'
+# [[plugins]]
+# repo = 'SirVer/ultisnips'
 
 [[plugins]]
 repo = 'honza/vim-snippets'
@@ -57,8 +57,8 @@ repo = 'honza/vim-snippets'
 [[plugins]]
 repo = 'thomasfaingnaert/vim-lsp-snippets'
 
-[[plugins]]
-repo = 'thomasfaingnaert/vim-lsp-ultisnips'
+# [[plugins]]
+# repo = 'thomasfaingnaert/vim-lsp-ultisnips'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
