@@ -293,10 +293,6 @@ alias tmuxx="tmux -2 attach || tmux -2 new-session \; source-file ~/.tmux/new-se
 
 # envrc
 eval "$(direnv hook zsh)"
-# Sst Devbox
-if command -v devbox &> /dev/null; then
-  eval "$(devbox global shellenv)"
-fi
 
 # For gcloud setting
 # The next line updates PATH for the Google Cloud SDK.
@@ -394,3 +390,9 @@ eval "$(starship init zsh)"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="$(brew --prefix)/opt/openssl/bin:$PATH"
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
+
+# Sst Devbox
+if command -v devbox &> /dev/null; then
+  eval "$(devbox global shellenv)"
+fi
+
