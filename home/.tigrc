@@ -1,4 +1,4 @@
 bind main    B !git rebase -i %(commit)
 bind diff    B !git rebase -i %(commit)
 bind status C !git commit -v
-set diff-highlight = true
+set diff-highlight = false
