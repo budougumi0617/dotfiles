@@ -12,6 +12,8 @@ local opt = vim.opt
 -- 折返し表示を有効化
 opt.wrap = true
 
+opt.spelllang = { "en", "cjk" }
+
 -- Undercurl
 -- 波線を正しく表示する
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
