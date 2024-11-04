@@ -17,6 +17,10 @@ return {
 
     -- see below for full list of optional dependencies 👇
   },
+  keys = {
+    { "<leader>oc", "<cmd>ObsidianToday<cr>", mode = { "n", "v" }, desc = "Open today note" },
+    { "<leader>ot", "<cmd>ObsidianTags<cr>", mode = { "n", "v" }, desc = "Open tag list" },
+  },
   opts = {
     workspaces = {
       {
@@ -330,4 +334,3 @@ return {
     },
   },
 }
-
