@@ -20,6 +20,9 @@ return {
   keys = {
     { "<leader>oc", "<cmd>ObsidianToday<cr>", mode = { "n", "v" }, desc = "Open today note" },
     { "<leader>ot", "<cmd>ObsidianTags<cr>", mode = { "n", "v" }, desc = "Open tag list" },
+    { "<leader>ox", "<cmd>ObsidianToggleCheckbox<cr>", mode = { "n", "v" }, desc = "Toggle checkbox" },
+    { "<leader>op", "<cmd>ObsidianYesterday<cr>", mode = { "n", "v" }, desc = "Open yesterday note" },
+    { "<leader>on", "<cmd>ObsidianTomorrow<cr>", mode = { "n", "v" }, desc = "Open tomorrow note" },
   },
   opts = {
     workspaces = {
