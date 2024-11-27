@@ -26,3 +26,14 @@ set clipboard+=unnamed
 let mapleader = "\<Space>"
 " GoLandではテストの再実行がRerunTestsではなく、Rerunのようだ
 map <leader>r <Action>(Rerun)
+
+" マウスホバーしたときの情報を表示する
+" ref: https://zenn.dev/sdb_blog/articles/003-idea_with_vim
+nmap <leader>k <Action>(ShowHoverInfo)
+
+" インタフェースの実装に移動する
+nmap gi <Action>(GotoImplementation)
+
+" ファイル内のエラー箇所にジャンプする"
+nmap [q <Action>(GotoPreviousError)
+nmap ]q <Action>(GotoNextError)
