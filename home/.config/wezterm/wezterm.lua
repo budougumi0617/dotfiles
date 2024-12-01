@@ -15,8 +15,8 @@ config.use_ime = true
 config.use_cap_height_to_scale_fallback_fonts = true
 -- config.color_scheme = "Catppuccin Mocha"
 config.color_scheme = "Dracula (Official)"
-config.window_background_opacity = 0.85
-config.macos_window_background_blur = 20
+config.window_background_opacity = 0.75
+config.macos_window_background_blur = 15
 
 ----------------------------------------------------
 -- Tab
