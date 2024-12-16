@@ -34,6 +34,10 @@ nmap <leader>k <Action>(ShowHoverInfo)
 " インタフェースの実装に移動する
 nmap gi <Action>(GotoImplementation)
 
-" ファイル内のエラー箇所にジャンプする"
+" ファイル内のエラー箇所にジャンプする
 nmap [q <Action>(GotoPreviousError)
 nmap ]q <Action>(GotoNextError)
+
+" ファイル内の変更箇所にジャンプする
+nmap [c <Action>(VcsShowPrevChangeMarker)
+nmap ]c <Action>(VcsShowNextChangeMarker)
