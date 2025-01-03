@@ -13,7 +13,7 @@ return {
         "css-lsp",
         "graphql-language-service-cli",
         "golangci-lint",
-        "rust_analyzer",
+        "rust-analyzer",
       })
     end,
   },
