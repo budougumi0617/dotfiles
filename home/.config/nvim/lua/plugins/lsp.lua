@@ -13,17 +13,27 @@ return {
         "css-lsp",
         "graphql-language-service-cli",
         "golangci-lint",
+        "rust_analyzer",
       })
     end,
   },
-  -- NOTE: custom key config
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = function()
-  --     local keys = require("lazyvim.plugins.lsp.keymaps").get()
-  --     -- add a keymap
-  --     keys[#keys + 1] = { "H", "<cmd>echo 'hello'<cr>" }
-  --   end,
-  -- }
+  {
+    "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
+    opts = {
+      ---@type lspconfig.options
+      servers = {
+        rust_analyzer = {
+          settings = {
+            ["rust-analyzer"] = {
+              -- checkOnSave で clippy を自動実行
+              checkOnSave = {
+                command = "clippy", -- ここを 'clippy' にすると保存時に自動実行
+              },
+            },
+          },
+        },
+      },
+    },
+  },
 }
-
