@@ -4,6 +4,10 @@ if vim.g.vscode == 1 then
   -- https://zenn.dev/r57ty7/articles/accd3014e22366
   local opt = vim.opt
   opt.clipboard = "unnamedplus" -- yankでクリップボードに
+
+  opt.spelllang = { "en", "cjk" }
+  opt.ignorecase = true
+  opt.smartcase = true
   return
 end
 
