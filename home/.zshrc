@@ -381,8 +381,16 @@ export PATH="$(brew --prefix)/opt/openssl/bin:$PATH"
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 
 # Set Aqua
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG="$HOME/.config/aquaproj-aqua/aqua_private.yaml:$HOME/.config/aquaproj-aqua/aqua.yaml"
 export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm-global
 export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
+export PATH="$(aqua root-dir)/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/yoichiro.shimizu/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
