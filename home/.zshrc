@@ -246,10 +246,6 @@ if [ -d "/opt/homebrew/bin" ]; then
     export PATH="/opt/homebrew/bin:$PATH"
 fi
 
-# Load anyenv
-if [ -e "$HOME/.anyenv" ]; then
-    eval "$(anyenv init -)"
-fi
 
 # Load rbenv
 if [ -e "$HOME/.rbenv" ]; then
@@ -260,13 +256,6 @@ fi
 # Add gem PATH
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
-# Load nodenv
-if [ -e "$HOME/.nodenv" ]; then
-    export PATH="$HOME/.nodenv/bin:$PATH"
-    export PATH="$HOME/.nodenv/shims:$PATH"
-    eval "$(nodenv init - zsh)"
 fi
 
 # Set GOPATH for Go
@@ -391,8 +380,9 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="$(brew --prefix)/opt/openssl/bin:$PATH"
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 
-# Sst Devbox
-if command -v devbox &> /dev/null; then
-  eval "$(devbox global shellenv)"
-fi
+# Set Aqua
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
+export AQUA_GLOBAL_CONFIG="$HOME/.config/aquaproj-aqua/aqua_private.yaml:$HOME/.config/aquaproj-aqua/aqua.yaml"
+export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm-global
+export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 

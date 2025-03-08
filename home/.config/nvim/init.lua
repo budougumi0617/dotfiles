@@ -8,6 +8,20 @@ if vim.g.vscode == 1 then
   opt.spelllang = { "en", "cjk" }
   opt.ignorecase = true
   opt.smartcase = true
+
+  if vim.fn.has("mac") == 1 then
+    opt.ttimeoutlen = 1
+    local imeoff = 'osascript -e "tell application \\"System Events\\" to key code 102"'
+
+    local group = vim.api.nvim_create_augroup("MyIMEGroup", { clear = true })
+
+    vim.api.nvim_create_autocmd("InsertLeave", {
+      group = group,
+      callback = function()
+        vim.fn.system(imeoff)
+      end,
+    })
+  end
   return
 end
 
