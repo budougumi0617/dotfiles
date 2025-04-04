@@ -10,7 +10,9 @@ config.font = wezterm.font_with_fallback({
   "Symbols Nerd Font",
   "Apple Color Emoji",
 })
-config.font_size = 15.0
+config.font_size = 12.0
+config.initial_cols = 150
+config.initial_rows = 60
 config.use_ime = true
 config.use_cap_height_to_scale_fallback_fonts = true
 -- config.color_scheme = "Catppuccin Mocha"
