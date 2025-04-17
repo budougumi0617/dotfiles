@@ -8,3 +8,6 @@ vim-go-test-compile
 .vscode/
 .python-version
 .env.org
+
+# for AIツール
+memory-bank/
