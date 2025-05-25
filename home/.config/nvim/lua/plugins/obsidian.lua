@@ -42,6 +42,7 @@ return {
     -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
     -- 'workspaces'. For example:
     -- dir = "~/vaults/work",
+
     -- Optional, if you keep notes in a specific subdirectory of your vault.
     notes_subdir = "00_tips",
     -- Optional, set the log level for obsidian.nvim. This is an integer corresponding to one of the log
