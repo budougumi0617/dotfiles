@@ -8,14 +8,15 @@ return {
     -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
     -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
     -- refer to `:h file-pattern` for more examples
-    "BufReadPre " .. vim.fn.expand "~" .. "budougumi0617/memo/*.md",
-    "BufNewFile " .. vim.fn.expand "~" .. "budougumi0617/memo/*.md",
+    "BufReadPre " .. vim.fn.expand "~" .. "/vaults/**/*.md",
+    "BufNewFile " .. vim.fn.expand "~" .. "/vaults/**/*.md",
   },
   dependencies = {
     -- Required.
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
 
+    "MeanderingProgrammer/render-markdown.nvim",
     -- see below for full list of optional dependencies 👇
   },
   keys = {
@@ -29,11 +30,14 @@ return {
     workspaces = {
       {
         name = "memo",
-        path = "~/go/src/github.com/budougumi0617/memo",
+        path = "~/vaults/memo",
       },
       {
-        name = "note",
-        path = "~/go/src/github.com/budougumi0617/til/note",
+        name = "pkm",
+        path = "~/vaults/pkm",
+        overrides = {
+          notes_subdir = "01-fleetings"
+        },
       },
     },
     -- Alternatively - and for backwards compatibility - you can set 'dir' to a single path instead of
