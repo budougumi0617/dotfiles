@@ -22,7 +22,6 @@ return {
   keys = {
     { "<leader>oc", "<cmd>ObsidianToday<cr>", mode = { "n", "v" }, desc = "Open today note" },
     { "<leader>ot", "<cmd>ObsidianTags<cr>", mode = { "n", "v" }, desc = "Open tag list" },
-    { "<leader>ox", "<cmd>ObsidianToggleCheckbox<cr>", mode = { "n", "v" }, desc = "Toggle checkbox" },
     { "<leader>op", "<cmd>ObsidianYesterday<cr>", mode = { "n", "v" }, desc = "Open yesterday note" },
     { "<leader>on", "<cmd>ObsidianTomorrow<cr>", mode = { "n", "v" }, desc = "Open tomorrow note" },
   },
@@ -85,7 +84,7 @@ return {
         action = function()
           return require("obsidian").util.toggle_checkbox()
         end,
-        opts = { buffer = true },
+        opts = { buffer = true, desc = "Toggle checkbox" },
       },
       -- Smart action depending on context, either follow link or toggle checkbox.
       ["<cr>"] = {
