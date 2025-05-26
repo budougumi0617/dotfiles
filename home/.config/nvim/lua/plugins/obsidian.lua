@@ -17,6 +17,7 @@ return {
     -- Required.
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
+    "ibhagwan/fzf-lua",
 
     "MeanderingProgrammer/render-markdown.nvim",
     -- see below for full list of optional dependencies 👇
@@ -37,7 +38,7 @@ return {
         name = "pkm",
         path = "~/vaults/budougumi0617/pkm",
         overrides = {
-          notes_subdir = "01-fleetings",
+          notes_subdir = "01_fleetings",
         },
       },
     },
