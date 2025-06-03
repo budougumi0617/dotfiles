@@ -66,7 +66,7 @@ return {
     { key = "w", mods = "SUPER", action = act({ CloseCurrentTab = { confirm = true } }) },
 
     -- 画面フルスクリーン切り替え
-    { key = "Enter", mods = "ALT", action = act.ToggleFullScreen },
+    -- { key = "Enter", mods = "ALT", action = act.ToggleFullScreen },
 
     -- コピーモード
     -- { key = 'X', mods = 'LEADER', action = act.ActivateKeyTable{ name = 'copy_mode', one_shot =false }, },
@@ -119,6 +119,8 @@ return {
       mods = "LEADER",
       action = act.ActivateKeyTable({ name = "activate_pane", timeout_milliseconds = 1000 }),
     },
+    -- Claude Codeで改行できるようにする
+    { key = "Enter", mods = "SHIFT", action = wezterm.action.SendString("\n") },
   },
   -- キーテーブル
   -- https://wezfurlong.org/wezterm/config/key-tables.html
