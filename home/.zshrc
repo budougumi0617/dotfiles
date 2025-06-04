@@ -386,3 +386,31 @@ export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm-global
 export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 export PATH="$(aqua root-dir)/bin:$PATH"
 
+# wezterm settings
+# https://blog.gripdev.xyz/2025/01/08/wezterm-easily-copy-text-or-send-notifications-to-local-machine-even-when-connected-via-ssh/
+#
+# Send a notification with wezterm use like `do think && weznot "think is done"`
+function weznot() {
+    title=$1
+    printf "\033]1337;SetUserVar=%s=%s\007" wez_not $(echo -n "$title" | base64 -w 0)
+}
+
+# Pipeline content to the clipboard `echo "hello" | wezcopy`
+function wezcopy() {
+    clip_stuff=$(cat)
+    printf "\033]1337;SetUserVar=%s=%s\007" wez_copy $(echo -n "$clip_stuff" | base64 -w 0)
+}
+
+function wezmon() {
+    command=$*
+
+    eval $command
+
+    last_exit_code=$?
+    if [ $last_exit_code -eq 0 ]; then
+        weznot "✅ '$command' completed successfully"
+    else
+        weznot "❌ '$command' failed"
+    fi
+}
+
