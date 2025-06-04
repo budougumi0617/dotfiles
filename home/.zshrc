@@ -393,12 +393,14 @@ export PATH="$(aqua root-dir)/bin:$PATH"
 function weznot() {
     title=$1
     printf "\033]1337;SetUserVar=%s=%s\007" wez_not $(echo -n "$title" | base64 -w 0)
+    afplay /System/Library/Sounds/Glass.aiff
 }
 
 # Pipeline content to the clipboard `echo "hello" | wezcopy`
 function wezcopy() {
     clip_stuff=$(cat)
     printf "\033]1337;SetUserVar=%s=%s\007" wez_copy $(echo -n "$clip_stuff" | base64 -w 0)
+    afplay /System/Library/Sounds/Glass.aiff
 }
 
 function wezmon() {
