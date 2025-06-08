@@ -1,20 +1,21 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    // https://aquaproj.github.io/docs/guides/renovate/
-    "github>aquaproj/aqua-renovate-config#2.8.1(home/\\.config/aquaproj-aqua/aqua\\.*\\.yaml)"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
+    'github>aquaproj/aqua-renovate-config#2.8.1(home/\\.config/aquaproj-aqua/aqua\\.*\\.yaml)',
   ],
-  "labels": [
-    "dependencies",
-    "renovate",
+  labels: [
+    'dependencies',
+    'renovate',
   ],
-  // "automerge": true,
-  // "platformAutomerge": true,
-  "packageRules": [
+  packageRules: [
     {
-      "matchPackageNames": ["aquaproj/aqua-registry"],
-      "extends": ["schedule:earlyMondays"]
-    }
-  ]
+      matchPackageNames: [
+        'aquaproj/aqua-registry',
+      ],
+      extends: [
+        'schedule:earlyMondays',
+      ],
+    },
+  ],
 }
