@@ -14,7 +14,7 @@ packages:
   - name: nodejs/node@v24.1.0
   - name: BurntSushi/ripgrep@14.1.1
   - name: gohugoio/hugo@v0.145.0
-  - name: junegunn/fzf@v0.60.3
+  - name: junegunn/fzf@v0.62.0
   - name: jqlang/jq@jq-1.8.0
   - name: x-motemen/ghq@v1.8.0
   - name: jesseduffield/lazygit@v0.48.0
