@@ -8,6 +8,8 @@
     'dependencies',
     'renovate',
   ],
+  automerge: true,
+  platformAutomerge: true,
   packageRules: [
     {
       matchPackageNames: [
