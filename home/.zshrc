@@ -365,6 +365,7 @@ alias n=nvim
 alias lg=lazygit
 alias lzd='lazydocker'
 alias pullall='ls -1 | while read repo; do (cd $repo; echo $repo; git pull); done'
+alias cl='claude'
 
 # How to use bookmarks in bash/zsh
 # https://threkk.medium.com/how-to-use-bookmarks-in-bash-zsh-6b8074e40774
