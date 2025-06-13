@@ -44,14 +44,22 @@ nmap ]c <Action>(VcsShowNextChangeMarker)
 
 
 " map like LSP
-nmap gI <Action>(GotoImplementation)
 nmap gd <Action>(GotoDeclaration)
+nmap gI <Action>(GotoImplementation)
 nmap gD <Action>(GotoDeclarationOnly)
 nmap gy <Action>(GotoTypeDeclaration)
 nmap K <Action>(ShowHoverInfo)
 
+let g:WhichKeyDesc_GotoDefinition      = "gd Goto Definition"
+let g:WhichKeyDesc_GotoImplementaion   = "gI Goto Implementation"
+let g:WhichKeyDesc_GotoDeclationOnly   = "gD Goto Declaration"
+let g:WhichKeyDesc_GotoTypeDeclaration = "gD Goto Declaration"
+let g:WhichKeyDesc_Hover               = "K  Hover"
+
+
 
 set which-key
+
 set notimeout
 
 " リロードコマンド
