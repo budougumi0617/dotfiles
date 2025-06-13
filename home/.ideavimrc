@@ -41,3 +41,18 @@ nmap ]q <Action>(GotoNextError)
 " ファイル内の変更箇所にジャンプする
 nmap [c <Action>(VcsShowPrevChangeMarker)
 nmap ]c <Action>(VcsShowNextChangeMarker)
+
+
+" map like LSP
+nmap gI <Action>(GotoImplementation)
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoDeclarationOnly)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap K <Action>(ShowHoverInfo)
+
+
+set which-key
+set notimeout
+
+" リロードコマンド
+" :action IdeaVim.ReloadVimRc.reload
