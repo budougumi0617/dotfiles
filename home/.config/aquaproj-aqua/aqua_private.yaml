@@ -20,4 +20,4 @@ packages:
   - name: jesseduffield/lazygit@v0.52.0
   - name: cli/cli@v2.76.1
   - name: pnpm/pnpm@v10.13.1
-  - name: suzuki-shunsuke/pinact@v3.3.0
+  - name: suzuki-shunsuke/pinact@v3.3.2
