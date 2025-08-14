@@ -19,6 +19,6 @@ packages:
   - name: x-motemen/ghq@v1.8.0
   - name: jesseduffield/lazygit@v0.54.1
   - name: cli/cli@v2.76.2
-  - name: pnpm/pnpm@v10.13.1
+  - name: pnpm/pnpm@v10.14.0
   - name: suzuki-shunsuke/pinact@v3.3.2
   - name: sharkdp/bat@v0.25.0
