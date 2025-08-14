@@ -22,3 +22,4 @@ packages:
   - name: pnpm/pnpm@v10.13.1
   - name: suzuki-shunsuke/pinact@v3.3.2
   - name: sharkdp/bat@v0.25.0
+  - name: golang/tools/goimports@v0.36.0
