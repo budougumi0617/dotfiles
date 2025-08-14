@@ -381,6 +381,8 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="$(brew --prefix)/opt/openssl/bin:$PATH"
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
 
+export PATH=$HOME/.local/bin:$PATH
+
 # Set Aqua
 export AQUA_GLOBAL_CONFIG="$HOME/.config/aquaproj-aqua/aqua_private.yaml:$HOME/.config/aquaproj-aqua/aqua.yaml"
 export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm-global
