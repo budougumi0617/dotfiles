@@ -24,8 +24,6 @@ set clipboard+=unnamed
 
 " "\"から<leader>を変更
 let mapleader = "\<Space>"
-" GoLandではテストの再実行がRerunTestsではなく、Rerunのようだ
-map <leader>r <Action>(Rerun)
 
 " マウスホバーしたときの情報を表示する
 " ref: https://zenn.dev/sdb_blog/articles/003-idea_with_vim
@@ -35,8 +33,8 @@ nmap <leader>k <Action>(ShowHoverInfo)
 nmap gi <Action>(GotoImplementation)
 
 " ファイル内のエラー箇所にジャンプする
-nmap [q <Action>(GotoPreviousError)
-nmap ]q <Action>(GotoNextError)
+nmap [e <Action>(GotoPreviousError)
+nmap ]e <Action>(GotoNextError)
 
 " ファイル内の変更箇所にジャンプする
 nmap [c <Action>(VcsShowPrevChangeMarker)
@@ -49,12 +47,18 @@ nmap gI <Action>(GotoImplementation)
 nmap gD <Action>(GotoDeclarationOnly)
 nmap gy <Action>(GotoTypeDeclaration)
 nmap K <Action>(ShowHoverInfo)
+nmap <leader>cr <Action>(RenameElement)
+" GoLandではテストの再実行がRerunTestsではなく、Rerunのようだ
+" map <leader>r <Action>(Rerun)
+nmap <leader>r <Action>(RunClass)
 
 let g:WhichKeyDesc_GotoDefinition      = "gd Goto Definition"
 let g:WhichKeyDesc_GotoImplementaion   = "gI Goto Implementation"
 let g:WhichKeyDesc_GotoDeclationOnly   = "gD Goto Declaration"
 let g:WhichKeyDesc_GotoTypeDeclaration = "gD Goto Declaration"
 let g:WhichKeyDesc_Hover               = "K  Hover"
+let g:WhichKeyDesc_RunClass            = "<leader>r RunClass(Run Test)"
+let g:WhichKeyDesc_Rename              = "<leader>cr Rename"
 
 
 
