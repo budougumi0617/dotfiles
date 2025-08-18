@@ -99,7 +99,17 @@ zinit light zsh-users/zsh-history-substring-search
 
 
 # This plugin adds many useful aliases and functions.
-zinit ice wait'!0'; zinit snippet OMZ::plugins/git/git.plugin.zsh
+# jzinit ice wait'!0'; zinit snippet OMZ::plugins/git/git.plugin.zsh
+setup_custom_git_aliases() {
+    # デフォルトを無効化して自分用に設定
+    unalias gbm 2>/dev/null
+    alias gbm='git branch --merged | grep -vE '\''^\*|main$|master$|develop$|development$'\'' | xargs -I % git branch -d %'
+ 
+}
+
+zinit ice wait'!0' atload'setup_custom_git_aliases'
+zinit snippet OMZ::plugins/git/git.plugin.zsh
+
 zinit ice wait'!0'; zinit snippet OMZ::plugins/tig/tig.plugin.zsh
 zinit ice wait'!0'; zinit snippet OMZ::plugins/docker/_docker
 zinit ice wait'!0'; zinit snippet OMZ::plugins/cp/cp.plugin.zsh
@@ -333,6 +343,7 @@ bindkey '^R' peco-history-selection
 # Like Linux command
 alias ll='ls -n'
 
+# oh-my-zshで定義されていて期待しないエイリアスになることがある。
 # Remove no longer needed local branches
 alias gbm='git branch --merged | grep -vE '\''^\*|main$|master$|develop$|development$'\'' | xargs -I % git branch -d %'
 
