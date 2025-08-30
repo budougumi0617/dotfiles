@@ -92,8 +92,8 @@ return {
     { key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
 
     -- フォントサイズ切替
-    { key = "+", mods = "CTRL", action = act.IncreaseFontSize },
-    { key = "-", mods = "CTRL", action = act.DecreaseFontSize },
+    { key = "+", mods = "SUPER", action = act.IncreaseFontSize },
+    { key = "-", mods = "SUPER", action = act.DecreaseFontSize },
     -- フォントサイズのリセット
     { key = "0", mods = "CTRL", action = act.ResetFontSize },
 
