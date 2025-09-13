@@ -8,7 +8,7 @@
 local opt = vim.opt
 
 -- 相対行数の表示を無効化
--- opt.relativenumber = false
+opt.relativenumber = false
 -- 折返し表示を有効化
 opt.wrap = true
 

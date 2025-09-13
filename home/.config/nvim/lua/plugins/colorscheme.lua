@@ -5,6 +5,9 @@ return {
     name = "catppuccin",
     opts = {
       transparent_background = true,
+      custom_highlights = {
+        LineNr = { fg = "#ffffff" },
+      },
       integrations = {
         aerial = true,
         alpha = true,
