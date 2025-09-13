@@ -375,5 +375,8 @@ return {
         return string.format("![%s](%s)", path.name, path)
       end,
     },
+    checkbox = {
+      order = { " ", "x", "~", "!", ">" },
+    },
   },
 }
