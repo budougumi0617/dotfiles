@@ -31,6 +31,23 @@ return {
   opts = {
     workspaces = {
       {
+        name = "citadel",
+        path = "~/vaults/citadel-budougumi0617/obsidian",
+        overrides = {
+          notes_subdir = "01_Daily",
+          daily_notes = {
+            -- Optional, if you keep daily notes in a separate directory.
+            folder = "01_Daily",
+            -- Optional, if you want to change the date format for the ID of daily notes.
+            date_format = "%Y-%m-%d",
+            -- Optional, if you want to change the date format of the default alias of daily notes.
+            alias_format = "%B %-d, %Y",
+            -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+            template = "daily_template.md",
+          },
+        },
+      },
+      {
         name = "memo",
         path = "~/vaults/budougumi0617/memo",
       },
