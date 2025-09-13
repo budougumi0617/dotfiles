@@ -111,7 +111,7 @@ zinit ice wait'!0' atload'setup_custom_git_aliases'
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 
 zinit ice wait'!0'; zinit snippet OMZ::plugins/tig/tig.plugin.zsh
-zinit ice wait'!0'; zinit snippet OMZ::plugins/docker/_docker
+# zinit ice wait'!0'; zinit snippet OMZ::plugins/docker/_docker
 zinit ice wait'!0'; zinit snippet OMZ::plugins/cp/cp.plugin.zsh
 
 #なるべくbashの設定を使う
