@@ -1,0 +1,18 @@
+basePresentationID: "187zO2g7QtayzpDscHK9V2qGua5pMVKd7StP7A79Iyqg"
+breaks: true
+codeBlockToImageCommand: "laminate"
+folderID: "1p3fn5snkDetFGufHHmgU7IofI6JfTiqI"
+
+defaults:
+  # First page should always use title layout
+  - if: page == 1
+    layout: slide-title
+  # Pages with only one title and one H2 heading use section layout
+  - if: titles.size() == 1 && headings[2].size() == 1
+    layout: section-purple
+  # Skip pages with TODO in speaker notes
+  - if: speakerNote.contains("TODO")
+    skip: true
+  # Default layout for all other pages
+  - if: true
+    layout: title-and-body
