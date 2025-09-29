@@ -43,6 +43,7 @@ nmap ]c <Action>(VcsShowNextChangeMarker)
 
 " map like LSP
 nmap gd <Action>(GotoDeclaration)
+nmap gr <Action>(FindUsages)
 nmap gI <Action>(GotoImplementation)
 nmap gD <Action>(GotoDeclarationOnly)
 nmap gy <Action>(GotoTypeDeclaration)
@@ -53,6 +54,7 @@ nmap <leader>cr <Action>(RenameElement)
 nmap <leader>r <Action>(RunClass)
 
 let g:WhichKeyDesc_GotoDefinition      = "gd Goto Definition"
+let g:WhichKeyDesc_FindUsages          = "gr Find Usages"
 let g:WhichKeyDesc_GotoImplementaion   = "gI Goto Implementation"
 let g:WhichKeyDesc_GotoDeclationOnly   = "gD Goto Declaration"
 let g:WhichKeyDesc_GotoTypeDeclaration = "gD Goto Declaration"
