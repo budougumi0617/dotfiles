@@ -2,7 +2,7 @@
   $schema: 'https://docs.renovatebot.com/renovate-schema.json',
   extends: [
     'config:recommended',
-    'github>aquaproj/aqua-renovate-config:file#2.8.2(home/\\.config/aquaproj-aqua/aqua_private\\.yaml)',
+    'github>aquaproj/aqua-renovate-config:file#2.9.0(home/\\.config/aquaproj-aqua/aqua_private\\.yaml)',
   ],
   labels: [
     'dependencies',
