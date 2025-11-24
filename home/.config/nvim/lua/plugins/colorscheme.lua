@@ -2,15 +2,6 @@ return {
   -- workaround to "failed to run config for bufferline.nvim"
   -- https://github.com/LazyVim/LazyVim/issues/6355
   {
-    "akinsho/bufferline.nvim",
-    init = function()
-      local bufline = require("catppuccin.groups.integrations.bufferline")
-      function bufline.get()
-        return bufline.get_theme()
-      end
-    end,
-  },
-  {
     "catppuccin/nvim",
     lazy = true,
     name = "catppuccin",

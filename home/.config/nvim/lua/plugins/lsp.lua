@@ -10,7 +10,7 @@ return {
   },
   -- tools
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
         "stylua",
@@ -21,7 +21,6 @@ return {
         "tailwindcss-language-server",
         "css-lsp",
         "graphql-language-service-cli",
-        "golangci-lint",
         "rust-analyzer",
       })
     end,

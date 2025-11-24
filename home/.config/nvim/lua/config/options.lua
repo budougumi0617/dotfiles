@@ -1,7 +1,6 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
-
 -- Luaによる設定の参考
 -- https://github.com/willelz/nvim-lua-guide-ja/blob/master/README.ja.md
 
