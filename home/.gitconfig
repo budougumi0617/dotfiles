@@ -21,6 +21,8 @@
   sync = codereview sync
   review = "!f(){ git fetch -f upstream pull/$1/head:review;};f"
   stl = !git stash list | fzf --preview 'echo {} | grep -o stash@{.*} | xargs git stash show -p --color=always' --height 90% | grep -o stash@{.*}
+  # https://diary.hatenablog.jp/entry/2025/11/23/233725
+  aicommit = "!f() { COMMITMSG=$(claude -p 'Generate ONLY a one-line Git commit message in Japanese, using imperative mood, summarizing what was changed and why, based strictly on the contents of `git diff --cached`. Do not add explanation or a body. Output only the commit summary line.'); git commit -m \"$COMMITMSG\" -e; }; f"
 [core]
   autoCRLF = false
   excludesfile = ~/.gitignore_global
