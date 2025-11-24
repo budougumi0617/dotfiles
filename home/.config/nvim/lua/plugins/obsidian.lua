@@ -280,9 +280,8 @@ return {
       post_setup = function(client) end,
 
       -- Runs anytime you enter the buffer for a note.
-      ---@param _ obsidian.Client
       ---@param note obsidian.Note
-      enter_note = function(_, note)
+      enter_note = function(note)
         vim.keymap.set("n", "<leader>ch", "<cmd>Obsidian toggle_checkbox<cr>", {
           buffer = note.bufnr,
           desc = "Toggle checkbox",
