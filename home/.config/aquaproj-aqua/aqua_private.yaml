@@ -24,3 +24,4 @@ packages:
   - name: sharkdp/bat@v0.26.0
   - name: golang/tools/goimports@v0.36.0
   - name: golang/go@go1.25.4
+  - name: atuinsh/atuin@v18.10.0
