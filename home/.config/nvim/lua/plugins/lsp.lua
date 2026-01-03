@@ -1,12 +1,16 @@
+local go_to_definition = function()
+  require("overlook.api").peek_definition()
+end
+
 return {
   {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "VeryLazy", -- Or `LspAttach`
     priority = 1000, -- needs to be loaded in first
     config = function()
-        require('tiny-inline-diagnostic').setup()
-        vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
-    end
+      require("tiny-inline-diagnostic").setup()
+      vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
+    end,
   },
   -- tools
   {
@@ -31,6 +35,12 @@ return {
     opts = {
       ---@type lspconfig.options
       servers = {
+        ["*"] = {
+          keys = {
+            -- Change an existing keymap
+            { "gd", go_to_definition, desc = "Go to Definitions" },
+          },
+        },
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {
