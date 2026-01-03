@@ -430,3 +430,7 @@ function wezmon() {
     fi
 }
 
+# どこかでzinitへのaliasが設定されている
+unalias zi
+# A smarter cd command. Supports all major shells.
+eval "$(zoxide init zsh)"

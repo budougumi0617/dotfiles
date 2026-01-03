@@ -26,3 +26,4 @@ packages:
   - name: golang/go@go1.25.4
   - name: atuinsh/atuin@v18.10.0
   - name: jorgerojas26/lazysql@v0.4.3
+  - name: ajeetdsouza/zoxide@v0.9.8
