@@ -27,3 +27,5 @@ packages:
   - name: atuinsh/atuin@v18.10.0
   - name: jorgerojas26/lazysql@v0.4.6
   - name: ajeetdsouza/zoxide@v0.9.8
+  - name: sst/opencode@v1.1.1
+  - name: openai/codex@rust-v0.77.0
