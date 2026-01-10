@@ -336,9 +336,9 @@ fi
 
 # Useful alias
 alias fcd='cd $(fd . --full-path ${HOME} -t d | fzf)'
-alias tf=terraform
-alias n=nvim
-alias lg=lazygit
+alias tf='terraform'
+alias n=n'vim'
+alias lg='lazygit'
 alias lzd='lazydocker'
 alias pullall='ls -1 | while read repo; do (cd $repo; echo $repo; git pull); done'
 alias cl='claude'
