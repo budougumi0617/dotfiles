@@ -29,3 +29,4 @@ packages:
   - name: ajeetdsouza/zoxide@v0.9.8
   - name: sst/opencode@v1.1.1
   - name: openai/codex@rust-v0.77.0
+  - name: starship/starship@v1.24.2
