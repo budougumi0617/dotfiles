@@ -304,32 +304,6 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
   zinit ice wait'0'; source "$HOME/google-cloud-sdk/completion.zsh.inc";
 fi
 
-# Use kubectl completion
-function kubectl () {
-  local kubectl="$(whence -p kubectl 2> /dev/null)"
-  [ -z "$_lazy_kubectl_completion" ] && {
-    echo "\e[31m$0 completion zsh\e[0m" > /dev/stderr
-    source <("$kubectl" completion zsh)
-    _lazy_kubectl_completion=1
-  }
-  "$kubectl" "$@"
-}
-
-# Use Helm completion
-function helm () {
-  local helm="$(whence -p helm 2> /dev/null)"
-  [ -z "$_lazy_helm_completion" ] && {
-    echo "\e[31m$0 completion zsh\e[0m" > /dev/stderr
-    source <("$helm" completion zsh)
-    _lazy_helm_completion=1
-  }
-  "$helm" "$@"
-}
-
-# For kubectl
-alias kc='kubectl'
-alias kcgp='kubectl get pod -o wide'
-
 # For fzf setting
 # Try highlight, coderay, rougify in turn, then fall back to cat
 export FZF_DEFAULT_OPTS="--height 60% --preview 'head -100 {}'"
@@ -349,11 +323,6 @@ alias gbm='git branch --merged | grep -vE '\''^\*|main$|master$|develop$|develop
 
 # Set cargo to PARH for Rust
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# go get -u github.com/mattn/todo
-alias ta='todo add'
-alias tl='todo list'
-alias td='todo done'
 
 # Instead of ps auxf. Show parant PID
 alias psf='(){ ps -eo pid,ppid,pgid,sig,sigmask,nsigs,command |egrep "COMMAND|$1" }'
