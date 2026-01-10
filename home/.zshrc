@@ -197,10 +197,6 @@ export FZF_TMUX_OPTS="-p 80%"
 export GVM_DIR="/Users/budougumi0617/.gvm"
 [[ -s "/Users/budougumi0617/.gvm/bin/gvm-init.sh" ]] && source "/Users/budougumi0617/.gvm/bin/gvm-init.sh"
 
-# added by travis gem
-[ -f /Users/budougumi0617/.travis/travis.sh ] && source /Users/budougumi0617/.travis/travis.sh
-
-
 # Peco setting
 
 function peco-src () {
