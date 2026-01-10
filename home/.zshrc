@@ -351,9 +351,6 @@ if [ -d "$HOME/.bookmarks" ]; then
     alias goto="cd -P"
 fi
 
-# https://starship.rs/ja-JP/guide
-eval "$(starship init zsh)"
-
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PATH="$(brew --prefix)/opt/openssl/bin:$PATH"
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
@@ -365,6 +362,9 @@ export AQUA_GLOBAL_CONFIG="$HOME/.config/aquaproj-aqua/aqua_private.yaml:$HOME/.
 export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm-global
 export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 export PATH="$(aqua root-dir)/bin:$PATH"
+
+# https://starship.rs/ja-JP/guide
+eval "$(starship init zsh)"
 
 # wezterm settings
 # https://blog.gripdev.xyz/2025/01/08/wezterm-easily-copy-text-or-send-notifications-to-local-machine-even-when-connected-via-ssh/
