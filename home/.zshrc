@@ -286,9 +286,6 @@ fi
 # tmuxを新規セッションを立ち上げた際に分割処理設定を読み込む
 alias tmuxx="tmux -2 attach || tmux -2 new-session \; source-file ~/.tmux/new-session"
 
-# envrc
-eval "$(direnv hook zsh)"
-
 # For gcloud setting
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
@@ -362,6 +359,9 @@ export AQUA_GLOBAL_CONFIG="$HOME/.config/aquaproj-aqua/aqua_private.yaml:$HOME/.
 export NPM_CONFIG_PREFIX=${XDG_DATA_HOME:-$HOME/.local/share}/npm-global
 export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 export PATH="$(aqua root-dir)/bin:$PATH"
+
+# envrc
+eval "$(direnv hook zsh)"
 
 # https://starship.rs/ja-JP/guide
 eval "$(starship init zsh)"
