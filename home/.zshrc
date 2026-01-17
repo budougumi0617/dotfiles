@@ -250,9 +250,13 @@ load_if_exists "$HOME/.iterm2_shell_integration.zsh"
 eval $(/usr/libexec/path_helper -s)
 
 # for homebrew
-if [ -d "/opt/homebrew/bin" ]; then
-    export PATH="/opt/homebrew/bin:$PATH"
+if [ -d "$HOMEBREW_PREFIX/bin" ]; then
+  export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 fi
+
+# デフォルトのsedだとオプションが微妙に違って不便なので上書きする
+# brew install gnu-sed
+export PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
 
 
 # Load rbenv
