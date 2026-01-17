@@ -307,7 +307,7 @@ export FZF_DEFAULT_OPTS="--height 60% --preview 'head -100 {}'"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Use peco only history command
-bindkey '^R' peco-history-selection
+# bindkey '^R' peco-history-selection
 
 # Like Linux command
 alias ll='ls -n'
@@ -367,6 +367,9 @@ eval "$(direnv hook zsh)"
 
 # https://starship.rs/ja-JP/guide
 eval "$(starship init zsh)"
+
+# https://docs.atuin.sh/
+eval "$(atuin init zsh --disable-up-arrow)"
 
 # wezterm settings
 # https://blog.gripdev.xyz/2025/01/08/wezterm-easily-copy-text-or-send-notifications-to-local-machine-even-when-connected-via-ssh/
