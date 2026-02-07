@@ -26,7 +26,7 @@ packages:
   - name: golang/go@go1.25.6
   - name: atuinsh/atuin@v18.11.0
   - name: jorgerojas26/lazysql@v0.4.6
-  - name: ajeetdsouza/zoxide@v0.9.8
+  - name: ajeetdsouza/zoxide@v0.9.9
   - name: sst/opencode@v1.1.25
   - name: openai/codex@rust-v0.98.0
   - name: starship/starship@v1.24.2
