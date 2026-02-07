@@ -20,7 +20,7 @@ packages:
   - name: jesseduffield/lazygit@v0.58.1
   - name: cli/cli@v2.86.0
   - name: pnpm/pnpm@v10.28.0
-  - name: suzuki-shunsuke/pinact@v3.8.0
+  - name: suzuki-shunsuke/pinact@v3.9.0
   - name: sharkdp/bat@v0.26.1
   - name: golang/tools/goimports@v0.36.0
   - name: golang/go@go1.25.7
