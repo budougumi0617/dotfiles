@@ -28,7 +28,7 @@ packages:
   - name: jorgerojas26/lazysql@v0.4.6
   - name: ajeetdsouza/zoxide@v0.9.9
   - name: sst/opencode@v1.1.53
-  - name: openai/codex@rust-v0.98.0
+  - name: openai/codex@rust-v0.101.0
   - name: starship/starship@v1.24.2
   - name: peco/peco@v0.5.11
   - name: neovim/neovim@v0.11.6
