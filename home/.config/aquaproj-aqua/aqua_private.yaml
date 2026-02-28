@@ -34,3 +34,4 @@ packages:
   - name: neovim/neovim@v0.11.6
   - name: direnv/direnv@v2.37.1
   - name: evilmartians/lefthook@v2.1.1
+  - name: anthropics/claude-code@v2.1.63
