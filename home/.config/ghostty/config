@@ -8,3 +8,7 @@ window-theme = ghostty
 background-opacity = 0.85
 background-blur-radius = 2
 macos-titlebar-style = transparent
+# Optキーを使えるようにする
+macos-option-as-alt = true
+copy-on-select = clipboard
+shell-integration-features = ssh-terminfo,ssh-env
