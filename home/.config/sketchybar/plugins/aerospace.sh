@@ -1,10 +1,20 @@
 #!/usr/bin/env bash
 
-# make sure it's executable with:
-# chmod +x ~/.config/sketchybar/plugins/aerospace.sh
-
-if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-  sketchybar --set $NAME background.drawing=on
+# https://ryota2357.com/blog/2026/sketchybar-setup/
+if [ -n "$FOCUSED_WORKSPACE" ]; then
+  FOCUSED="$FOCUSED_WORKSPACE"
 else
-  sketchybar --set $NAME background.drawing=off
+  AEROSPACE="$(brew --prefix)/bin/aerospace"
+  FOCUSED=$("$AEROSPACE" list-workspaces --focused 2>/dev/null || echo "?")
+fi
+
+if [ "$FOCUSED" = "?" ]; then
+  exit 0
+fi
+
+SID=${NAME#workspace.}
+if [ "$FOCUSED" = "$SID" ]; then
+  sketchybar --set "$NAME" label.color=0xffffffff
+else
+  sketchybar --set "$NAME" label.color=0x60ffffff
 fi

@@ -12,7 +12,39 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=40 blur_radius=30 color=0x40000000
+sketchybar --bar position=left height=40 blur_radius=30 color=0x40000000
+
+# ユーティリティ
+# https://ryota2357.com/blog/2026/sketchybar-setup/
+add_item() {
+  local name="$1"
+  local position="$2"
+  shift 2
+  local args=("$name")
+  while [[ $# -gt 0 ]]; do
+    if [[ "$1" == --* ]]; then
+      args+=("$1" "$name")
+    else
+      args+=("$1")
+    fi
+    shift
+  done
+  sketchybar --add item "$name" "$position" --set "${args[@]}"
+}
+
+add_bracket() {
+  local name="$1"
+  shift
+  local config=(
+    blur_radius=10
+    background.height=32
+    background.color=0x6a282a36
+    background.corner_radius=8
+    background.border_width=1
+    background.border_color=0x48ffffff
+  )
+  sketchybar --add bracket "$name" "$@" --set "$name" "${config[@]}"
+}
 
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
@@ -78,30 +110,39 @@ sketchybar --add item chevron left \
 # volume is registered. More info about the event system can be found here:
 # https://felixkratz.github.io/SketchyBar/config/events
 
-sketchybar --add item clock right \
-           --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
-           --add item volume right \
-           --set volume script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change \
-           --add item battery right \
-           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-           --subscribe battery system_woke power_source_change
+# メニューバーは表示しているので消す
+# sketchybar --add item clock right \
+#            --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
+#            --add item volume right \
+#            --set volume script="$PLUGIN_DIR/volume.sh" \
+#            --subscribe volume volume_change \
+#            --add item battery right \
+#            --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+#            --subscribe battery system_woke power_source_change
 
-# for aerospace
+# AeroSpace からワークスペース変更通知を受け取るためのカスタムイベントを追加
 sketchybar --add event aerospace_workspace_change
 
-for sid in $(aerospace list-workspaces --all); do
-    sketchybar --add item space.$sid left \
-        --subscribe space.$sid aerospace_workspace_change \
-        --set space.$sid \
-        background.color=0x44ffffff \
-        background.corner_radius=5 \
-        background.height=20 \
-        background.drawing=off \
-        label="$sid" \
-        click_script="aerospace workspace $sid" \
-        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+# ワークスペースアイテムの追加
+add_item workspace.icon left \
+  icon='􀏧' \
+  icon.font.size=14 \
+  icon.padding_right=5 \
+  label.drawing=off
+for sid in {1..9} 0; do
+  add_item "workspace.$sid" left \
+    icon.drawing=off \
+    label="$sid" \
+    label.font.size=18 \
+    label.padding_right=10 \
+    label.padding_left=10 \
+    script="$PLUGIN_DIR/aerospace.sh" \
+    click_script="aerospace workspace $sid" \
+    --subscribe aerospace_workspace_change
 done
+
+# Bracket に追加するアイテムは正規表現で指定できる
+add_bracket workspace_bracket '/workspace\..*/'
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
