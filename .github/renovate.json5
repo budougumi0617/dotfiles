@@ -22,9 +22,9 @@
         '/home/\\.config/aquaproj-aqua/aqua_private\\.yaml/',
       ],
       matchStrings: [
-        " +(?:name|'name'|\"name\") *: +anthropics/claude-code@(?<currentValue>[^'\" \\n]+)",
-        " +(?:name|'name'|\"name\") *: +'anthropics/claude-code@(?<currentValue>[^'\" \\n]+)'",
-        " +(?:name|'name'|\"name\") *: +\"anthropics/claude-code@(?<currentValue>[^'\" \\n]+)\"",
+        " +- +(?:name|'name'|\"name\") *: +anthropics/claude-code@(?<currentValue>[^'\" \\n]+)",
+        " +- +(?:name|'name'|\"name\") *: +'anthropics/claude-code@(?<currentValue>[^'\" \\n]+)'",
+        " +- +(?:name|'name'|\"name\") *: +\"anthropics/claude-code@(?<currentValue>[^'\" \\n]+)\"",
       ],
     },
   ],
