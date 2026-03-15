@@ -10,6 +10,24 @@
   ],
   automerge: true,
   platformAutomerge: true,
+  // aqua-renovate-config v2.11.0 disables github-releases for anthropics/claude-code
+  // and expects a github-tags manager, but doesn't define one.
+  // This custom manager fills that gap until upstream is fixed.
+  customManagers: [
+    {
+      customType: 'regex',
+      datasourceTemplate: 'github-tags',
+      depNameTemplate: 'anthropics/claude-code',
+      managerFilePatterns: [
+        '/home/\\.config/aquaproj-aqua/aqua_private\\.yaml/',
+      ],
+      matchStrings: [
+        " +(?:name|'name'|\"name\") *: +anthropics/claude-code@(?<currentValue>[^'\" \\n]+)",
+        " +(?:name|'name'|\"name\") *: +'anthropics/claude-code@(?<currentValue>[^'\" \\n]+)'",
+        " +(?:name|'name'|\"name\") *: +\"anthropics/claude-code@(?<currentValue>[^'\" \\n]+)\"",
+      ],
+    },
+  ],
   packageRules: [
     {
       matchPackageNames: [
