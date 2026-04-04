@@ -1,3 +1,19 @@
+### eval キャッシュ: コマンド出力をファイルに保存し、バイナリ更新時のみ再生成
+# キャッシュをリセットするには: rm ~/.cache/zsh/*.zsh
+_zsh_cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+[[ -d "$_zsh_cache_dir" ]] || mkdir -p "$_zsh_cache_dir"
+
+_cached_eval() {
+    local cmd=$1; shift
+    local cache_file="$_zsh_cache_dir/${cmd}.zsh"
+    local cmd_path="${commands[$cmd]}"
+    if [[ -z "$cmd_path" ]]; then return 1; fi
+    if [[ ! -f "$cache_file" || "$cmd_path" -nt "$cache_file" ]]; then
+        "$cmd" "$@" > "$cache_file"
+    fi
+    source "$cache_file"
+}
+
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -23,49 +39,6 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-# Start of powerlevel9k settings.
-# See also https://github.com/Falkor/dotfiles/blob/master/oh-my-zsh/
-# Font taken from https://github.com/stefano-meschiari/dotemacs/blob/master/SourceCodePro%2BPowerline%2BAwesome%2BRegular.ttf
-# POWERLEVEL9K_MODE='awesome-patched'
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# # Disable dir/git icons
-# POWERLEVEL9K_HOME_ICON=''
-# POWERLEVEL9K_HOME_SUB_ICON=''
-# POWERLEVEL9K_FOLDER_ICON=''
-
-# DISABLE_AUTO_TITLE="true"
-
-# # Color for directory path
-# POWERLEVEL9K_DIR_HOME_FOREGROUND="255"
-# POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="255"
-# POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="255"
-
-# POWERLEVEL9K_VCS_GIT_ICON=''
-# POWERLEVEL9K_VCS_STAGED_ICON='\u00b1'
-# POWERLEVEL9K_VCS_UNTRACKED_ICON='\u25CF'
-# POWERLEVEL9K_VCS_UNSTAGED_ICON='\u00b1'
-# POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON='\u2193'
-# POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON='\u2191'
-
-# POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
-# POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
-# #POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
-
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status os_icon context dir)
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(rbenv)#background_jobs virtualenv rbenv rvm time)
-
-
-# # How to show current directory path.
-# # https://github.com/bhilburn/powerlevel9k/blob/master/README.md#dir
-# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-# POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-
-# POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uE868  %y/%m/%d}"
-
-# POWERLEVEL9K_STATUS_VERBOSE=false
-# export DEFAULT_USER="$USER"
-# # End of powerlevel9k settings.
-
 # enhancd config
 export ENHANCD_COMMAND=ed
 export ENHANCD_FILTER=ENHANCD_FILTER=fzy:fzf:peco
@@ -83,11 +56,6 @@ zinit light yous/vanilli.sh
 # Additional completion definitions for Zsh
 zinit ice wait'!0'; zinit light zsh-users/zsh-completions
 
-# Load the theme.
-# zinit light bhilburn/powerlevel9k
-
-autoload -Uz compinit
-compinit
 # Syntax highlighting bundle. zsh-syntax-highlighting must be loaded after
 # excuting compinit command and sourcing other plugins.
 # brew install zsh-syntax-highlighting
@@ -257,12 +225,6 @@ fi
 export PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
 
 
-# Load rbenv
-if [ -e "$HOME/.rbenv" ]; then
-    export PATH="$HOME/.rbenv/shims:$PATH"
-    eval "$(rbenv init - zsh)"
-fi
-
 # Add gem PATH
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
@@ -353,9 +315,10 @@ if [ -d "$HOME/.bookmarks" ]; then
     alias goto="cd -P"
 fi
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-export PATH="$(brew --prefix)/opt/openssl/bin:$PATH"
-export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
+_brew_prefix="${HOMEBREW_PREFIX:-/opt/homebrew}"
+source "$_brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+export PATH="$_brew_prefix/opt/openssl/bin:$PATH"
+export PATH="$_brew_prefix/opt/curl/bin:$PATH"
 
 export PATH=$HOME/.local/bin:$PATH
 
@@ -366,13 +329,13 @@ export PATH=$NPM_CONFIG_PREFIX/bin:$PATH
 export PATH="$(aqua root-dir)/bin:$PATH"
 
 # envrc
-eval "$(direnv hook zsh)"
+_cached_eval direnv hook zsh
 
 # https://starship.rs/ja-JP/guide
-eval "$(starship init zsh)"
+_cached_eval starship init zsh
 
 # https://docs.atuin.sh/
-eval "$(atuin init zsh --disable-up-arrow)"
+_cached_eval atuin init zsh --disable-up-arrow
 
 # wezterm settings
 # https://blog.gripdev.xyz/2025/01/08/wezterm-easily-copy-text-or-send-notifications-to-local-machine-even-when-connected-via-ssh/
@@ -407,6 +370,6 @@ function wezmon() {
 # どこかでzinitへのaliasが設定されている
 unalias zi
 # A smarter cd command. Supports all major shells.
-eval "$(zoxide init zsh)"
+_cached_eval zoxide init zsh
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
