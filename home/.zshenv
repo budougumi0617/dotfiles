@@ -1,3 +1,8 @@
+# Set up Homebrew environment (needed before .zshrc, e.g. in tmux)
+if [ -x /opt/homebrew/bin/brew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 #For use to Screeen Command
 # http://myfuturesightforpast.blogspot.jp/2013/11/zshgnu-screenhomeend.html
 
