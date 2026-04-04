@@ -11,6 +11,6 @@ macos-titlebar-style = transparent
 # Optキーを使えるようにする
 macos-option-as-alt = true
 # Shift+Enterで改行
-keybind = shift+enter=text:\x0d
+keybind = shift+enter=text:\x1b[13;2u
 copy-on-select = clipboard
 shell-integration-features = ssh-terminfo,ssh-env
