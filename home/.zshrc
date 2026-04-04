@@ -201,17 +201,16 @@ export GVM_DIR="/Users/budougumi0617/.gvm"
 
 # Peco setting
 
-function peco-src () {
-    local repo=$(ghq list | peco --query "$LBUFFER" --initial-filter=Fuzzy)
+function fzf-src () {
+    local repo=$(ghq list --full-path | fzf --query "$LBUFFER")
     if [ -n "$repo" ]; then
-        repo=$(ghq list --full-path --exact $repo)
         BUFFER="cd ${repo}"
         zle accept-line
     fi
     zle clear-screen
 }
-zle -N peco-src
-bindkey '^]' peco-src
+zle -N fzf-src
+bindkey '^]' fzf-src
 
 # Peco with godoc to show go documentation.
 function peco-godoc() {
