@@ -344,6 +344,7 @@ alias lg='lazygit'
 alias lzd='lazydocker'
 alias pullall='ls -1 | while read repo; do (cd $repo; echo $repo; git pull); done'
 alias cl='claude'
+alias dfo='cd ${HOME}/.homesick/repos/dotfiles'
 alias mo='cd ${HOME}/vaults/budougumi0617/memo'
 
 # How to use bookmarks in bash/zsh
