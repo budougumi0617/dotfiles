@@ -372,4 +372,3 @@ unalias zi
 # A smarter cd command. Supports all major shells.
 _cached_eval zoxide init zsh
 
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
