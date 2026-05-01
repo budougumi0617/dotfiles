@@ -13,7 +13,7 @@ registries:
 packages:
   - name: nodejs/node@v25.9.0
   - name: BurntSushi/ripgrep@15.1.0
-  - name: gohugoio/hugo@v0.148.0
+  - name: gohugoio/hugo@v0.161.1
   - name: junegunn/fzf@v0.72.0
   - name: jqlang/jq@jq-1.8.1
   - name: x-motemen/ghq@v1.10.1
