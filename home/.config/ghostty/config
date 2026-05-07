@@ -14,3 +14,8 @@ macos-option-as-alt = true
 keybind = shift+enter=text:\x1b[13;2u
 copy-on-select = clipboard
 shell-integration-features = ssh-terminfo,ssh-env
+
+# デフォルトで起動時にtmuxを起動する
+# command=/opt/homebrew/bin/tmux new -t terminal -s "terminal-$(tmux list-clients | grep terminal- | wc -l)" -A
+# コマンドが終了したら表示内容を確認しておきたい
+# wait-after-command = true
