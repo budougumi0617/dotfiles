@@ -23,11 +23,11 @@ packages:
   - name: suzuki-shunsuke/pinact@v3.9.2
   - name: sharkdp/bat@v0.26.1
   - name: golang/tools/goimports@v0.44.0
-  - name: golang/go@go1.26.2
+  - name: golang/go@go1.26.3
   - name: atuinsh/atuin@v18.16.0
   - name: jorgerojas26/lazysql@v0.5.0
   - name: ajeetdsouza/zoxide@v0.9.9
-  - name: sst/opencode@v1.14.40
+  - name: sst/opencode@v1.14.47
   - name: openai/codex@rust-v0.130.0
   - name: starship/starship@v1.25.1
   - name: neovim/neovim@v0.11.6
