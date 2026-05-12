@@ -27,11 +27,11 @@ packages:
   - name: atuinsh/atuin@v18.16.0
   - name: jorgerojas26/lazysql@v0.5.0
   - name: ajeetdsouza/zoxide@v0.9.9
-  - name: sst/opencode@v1.14.47
+  - name: sst/opencode@v1.14.48
   - name: openai/codex@rust-v0.130.0
   - name: starship/starship@v1.25.1
   - name: neovim/neovim@v0.11.6
   - name: direnv/direnv@v2.37.1
-  - name: anthropics/claude-code@v2.1.138
+  - name: anthropics/claude-code@v2.1.139
   - name: evilmartians/lefthook@v2.1.6
   - name: k1LoW/mo@v1.5.4
