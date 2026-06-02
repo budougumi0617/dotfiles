@@ -23,7 +23,7 @@ packages:
   - name: suzuki-shunsuke/pinact@v4.0.0
   - name: sharkdp/bat@v0.26.1
   - name: golang/tools/goimports@v0.44.0
-  - name: golang/go@go1.26.3
+  - name: golang/go@go1.26.4
   - name: atuinsh/atuin@v18.16.1
   - name: jorgerojas26/lazysql@v0.5.3
   - name: ajeetdsouza/zoxide@v0.9.9
