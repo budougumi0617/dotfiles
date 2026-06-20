@@ -19,7 +19,7 @@ packages:
   - name: x-motemen/ghq@v1.10.1
   - name: jesseduffield/lazygit@v0.62.2
   - name: pnpm/pnpm@v11.7.0
-  - name: cli/cli@v2.93.0
+  - name: cli/cli@v2.95.0
   - name: suzuki-shunsuke/pinact@v4.1.0
   - name: sharkdp/bat@v0.26.1
   - name: golang/tools/goimports@v0.46.0
