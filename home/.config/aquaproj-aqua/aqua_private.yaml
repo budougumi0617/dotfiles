@@ -32,7 +32,7 @@ packages:
   - name: starship/starship@v1.25.1
   - name: neovim/neovim@v0.11.6
   - name: direnv/direnv@v2.37.1
-  - name: anthropics/claude-code@v2.1.187
+  - name: anthropics/claude-code@v2.1.198
   - name: evilmartians/lefthook@v2.1.9
   - name: k1LoW/mo@v1.6.2
   - name: tak848/ccgate@v0.9.4
