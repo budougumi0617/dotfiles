@@ -24,7 +24,7 @@ packages:
   - name: sharkdp/bat@v0.26.1
   - name: golang/tools/goimports@v0.47.0
   - name: golang/go@go1.26.5
-  - name: atuinsh/atuin@v18.16.1
+  - name: atuinsh/atuin@v18.19.0
   - name: jorgerojas26/lazysql@v0.5.5
   - name: ajeetdsouza/zoxide@v0.10.0
   - name: sst/opencode@v1.18.6
