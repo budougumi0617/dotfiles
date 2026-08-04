@@ -35,4 +35,4 @@ packages:
   - name: anthropics/claude-code@v2.1.221
   - name: evilmartians/lefthook@v2.1.10
   - name: k1LoW/mo@v1.6.7
-  - name: tak848/ccgate@v0.9.6
+  - name: tak848/ccgate@v0.10.0
