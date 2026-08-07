@@ -27,7 +27,7 @@
   autoCRLF = false
   excludesfile = ~/.gitignore_global
 [push]
-  default = matching
+	default = simple
 [difftool "sourcetree"]
   cmd = opendiff \"$LOCAL\" \"$REMOTE\"
   path = 
