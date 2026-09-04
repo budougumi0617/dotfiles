@@ -27,7 +27,7 @@ packages:
   - name: atuinsh/atuin@v18.19.0
   - name: jorgerojas26/lazysql@v0.5.5
   - name: ajeetdsouza/zoxide@v0.10.0
-  - name: sst/opencode@v1.18.18
+  - name: sst/opencode@v1.18.28
   - name: starship/starship@v1.26.0
   - name: neovim/neovim@v0.11.6
   - name: direnv/direnv@v2.37.1
