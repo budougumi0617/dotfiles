@@ -25,7 +25,7 @@ packages:
   - name: golang/tools/goimports@v0.47.0
   - name: golang/go@go1.27.1
   - name: atuinsh/atuin@v18.19.0
-  - name: jorgerojas26/lazysql@v0.5.5
+  - name: jorgerojas26/lazysql@v0.5.6
   - name: ajeetdsouza/zoxide@v0.10.0
   - name: sst/opencode@v1.18.29
   - name: starship/starship@v1.26.0
