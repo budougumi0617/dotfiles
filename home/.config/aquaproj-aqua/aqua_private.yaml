@@ -23,15 +23,15 @@ packages:
   - name: suzuki-shunsuke/pinact@v4.1.1
   - name: sharkdp/bat@v0.26.1
   - name: golang/tools/goimports@v0.47.0
-  - name: golang/go@go1.27.0
+  - name: golang/go@go1.27.1
   - name: atuinsh/atuin@v18.19.0
   - name: jorgerojas26/lazysql@v0.5.5
   - name: ajeetdsouza/zoxide@v0.10.0
-  - name: sst/opencode@v1.18.18
+  - name: sst/opencode@v1.18.29
   - name: starship/starship@v1.26.0
   - name: neovim/neovim@v0.11.6
   - name: direnv/direnv@v2.37.1
-  - name: anthropics/claude-code@v2.1.241
+  - name: anthropics/claude-code@v2.1.261
   - name: evilmartians/lefthook@v2.1.10
   - name: k1LoW/mo@v1.6.7
   - name: tak848/ccgate@v0.10.0
