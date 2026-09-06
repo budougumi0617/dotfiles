@@ -33,7 +33,7 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
-      ---@type lspconfig.options
+      ---@type table<string, lazyvim.lsp.Config|boolean>
       servers = {
         ["*"] = {
           keys = {
@@ -44,9 +44,9 @@ return {
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {
-              -- checkOnSave で clippy を自動実行
-              checkOnSave = {
-                command = "clippy", -- ここを 'clippy' にすると保存時に自動実行
+              -- 保存時のチェックに clippy を使用する
+              check = {
+                command = "clippy",
               },
             },
           },

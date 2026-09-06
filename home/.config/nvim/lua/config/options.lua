@@ -16,7 +16,7 @@ opt.spelllang = { "en", "cjk" }
 -- Undercurl
 -- 波線を正しく表示する
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Cs = "\e[4:0m"]])
+vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- obsidian-nvimがnvim-cmp準拠
 vim.g.lazyvim_cmp = "nvim-cmp"

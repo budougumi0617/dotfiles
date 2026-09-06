@@ -29,7 +29,7 @@ packages:
   - name: ajeetdsouza/zoxide@v0.10.0
   - name: sst/opencode@v1.18.29
   - name: starship/starship@v1.26.0
-  - name: neovim/neovim@v0.11.6
+  - name: neovim/neovim@v0.12.5
   - name: direnv/direnv@v2.37.1
   - name: anthropics/claude-code@v2.1.261
   - name: evilmartians/lefthook@v2.1.10
