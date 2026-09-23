@@ -17,6 +17,15 @@
     "bindings": {
       // "j k": "vim::NormalBefore"
       "j j": "vim::NormalBefore",
+      "ctrl-e": "editor::MoveToEndOfLine",
+    },
+  },
+  {
+    // 補完メニュー表示中は既定の候補選択 (ctrl-n / ctrl-p) を優先する
+    "context": "Editor && vim_mode == insert && !showing_completions && !showing_code_actions",
+    "bindings": {
+      "ctrl-n": "editor::MoveDown",
+      "ctrl-p": "editor::MoveUp",
     },
   },
 ]
