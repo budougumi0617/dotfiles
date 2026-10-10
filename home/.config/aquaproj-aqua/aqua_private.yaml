@@ -30,7 +30,7 @@ packages:
   - name: sst/opencode@v1.18.34
   - name: starship/starship@v1.26.0
   - name: neovim/neovim@v0.12.5
-  - name: direnv/direnv@v2.37.1
+  - name: direnv/direnv@v2.38.2
   - name: anthropics/claude-code@v2.1.289
   - name: evilmartians/lefthook@v2.1.16
   - name: k1LoW/mo@v1.6.9
