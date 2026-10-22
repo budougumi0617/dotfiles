@@ -307,6 +307,7 @@ alias pullall='ls -1 | while read repo; do (cd $repo; echo $repo; git pull); don
 alias cl='claude'
 alias dfo='cd ${HOME}/.homesick/repos/dotfiles'
 alias mmo='cd ${HOME}/vaults/budougumi0617/memo'
+alias pkm='cd ${HOME}/vaults/budougumi0617/pkm'
 
 # How to use bookmarks in bash/zsh
 # https://threkk.medium.com/how-to-use-bookmarks-in-bash-zsh-6b8074e40774
