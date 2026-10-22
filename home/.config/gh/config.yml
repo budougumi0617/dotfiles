@@ -8,25 +8,26 @@ prompt: enabled
 pager:
 # Aliases allow you to create nicknames for gh commands
 aliases:
-  co: pr checkout
-  open: repo view --web
-  prv: pr view -w
-  prc: pr create --web
-  daily-report: |-
-    api graphql -f query="query {
-    search(first: 100, type: ISSUE, query: \"author:@me is:pr merged:$1\") {
-        nodes { ... on PullRequest { title, url, repository { name } } }
-      }
-    }" --jq ".data.search.nodes | map({ title: .title, url: .url, repo: .repository.name }) | group_by(.repo)[] | \"- \\(.[0].repo)\\n\" + (map(\"  - [\\(.title)](\\(.url))\") | join(\"\\n\"))"
-  weekly-report: |-
-    api graphql -f query="query {
-        search(first: 100, type: ISSUE, query: \"author:@me is:pr merged:>=$1\") {
+    co: pr checkout
+    open: repo view --web
+    prv: pr view -w
+    prc: pr create --web
+    daily-report: |-
+        api graphql -f query="query {
+        search(first: 100, type: ISSUE, query: \"author:@me is:pr merged:$1\") {
             nodes { ... on PullRequest { title, url, repository { name } } }
           }
         }" --jq ".data.search.nodes | map({ title: .title, url: .url, repo: .repository.name }) | group_by(.repo)[] | \"- \\(.[0].repo)\\n\" + (map(\"  - [\\(.title)](\\(.url))\") | join(\"\\n\"))"
+    weekly-report: |-
+        api graphql -f query="query {
+            search(first: 100, type: ISSUE, query: \"author:@me is:pr merged:>=$1\") {
+                nodes { ... on PullRequest { title, url, repository { name } } }
+              }
+            }" --jq ".data.search.nodes | map({ title: .title, url: .url, repo: .repository.name }) | group_by(.repo)[] | \"- \\(.[0].repo)\\n\" + (map(\"  - [\\(.title)](\\(.url))\") | join(\"\\n\"))"
 # The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
 http_unix_socket:
 # What web browser gh should use when opening URLs. If blank, will refer to environment.
 browser:
 co: pr checkout
 version: "1"
+expiring_credentials: enabled
