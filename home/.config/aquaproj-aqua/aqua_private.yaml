@@ -33,5 +33,5 @@ packages:
   - name: direnv/direnv@v2.38.2
   - name: anthropics/claude-code@v2.1.307
   - name: evilmartians/lefthook@v2.2.2
-  - name: k1LoW/mo@v1.6.9
+  - name: k1LoW/mo@v1.7.0
   - name: tak848/ccgate@v0.11.0
