@@ -41,6 +41,9 @@ return {
             { "gd", go_to_definition, desc = "Go to Definitions" },
           },
         },
+        gopls = {
+          cmd = { "gopls-lazy" },
+        },
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {

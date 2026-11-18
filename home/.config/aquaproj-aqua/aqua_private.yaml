@@ -35,3 +35,4 @@ packages:
   - name: evilmartians/lefthook@v2.2.2
   - name: k1LoW/mo@v1.8.0
   - name: tak848/ccgate@v0.11.1
+  - name: sivchari/gopls-lazy@v0.4.1
