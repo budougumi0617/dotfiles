@@ -32,7 +32,7 @@ packages:
   - name: neovim/neovim@v0.12.6
   - name: direnv/direnv@v2.38.2
   - name: anthropics/claude-code@v2.1.329
-  - name: evilmartians/lefthook@v2.2.2
+  - name: evilmartians/lefthook@v2.2.4
   - name: k1LoW/mo@v1.8.2
   - name: tak848/ccgate@v0.11.1
   - name: sivchari/gopls-lazy@v0.4.1
